@@ -1,0 +1,17 @@
+
+/**
+ * Demultiplexor:
+ * [a, b] = ((sel == 0), [in, 0], [0, in])
+ */
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    Nand(a=sel,b=sel,out=w1);
+Nand(a=in,b=w1,out=w2);
+Nand(a=in,b=sel,out=w3);
+Nand(a=w2,b=w2,out=a);
+Nand(a=w3,b=w3,out=b);
+
+}
