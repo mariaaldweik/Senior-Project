@@ -1,12 +1,12 @@
 // NOT16 Verilog Code
 // Code your design here
-module Not16(a,out);
+module Not16(out,a);
   input [15:0] a;
   output [15:0]out;
   genvar i;
 generate  for (i=0;i<16;i=i+1)
     begin 
-      nand(a[i],a[i],out[i]); 
+      nand(out[i],a[i],a[i]); 
     end     
    endgenerate 
      endmodule 
@@ -18,7 +18,7 @@ module Not16Test;
   reg [15:0] a;
   wire [15:0] out;
 
-  Not16 uuu (a, out);
+  Not16 uuu (out, a);
 
   initial begin
      
