@@ -1,1 +1,66 @@
 // AND16 Verilog Code
+
+
+// Code your design here
+
+module AND (out,a,b);
+  input a,b;
+  output out;
+  wire w1;
+  
+  nand(w1,a,b);
+  nand(out,w1,w1);
+  
+endmodule
+
+
+module AND16(out,a,b);
+  input [15:0] a,b;
+  output [15:0] out;
+   
+  AND a0(out[0],a[0],b[0]);
+  AND a1(out[1],a[1],b[1]);
+  AND a2(out[2],a[2],b[2]);
+  AND a3(out[3],a[3],b[3]);
+  AND a4(out[4],a[4],b[4]);
+  AND a5(out[5],a[5],b[5]);
+  AND a6(out[6],a[6],b[6]);
+  AND a7(out[7],a[7],b[7]);
+  AND a8(out[8],a[8],b[8]);
+  AND a9(out[9],a[9],b[9]);
+  AND a10(out[10],a[10],b[10]);
+  AND a11(out[11],a[11],b[11]);
+  AND a12(out[12],a[12],b[12]);
+  AND a13(out[13],a[13],b[13]);
+  AND a14(out[14],a[14],b[14]);
+  AND a15(out[15],a[15],b[15]);
+  
+   
+  
+  
+endmodule
+
+
+
+
+// Code your testbench here
+// or browse Exam
+module AND16Test;
+  reg [15:0] a,b;
+  wire [15:0] out;
+
+  AND16 uuu (out,a,b);
+
+  initial begin
+     
+    a = 16'b11;
+    b=16'b01;
+    #100;
+    $display("Input (a): %b", a);
+    $display("Input (b): %b", b);
+    $display("Output (out): %b", out);
+           $finish;
+
+  end
+
+endmodule
