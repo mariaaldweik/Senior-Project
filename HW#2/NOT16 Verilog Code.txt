@@ -11,8 +11,7 @@ generate  for (i=0;i<16;i=i+1)
    endgenerate 
      endmodule 
 
-
-     // Code your testbench here
+  // Code your testbench here
 // or browse Examples
 module Not16Test;
   reg [15:0] a;
@@ -22,7 +21,7 @@ module Not16Test;
 
   initial begin
      
-    a = 16'b11;
+    a = 16'b0101;
     #100;
     $display("Input (a): %b", a);
     $display("Output (out): %b", out);
