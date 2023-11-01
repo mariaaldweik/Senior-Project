@@ -1,0 +1,23 @@
+module mux(out ,a, b, sel);
+   input a,b,sel;
+  output out;
+  wire w1,w2,w3;
+  nand Nand1(w1,sel,b);
+  nand Nan2(w2,sel,sel);
+  nand Nan3(w3,a,w2);
+  nand Nand4(out,w1,w3);
+  endmodule 
+
+module testb;
+reg  a,b,sel;
+wire out;
+  mux test(out,a,b,sel);
+ initial
+begin
+
+a=0; b=0; sel=1;
+#1 $display("out=%b",out);
+a=0; b=0;  sel=0;
+#1 $display("out=%b",out);
+end 
+endmodule
