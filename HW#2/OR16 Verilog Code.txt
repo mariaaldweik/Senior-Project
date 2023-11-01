@@ -1,1 +1,40 @@
 // OR16 Verilog Code
+module ORR16(out,a,b);
+input [15:0] a,b;
+output [15:0] out;
+or OR0(out[0],a[0],b[0]);
+or OR1(out[1],a[1],b[1]);
+  or OR2(out[2],a[2],b[2]);
+or OR3(out[3],a[3],b[3]);
+or OR4(out[4],a[4],b[4]);
+  or OR5(out[5],a[5],b[5]);
+  or OR6(out[6],a[6],b[6]);
+  or OR7(out[7],a[7],b[7]);
+  or OR8(out[8],a[8],b[8]);
+  or OR9(out[9],a[9],b[9]);
+  or OR10(out[10],a[10],b[10]);
+  or OR11(out[11],a[11],b[11]);
+  or OR12(out[12],a[12],b[12]);
+  or OR13(out[13],a[13],b[13]);
+  or OR14(out[14],a[14],b[14]);
+       or OR15(out[15],a[15],b[15]);
+endmodule 
+
+
+module testb;
+reg [15:0] a,b;
+wire [15:0] out;
+ ORR16 test(out,a,b);
+ initial
+begin
+
+a=16'b1010101010101010; b=16'b0101010101010101; 
+#1 $display("out=%b",out);
+a=16'b0000000000000000; b=16'b1111111111111111;
+#1 $display("out=%b",out);
+a=16'b0011110011000011; b=16'b0000111111110000;
+#1 $display("out=%b",out);
+a=16'b0001001000110100; b=16'b1001100001110110;   
+#1 $display("out=%b",out);
+end 
+endmodule
