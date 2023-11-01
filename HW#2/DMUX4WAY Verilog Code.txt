@@ -14,7 +14,7 @@ module Dmux(outa ,outb, in,sel);
   endmodule 
 module Dmux4way16(a,b,c,d,in,sel);
   input  in;
-  input  [2:0] sel;
+  input  [1:0] sel;
   output  a,b,c,d;
     wire w1 ,w2;
   Dmux Dm1 (w1,w2,in,sel[1]);
@@ -25,7 +25,7 @@ module Dmux4way16(a,b,c,d,in,sel);
 // or browse Examples
 module Dmux4wayTest;
   reg in;
-  reg [2:0] sel;
+  reg [1:0] sel;
   wire a,b,c,d;
 
   Dmux4way16 dmux4 (a,b,c,d,in,sel);
@@ -33,14 +33,14 @@ module Dmux4wayTest;
   initial begin
      
      in = 0;
-     sel = 3'b000;
+     sel = 2'b00;
    #100 $display("Output (a): %b", a);
     #100 $display("Output (b): %b", b);
     #100 $display("Output (c): %b", c);
     #100 $display("Output (d): %b", d);
     
       in = 1;
-      sel = 3'b001;
+      sel = 2'b01;
     #100 $display("Output (a): %b", a);
     #100  $display("Output (b): %b", b);
     #100 $display("Output (c): %b", c);
