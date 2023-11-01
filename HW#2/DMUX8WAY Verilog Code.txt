@@ -1,1 +1,56 @@
 // DMUX8WAY Verilog Code
+// Code your design here
+module Dmux(outa ,outb, in,sel);
+   input in,sel;
+  output outa,outb;
+  wire w1,w2,w3;
+    
+       nand Nand1(w1,sel,sel);
+       nand Nand2(w2,in,w1);
+       nand Nand3(w3,in,sel);
+       nand Nand4(outa,w2,w2);
+       nand Nand5(outb,w3,w3);
+       
+  endmodule 
+module Dmux8way16(a,b,c,d,e,f,g,h,in,sel);
+  input  in;
+  input  [2:0] sel;
+  output  a,b,c,d,e,f,g,h;
+    wire w1 ,w2,w3,w5,w6;
+
+
+  Dmux dm1 (w1,w2,in,sel[2]);
+  Dmux dm2 (w3,w4,w1,sel[1]);
+  Dmux dm3 (w5,w6,w2,sel[1]);
+  Dmux dm4 (a,b,w3,sel[0]);
+  Dmux dm5 (c,d,w4,sel[0]);
+  Dmux dm6 (e,f,w5,sel[0]);
+  Dmux dm7 (g,h,w6,sel[0]);
+endmodule 
+
+// Code your testbench here
+// or browse Examples
+module Dmux8wayTest;
+  reg in;
+  reg [2:0] sel;
+  wire a,b,c,d,e, f, g, h;
+
+  Dmux8way16 dmux8 (a,b,c,d, e, f, g, h,in,sel);
+
+  initial begin
+     
+     in = 0;
+     sel = 3'b000;
+    #100 $display("Output : %b",a,b,c,d,e,f,g,h);
+
+    
+      in = 1;
+      sel = 3'b001;
+      #100 $display("Output : %b", a,b,c,d,e,f,g,h);
+     in = 1;
+      sel = 3'b111;
+      #100 $display("Output : %b", a,b,c,d,e,f,g,h);
+
+     $finish;
+  end
+endmodule
