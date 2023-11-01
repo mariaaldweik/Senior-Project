@@ -1,1 +1,50 @@
 // DMUX4WAY Verilog Code
+// Code your design here
+module Dmux(outa ,outb, in,sel);
+   input in,sel;
+  output outa,outb;
+  wire w1,w2,w3;
+    
+       nand Nand1(w1,sel,sel);
+       nand Nand2(w2,in,w1);
+       nand Nand3(w3,in,sel);
+       nand Nand4(outa,w2,w2);
+       nand Nand5(outb,w3,w3);
+       
+  endmodule 
+module Dmux4way16(a,b,c,d,in,sel);
+  input  in;
+  input  [2:0] sel;
+  output  a,b,c,d;
+    wire w1 ,w2;
+  Dmux Dm1 (w1,w2,in,sel[1]);
+  Dmux Dm2 (a,b,w1,sel[0]);
+  Dmux Dm3 (c,d,w2,sel[0]);
+     endmodule 
+// Code your testbench here
+// or browse Examples
+module Dmux4wayTest;
+  reg in;
+  reg [2:0] sel;
+  wire a,b,c,d;
+
+  Dmux4way16 dmux4 (a,b,c,d,in,sel);
+
+  initial begin
+     
+     in = 0;
+     sel = 3'b000;
+   #100 $display("Output (a): %b", a);
+    #100 $display("Output (b): %b", b);
+    #100 $display("Output (c): %b", c);
+    #100 $display("Output (d): %b", d);
+    
+      in = 1;
+      sel = 3'b001;
+    #100 $display("Output (a): %b", a);
+    #100  $display("Output (b): %b", b);
+    #100 $display("Output (c): %b", c);
+    #100  $display("Output (d): %b", d);
+     $finish;
+  end
+endmodule
