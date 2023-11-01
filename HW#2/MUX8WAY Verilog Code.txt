@@ -1,1 +1,62 @@
 // MUX8WAY Verilog Code
+
+// Code your design here
+module mux16(out ,a, b, sel);
+  input [15:0] a;
+ input [15:0] b;
+  input sel;
+  output [15:0]out;
+  wire [15:0] w1,w2,w3;
+   genvar i;
+generate  for (i=0;i<16;i=i+1)
+    begin  
+      nand Nand1(w1[i],sel,b[i]);
+  nand Nan2(w2[i],sel,sel);
+      nand Nan3(w3[i],a[i],w2[i]);
+      nand Nand4(out[i],w1[i],w3[i]);
+        end     
+   endgenerate
+  endmodule 
+
+module MUX8WAY(out,a,b,c,d,e,f,g,h,sel);
+  input[15:0] a,b,c,d,e,f,g,h;
+  input[2:0] sel;
+  output[15:0] out;
+  wire [15:0] w1,w2,w3,w4,w5,w6;
+
+  
+  mux16 m1(w1,a,b,sel[0]);
+  mux16 m2(w2,c,d,sel[0]);
+  mux16 m3(w3,w1,w2,sel[1]);
+  mux16 m4(w4,e,f,sel[0]);
+  mux16 m5(w5,g,h,sel[0]);
+  mux16 m6(w6,w4,w5,sel[1]);
+  mux16 m7(out,w3,w6,sel[2]);
+
+endmodule
+
+
+
+
+// Code your testbench here
+// or browse Examples
+
+module testb;
+  reg [15:0] a,b,c,d,e,f,g,h;
+  reg [2:0] sel;
+  wire [15:0] out;
+  MUX8WAY test(out,a,b,c,d,e,f,g,h,sel);
+ initial
+begin
+#100; 
+a=16'b0000000000000000; b=16'b0001001000110100;
+  c=0; d=2;
+  e=6;
+  f=7;
+  g=8;
+  h=1;
+  sel=3;
+  #1 $display("out=%d",out);
+
+end 
+endmodule
