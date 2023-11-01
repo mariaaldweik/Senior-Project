@@ -1,1 +1,34 @@
 // OR8WAY Verilog Code
+
+module eightwayOR16(out,in);
+  input [7:0] in;
+output  out;
+  wire w1,w2,w3,w4,w5,w6;
+  or or2(w1,in[0],in[1]);
+  or or3(w2,in[2],in[3]);
+  or or4(w3,in[4],in[5]);
+  or or5(w4,in[6],in[7]);
+  or or6(w5,w1,w2);
+  or or7(w6,w3,w4);
+  or or8(out,w5,w6);
+endmodule
+
+module testb;
+  reg [7:0] in;
+wire  out;
+  eightwayOR16 test(out,in);
+ initial
+begin
+
+in=8'b00000000; 
+#1 $display("out=%b",out);
+in=8'b11111111;
+#1 $display("out=%b",out);
+in=8'b00010000; 
+#1 $display("out=%b",out);
+ in=8'b00000001; 
+#1 $display("out=%b",out); 
+   in=8'b00100110; 
+#1 $display("out=%b",out); 
+end 
+endmodule
