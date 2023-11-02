@@ -1,0 +1,38 @@
+module Decoder3x8(e,i,o);
+  input [2:0] i;
+  input e;
+  output reg [7:0] o;
+  
+  always@(*)
+    begin
+      if(e==1)
+        assign o[0]=~i[0]&~i[1]&~i[2]&e;
+      assign o[1]=i[0]&~i[1]&~i[2]&e;
+      assign o[2]=~i[0]&i[1]&~i[2]&e;
+      assign o[3]=i[0]&i[1]&~i[2]&e;
+      assign o[4]=~i[0]&~i[1]&i[2]&e;
+    
+      assign o[5]=i[0]&~i[1]&i[2]&e;
+      assign o[6]=~i[0]&i[1]&i[2]&e;
+    
+      assign o[7]=i[0]&i[1]&i[2]&e;
+  
+  
+ 
+    end
+endmodule
+
+module decoder4x16(e,i,o);
+  input [3:0] i;
+  input e;
+  output reg [15:0] o;
+  wire [15:0] c;
+  Decoder3x8 least(~i[3],i[2:0],c[7:0]);
+  Decoder3x8 most(i[3],i[2:0],c[15:8]);
+  always@(*)
+    begin
+    if(e)
+      o=c;
+    end
+    
+    endmodule
