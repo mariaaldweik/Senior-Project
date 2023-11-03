@@ -1,5 +1,15 @@
 // OR8WAY Verilog Code
 
+module OR8WayTst(SW,LEDR);
+input [7:0] SW;
+output LEDR;
+
+eightwayOR16  a1(LEDR,SW);
+
+
+endmodule
+
+
 module eightwayOR16(out,in);
   input [7:0] in;
 output  out;
@@ -12,7 +22,6 @@ output  out;
   or or7(w6,w3,w4);
   or or8(out,w5,w6);
 endmodule
-
 module testb;
   reg [7:0] in;
 wire  out;
