@@ -1,5 +1,16 @@
 // DMUX4WAY Verilog Code
 // Code your design here
+
+module Dmux4wayTst(SW,LEDR);
+input [2:0] SW;
+output [3:0] LEDR;
+
+Dmux4way16 dm1(LEDR[0],LEDR[1],LEDR[2],LEDR[3],SW[0],SW[1]);
+
+endmodule
+
+
+
 module Dmux(outa ,outb, in,sel);
    input in,sel;
   output outa,outb;
