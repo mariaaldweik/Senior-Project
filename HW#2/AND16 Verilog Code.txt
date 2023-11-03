@@ -1,9 +1,30 @@
 // AND16 Verilog Code
 
 
-// Code your design here
+module AND16Tst(SW,HEX0,HEX1,HEX2,HEX3);
+input[7:0]SW;
+output [0:6]HEX0,HEX1,HEX2,HEX3;
+wire [3:0] a,b;
+wire [15:0] out,outda,outdb;
+assign a=SW [3:0] ;
+assign b= SW [7:4];
 
-module AND (out,a,b);
+
+
+ hex7seg hjhj (out[3:0], HEX0);
+  hex7seg rythj (out[7:4], HEX1);
+   hex7seg hjuoyj (out[11:8], HEX2);
+  hex7seg rytu7uj (out[15:12], HEX3);
+  decoder4x16  adec(e,a,outda);
+  decoder4x16  bdec(e,b,outdb);
+  AND16bit a1(out,outda,outb);
+
+ 
+
+endmodule
+	
+
+module AND1bit (out,a,b);
   input a,b;
   output out;
   wire w1;
@@ -14,31 +35,121 @@ module AND (out,a,b);
 endmodule
 
 
-module AND16(out,a,b);
+module AND16bit(out,a,b);
   input [15:0] a,b;
   output [15:0] out;
    
-  AND a0(out[0],a[0],b[0]);
-  AND a1(out[1],a[1],b[1]);
-  AND a2(out[2],a[2],b[2]);
-  AND a3(out[3],a[3],b[3]);
-  AND a4(out[4],a[4],b[4]);
-  AND a5(out[5],a[5],b[5]);
-  AND a6(out[6],a[6],b[6]);
-  AND a7(out[7],a[7],b[7]);
-  AND a8(out[8],a[8],b[8]);
-  AND a9(out[9],a[9],b[9]);
-  AND a10(out[10],a[10],b[10]);
-  AND a11(out[11],a[11],b[11]);
-  AND a12(out[12],a[12],b[12]);
-  AND a13(out[13],a[13],b[13]);
-  AND a14(out[14],a[14],b[14]);
-  AND a15(out[15],a[15],b[15]);
+  AND1bit a0(out[0],a[0],b[0]);
+  AND1bit a1(out[1],a[1],b[1]);
+  AND1bit a2(out[2],a[2],b[2]);
+  AND1bit a3(out[3],a[3],b[3]);
+  AND1bit a4(out[4],a[4],b[4]);
+  AND1bit a5(out[5],a[5],b[5]);
+  AND1bit a6(out[6],a[6],b[6]);
+  AND1bit a7(out[7],a[7],b[7]);
+  AND1bit a8(out[8],a[8],b[8]);
+  AND1bit a9(out[9],a[9],b[9]);
+  AND1bit a10(out[10],a[10],b[10]);
+  AND1bit a11(out[11],a[11],b[11]);
+  AND1bit a12(out[12],a[12],b[12]);
+  AND1bit a13(out[13],a[13],b[13]);
+  AND1bit a14(out[14],a[14],b[14]);
+  AND1bit a15(out[15],a[15],b[15]);
   
    
   
   
 endmodule
+
+
+module hex7seg (hex, display);
+	input [3:0] hex;
+	output [0:6] display;
+
+	reg [0:6] display;
+
+	/*
+	 *       0  
+	 *      ---  
+	 *     |   |
+	 *    5|   |1
+	 *     | 6 |
+	 *      ---  
+	 *     |   |
+	 *    4|   |2
+	 *     |   |
+	 *      ---  
+	 *       3  
+	 */
+	always @ (hex)
+		case (hex)
+			4'h0: display = 7'b0000001;
+			4'h1: display = 7'b1001111;
+			4'h2: display = 7'b0010010;
+			4'h3: display = 7'b0000110;
+			4'h4: display = 7'b1001100;
+			4'h5: display = 7'b0100100;
+			4'h6: display = 7'b0100000;
+			4'h7: display = 7'b0001111;
+			4'h8: display = 7'b0000000;
+			4'h9: display = 7'b0000100;
+			4'hA: display = 7'b0001000;
+			4'hb: display = 7'b1100000;
+			4'hC: display = 7'b0110001;
+			4'hd: display = 7'b1000010;
+			4'hE: display = 7'b0110000;
+			4'hF: display = 7'b0111000;
+		endcase
+endmodule
+
+module Decoder3x8(e,i,o);
+  input [2:0] i;
+  input e;
+  output reg [7:0] o;
+  
+  always@(*)
+    begin
+      if(e==1)
+         o[0]<=~i[0]&~i[1]&~i[2]&e;
+       o[1]<=i[0]&~i[1]&~i[2]&e;
+       o[2]<=~i[0]&i[1]&~i[2]&e;
+       o[3]<=i[0]&i[1]&~i[2]&e;
+       o[4]<=~i[0]&~i[1]&i[2]&e;
+    
+       o[5]<=i[0]&~i[1]&i[2]&e;
+       o[6]<=~i[0]&i[1]&i[2]&e;
+    
+       o[7]<=i[0]&i[1]&i[2]&e;
+  
+  
+ 
+    end
+endmodule
+
+module decoder4x16(e,i,o);
+  input [3:0] i;
+  input e;
+  output reg [15:0] o;
+  wire [15:0] c;
+  Decoder3x8 least(~i[3],i[2:0],c[7:0]);
+  Decoder3x8 most(i[3],i[2:0],c[15:8]);
+  always@(*)
+    begin
+    if(e)
+      o<=c;
+    end
+    
+    endmodule
+
+
+
+
+
+
+
+
+
+
 
 
 
