@@ -1,4 +1,17 @@
 // Code your design here
+
+module DmuxTst(SW,LEDR);
+input [1:0] SW;
+output [1:0] LEDR;
+
+Dmux  m1(LEDR[0] ,LEDR[1],SW[0],SW[1]);
+
+
+
+
+endmodule
+
+
 module Dmux(outa ,outb, in,sel);
    input in,sel;
   output outa,outb;
