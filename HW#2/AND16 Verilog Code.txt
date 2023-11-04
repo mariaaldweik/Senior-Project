@@ -1,6 +1,3 @@
-// AND16 Verilog Code
-
-
 module AND16Tst(SW,HEX0,HEX1,HEX2,HEX3);
 input[7:0]SW;
 output [0:6]HEX0,HEX1,HEX2,HEX3;
@@ -8,16 +5,17 @@ wire [3:0] a,b;
 wire [15:0] out,outda,outdb;
 assign a=SW [3:0] ;
 assign b= SW [7:4];
+assign e=1'b1;
 
 
 
- hex7seg hjhj (out[3:0], HEX0);
-  hex7seg rythj (out[7:4], HEX1);
+   hex7seg hjhj (out[3:0], HEX0);
+   hex7seg rythj (out[7:4], HEX1);
    hex7seg hjuoyj (out[11:8], HEX2);
   hex7seg rytu7uj (out[15:12], HEX3);
-  decoder4x16  adec(e,a,outda);
-  decoder4x16  bdec(e,b,outdb);
-  AND16bit a1(out,outda,outb);
+  decoder_4to16  adec(e,a,outda);
+  decoder_4to16  bdec(e,b,outdb);
+  AND16bit a1(out,outda,outdb);
 
  
 
@@ -102,47 +100,41 @@ module hex7seg (hex, display);
 		endcase
 endmodule
 
-module Decoder3x8(e,i,o);
-  input [2:0] i;
-  input e;
-  output reg [7:0] o;
-  
-  always@(*)
-    begin
-      if(e==1)
-         o[0]<=~i[0]&~i[1]&~i[2]&e;
-       o[1]<=i[0]&~i[1]&~i[2]&e;
-       o[2]<=~i[0]&i[1]&~i[2]&e;
-       o[3]<=i[0]&i[1]&~i[2]&e;
-       o[4]<=~i[0]&~i[1]&i[2]&e;
-    
-       o[5]<=i[0]&~i[1]&i[2]&e;
-       o[6]<=~i[0]&i[1]&i[2]&e;
-    
-       o[7]<=i[0]&i[1]&i[2]&e;
-  
-  
- 
-    end
-endmodule
+module decoder_4to16 (
+	input  enable,
+	input [3:0] binary_in,
+	output reg [15:0] decoder_out
+);
 
-module decoder4x16(e,i,o);
-  input [3:0] i;
-  input e;
-  output reg [15:0] o;
-  wire [15:0] c;
-  Decoder3x8 least(~i[3],i[2:0],c[7:0]);
-  Decoder3x8 most(i[3],i[2:0],c[15:8]);
-  always@(*)
-    begin
-    if(e)
-      o<=c;
-    end
+always @ (enable or binary_in)
+begin
+  if (enable) begin
+    case (binary_in)
+      4'h0 : decoder_out = 16'h0001;
+      4'h1 : decoder_out = 16'h0002;
+      4'h2 : decoder_out = 16'h0004;
+      4'h3 : decoder_out = 16'h0008;
+      4'h4 : decoder_out = 16'h0010;
+      4'h5 : decoder_out = 16'h0020;
+      4'h6 : decoder_out = 16'h0040;
+      4'h7 : decoder_out = 16'h0080;
+      4'h8 : decoder_out = 16'h0100;
+      4'h9 : decoder_out = 16'h0200;
+      4'hA : decoder_out = 16'h0400;
+      4'hB : decoder_out = 16'h0800;
+      4'hC : decoder_out = 16'h1000;
+      4'hD : decoder_out = 16'h2000;
+      4'hE : decoder_out = 16'h4000;
+      4'hF : decoder_out = 16'h8000;
+      default : decoder_out = 0;
+    endcase
+  end
+  else begin
+    decoder_out = 0;
+  end
+end
     
     endmodule
-
-
-
 
 
 
