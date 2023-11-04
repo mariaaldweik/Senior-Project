@@ -1,15 +1,22 @@
 // DMUX4WAY Verilog Code
 // Code your design here
 
-module Dmux4wayTst(SW,LEDR);
-input [2:0] SW;
+module Tst(SW,LEDR);
+input [17:15] SW;
 output [3:0] LEDR;
 
-Dmux4way16 dm1(LEDR[0],LEDR[1],LEDR[2],LEDR[3],SW[0],SW[1]);
+wire [1:0] a;
+wire b,c,d,e,f;
+assign a=SW[17:16];
+assign b=SW[15];
+assign LEDR[0]=c;
+assign LEDR[1]=d;
+assign LEDR[2]=e;
+assign LEDR[3]=f;
 
+
+Dmux4way16 m1(c,d,e,f,b,a);
 endmodule
-
-
 
 module Dmux(outa ,outb, in,sel);
    input in,sel;
@@ -29,9 +36,15 @@ module Dmux4way16(a,b,c,d,in,sel);
   output  a,b,c,d;
     wire w1 ,w2;
   Dmux Dm1 (w1,w2,in,sel[1]);
-  Dmux Dm2 (a,b,w1,sel[0]);
-  Dmux Dm3 (c,d,w2,sel[0]);
+ Dmux Dm2 (a,b,w1,sel[0]);
+ Dmux dm3 (c,d,w2,sel[0]);
      endmodule 
+	  
+	  
+	
+
+
+
 // Code your testbench here
 // or browse Examples
 module Dmux4wayTest;
