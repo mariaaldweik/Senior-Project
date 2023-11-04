@@ -1,6 +1,42 @@
 // DMUX8WAY Verilog Code
-// Code your design here
-module Dmux(outa ,outb, in,sel);
+
+module DmuxWay8 (SW,LEDR/*,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7*/);
+input [17:14] SW;
+output [7:0] LEDR;
+//output [0:6]HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7;
+wire [3:0] sel;
+//wire [15:0] out;
+wire in,a,b,c,d,e,f,g,h;
+assign sel=SW[17:15];
+assign in=SW[14];
+assign LEDR[0]=a;
+assign LEDR[1]=b;
+assign LEDR[2]=c;
+assign LEDR[3]=d;
+assign LEDR[4]=e;
+assign LEDR[5]=f;
+assign LEDR[6]=g;
+assign LEDR[7]=h;
+
+
+  /*hex7seg hjhj (a, HEX0);
+  hex7seg rythj (b, HEX1);
+  
+  hex7seg ll (c, HEX2);
+  hex7seg zz (b, HEX3);
+  
+  hex7seg yy (e, HEX4);
+  hex7seg my (f, HEX5);
+  
+  hex7seg jj (g, HEX6);
+  hex7seg tt (h, HEX7);*/
+ 
+  
+   Dmux8_way16 m1(a,b,c,d,e,f,g,h,in,sel);
+
+endmodule
+
+module Dmux(outa ,outb,in,sel);
    input in,sel;
   output outa,outb;
   wire w1,w2,w3;
@@ -11,12 +47,13 @@ module Dmux(outa ,outb, in,sel);
        nand Nand4(outa,w2,w2);
        nand Nand5(outb,w3,w3);
        
-  endmodule 
-module Dmux8way16(a,b,c,d,e,f,g,h,in,sel);
+  endmodule
+  
+module Dmux8_way16(a,b,c,d,e,f,g,h,in,sel);
   input  in;
   input  [2:0] sel;
   output  a,b,c,d,e,f,g,h;
-    wire w1 ,w2,w3,w5,w6;
+    wire w1,w2,w3,w5,w6;
 
 
   Dmux dm1 (w1,w2,in,sel[2]);
@@ -27,6 +64,55 @@ module Dmux8way16(a,b,c,d,e,f,g,h,in,sel);
   Dmux dm6 (e,f,w5,sel[0]);
   Dmux dm7 (g,h,w6,sel[0]);
 endmodule 
+
+
+module hex7seg (hex, display);
+	input [3:0] hex;
+	output [0:6] display;
+
+	reg [0:6] display;
+
+	/*
+	 *       0  
+	 *      ---  
+	 *     |   |
+	 *    5|   |1
+	 *     | 6 |
+	 *      ---  
+	 *     |   |
+	 *    4|   |2
+	 *     |   |
+	 *      ---  
+	 *       3  
+	 */
+	always @ (hex)
+		case (hex)
+			4'h0: display = 7'b0000001;
+			4'h1: display = 7'b1001111;
+			4'h2: display = 7'b0010010;
+			4'h3: display = 7'b0000110;
+			4'h4: display = 7'b1001100;
+			4'h5: display = 7'b0100100;
+			4'h6: display = 7'b0100000;
+			4'h7: display = 7'b0001111;
+			4'h8: display = 7'b0000000;
+			4'h9: display = 7'b0000100;
+			4'hA: display = 7'b0001000;
+			4'hb: display = 7'b1100000;
+			4'hC: display = 7'b0110001;
+			4'hd: display = 7'b1000010;
+			4'hE: display = 7'b0110000;
+			4'hF: display = 7'b0111000;
+		endcase
+endmodule
+
+
+
+
+
+
+
+
 
 // Code your testbench here
 // or browse Examples
