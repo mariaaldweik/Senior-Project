@@ -1,0 +1,195 @@
+module muxeightway(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7);
+input[17:0]SW;
+input[2:0] KEY;
+output [0:6]HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,HEX6,HEX7;
+wire [2:0]sel;
+wire [15:0] outda,outdb,outdc,outdd,outde,outdf,outdg,outdh;
+wire [15:0] in;
+wire [15:0]out;
+wire [7:0] al,bl,cl,dl,el,fl,gl,hl,ah,bh,ch,dh,eh,fh,ogh,hh;
+assign in=SW [7:0];
+assign sel=SW[17;15];
+assign reset=KEY[0];
+assign clock=KEY[1];
+  hex7seg hjhj (out[3:0], HEX0);
+  hex7seg rythj (out[7:4], HEX1);
+  hex7seg hjuoyj (out[11:8], HEX2);
+  hex7seg rytu7uj (out[15:12], HEX3);
+   hex7seg hjj (in[3:0], HEX4);
+  hex7seg rthj (in[7:4], HEX5);
+  hex7seg hoyj (sel[2:0], HEX6);
+
+  
+regn rg1(in,clock,reset,al); 
+regn rg2(in,clock,reset,ah);
+regn rg3(in,clock,reset,bl);
+regn rg4(in,clock,reset,bh);
+regn rg5(in,clock,reset,cl); 
+regn rg6(in,clock,reset,ch);
+regn rg7(in,clock,reset,dl);
+regn rg8(in,clock,reset,dh); 
+regn rg11(in,clock,reset,el); 
+regn rg22(in,clock,reset,eh);
+regn rg33(in,clock,reset,fl);
+regn rg44(in,clock,reset,fh);
+regn rg55(in,clock,reset,gl); 
+regn rg66(in,clock,reset,gh);
+regn rg77(in,clock,reset,hl);
+regn rg88(in,clock,reset,hh); 
+
+
+
+merg mm1(outda,al,ah);
+merg mm2(outdb,bl,bh);
+merg mm3(outdc,cl,ch);
+merg mm4(outdd,dl,dh);
+merg mm5(outde,el,eh);
+merg mm6(outdf,fl,fh);
+merg mm7(outdg,gl,gh);
+merg mm8(outdh,hl,hh);
+
+MUX8WAY um(out[0],outda[0],   outdb[0],outdc[0],outdd[0],outde[0],outdf[0],outdg[0],outdh[0], sel);
+MUX8WAY aaa(out[1],outda[1],  outdb[1],outdc[1],outdd[1],outde[1],outdf[1],outdg[1],outdh[1], sel);
+MUX8WAY HHs(out[2],outda[2],  outdb[2],outdc[2],outdd[2],outde[2],outdf[2],outdg[2],outdh[2], sel);
+MUX8WAY HHd(out[3],outda[3],  outdb[3],outdc[3],outdd[3],outde[3],outdf[3],outdg[3],outdh[3], sel);
+MUX8WAY HHq(out[4],outda[4],  outdb[4],outdc[4],outdd[4],outde[4],outdf[4],outdg[4],outdh[4], sel);
+MUX8WAY HHe(out[5],outda[5],  outdb[5],outdc[5],outdd[5],outde[5],outdf[5],outdg[5],outdh[5], sel);
+MUX8WAY HHb(out[6],outda[6],  outdb[6],outdc[6],outdd[6],outde[6],outdf[6],outdg[6],outdh[6], sel);
+MUX8WAY mu(out[7], outda[7],  outdb[7],outdc[7],outdd[7],outde[7],outdf[7],outdg[7],outdh[7], sel);
+MUX8WAY xx(out[8], outda[8],  outdb[8],outdc[8],outdd[8],outde[8],outdf[8],outdg[8],outdh[8], sel);
+MUX8WAY aa(out[9], outda[9],  outdb[9],outdc[9] ,outdd[9] ,outde[9],outdf[9],outdg[9],outdh[9], sel);
+MUX8WAY Hs(out[10],outda[10], outdb[10],outdc[10],outdd[10],outde[10],outdf[10],outdg[10],outdh[10], sel);
+MUX8WAY Hd(out[11],outda[11], outdb[11],outdc[11],outdd[11],outde[11],outdf[11],outdg[11],outdh[11], sel);
+MUX8WAY Hq(out[12],outda[12], outdb[12],outdc[12],outdd[12],outde[12],outdf[12],outdg[12],outdh[12], sel);
+MUX8WAY He(out[13],outda[13], outdb[13],outdc[13],outdd[13],outde[13],outdf[13],outdg[13],outdh[13], sel);
+MUX8WAY Hb(out[14],outda[14], outdb[14],outdc[14],outdd[14],outde[14],outdf[14],outdg[14],outdh[14], sel);
+MUX8WAY Hl(out[15],outda[15], outdb[15],outdc[15],outdd[15],outde[15],outdf[15],outdg[15],outdh[15], sel);
+
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+module mux1(out ,a, b, sel);
+   input a,b,sel;
+  output out;
+  wire w1,w2,w3;
+  nand Nand1(w1,sel,b);
+  nand Nan2(w2,sel,sel);
+  nand Nan3(w3,a,w2);
+  nand Nand4(out,w1,w3);
+  endmodule 
+ module mux16(out ,a, b, sel);
+  input[15:0] a,b;
+  input  sel;
+  output [15:0] out;
+  mux1 mux0(out[0],a[0],b[0],sel);
+  mux1 mux2(out[1],a[1],b[1],sel);
+  mux1 mux3(out[2],a[2],b[2],sel);
+  mux1 mux4(out[3],a[3],b[3],sel);
+  mux1 mux5(out[4],a[4],b[4],sel);
+  mux1 mux6(out[5],a[5],b[5],sel);
+  mux1 mux7(out[6],a[6],b[6],sel);
+  mux1 mux8(out[7],a[7],b[7],sel);
+  mux1 mux9(out[8],a[8],b[8],sel);
+  mux1 mux10(out[9],a[9],b[9],sel);
+  mux1 mux11(out[10],a[10],b[10],sel);
+  mux1 mux12(out[11],a[11],b[11],sel);
+  mux1 mux13(out[12],a[12],b[12],sel);
+  mux1 mux14(out[13],a[13],b[13],sel);
+  mux1 mux15(out[14],a[14],b[14],sel);
+  mux1 mux16(out[15],a[15],b[15],sel);
+endmodule
+module fourwaymux16(out,a,b,c,d,sel);
+  input [15:0] a,b,c,d;
+  input [1:0] sel;
+  output [15:0] out;
+  wire [15:0] w1,w2;
+  mux16 mux160(w1, a,b ,sel[0]);
+  mux16  mux161(w2, c, d, sel[0]);
+  mux16  mux162(out, w1, w2,sel[1]);
+  endmodule
+
+module MUX8WAY(out,a,b,c,d,e,f,g,h,sel);
+  input[15:0] a,b,c,d,e,f,g,h;
+  input[2:0] sel;
+  output[15:0] out;
+  wire [15:0] w1,w2,w3,w4,w5,w6;
+
+  fourwaymux16 m1(w1,a,b,c,d,sel[1:0]);
+  fourwaymux16 m2(w2,e,f,g,h,sel[1:0]);
+  mux16 m3(out ,w1, w2, sel[2]);
+
+endmodule
+
+
+
+ module hex7seg (hex, display);
+	input [3:0] hex;
+	output [0:6] display;
+
+	reg [0:6] display;
+
+	/*
+	 *       0  
+	 *      ---  
+	 *     |   |
+	 *    5|   |1
+	 *     | 6 |
+	 *      ---  
+	 *     |   |
+	 *    4|   |2
+	 *     |   |
+	 *      ---  
+	 *       3  
+	 */
+	always @ (hex)
+		case (hex)
+			4'h0: display = 7'b0000001;
+			4'h1: display = 7'b1001111;
+			4'h2: display = 7'b0010010;
+			4'h3: display = 7'b0000110;
+			4'h4: display = 7'b1001100;
+			4'h5: display = 7'b0100100;
+			4'h6: display = 7'b0100000;
+			4'h7: display = 7'b0001111;
+			4'h8: display = 7'b0000000;
+			4'h9: display = 7'b0000100;
+			4'hA: display = 7'b0001000;
+			4'hb: display = 7'b1100000;
+			4'hC: display = 7'b0110001;
+			4'hd: display = 7'b1000010;
+			4'hE: display = 7'b0110000;
+			4'hF: display = 7'b0111000;
+		endcase
+endmodule
+
+
+
+module regn(R,clock,resetn,Q);
+parameter n=16;
+input [n-1:0] R;
+input clock,resetn;
+output [n-1:0] Q;
+reg [n-1:0] Q;
+
+always @(posedge clock or negedge resetn)
+if(!resetn)
+Q<='b0;
+else
+Q<=R;
+endmodule
+module merg(out,inl,inh);
+input [7:0] inl,inh;
+output[15:0] out;
+assign out[7:0]=inl;
+assign out[15:8]=inh;
+endmodule
+
