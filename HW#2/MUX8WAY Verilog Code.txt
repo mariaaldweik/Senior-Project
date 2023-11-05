@@ -1,6 +1,7 @@
 // MUX8WAY Verilog Code
 
 // Code your design here
+// Code your design here
 module mux16(out ,a, b, sel);
   input [15:0] a;
  input [15:0] b;
@@ -17,6 +18,15 @@ generate  for (i=0;i<16;i=i+1)
         end     
    endgenerate
   endmodule 
+module fourwaymux16(out,a,b,c,d,sel);
+  input [15:0] a,b,c,d;
+  input [1:0] sel;
+  output [15:0] out;
+  wire [15:0] w1,w2;
+  mux16 mux160(w1, a,b ,sel[0]);
+  mux16  mux161(w2, c, d, sel[0]);
+  mux16  mux162(out, w1, w2,sel[1]);
+  endmodule
 
 module MUX8WAY(out,a,b,c,d,e,f,g,h,sel);
   input[15:0] a,b,c,d,e,f,g,h;
@@ -24,14 +34,9 @@ module MUX8WAY(out,a,b,c,d,e,f,g,h,sel);
   output[15:0] out;
   wire [15:0] w1,w2,w3,w4,w5,w6;
 
-  
-  mux16 m1(w1,a,b,sel[0]);
-  mux16 m2(w2,c,d,sel[0]);
-  mux16 m3(w3,w1,w2,sel[1]);
-  mux16 m4(w4,e,f,sel[0]);
-  mux16 m5(w5,g,h,sel[0]);
-  mux16 m6(w6,w4,w5,sel[1]);
-  mux16 m7(out,w3,w6,sel[2]);
+  fourwaymux16 m1(w1,a,b,c,d,sel[1:0]);
+  fourwaymux16 m2(w2,e,f,g,h,sel[1:0]);
+  mux16 m3(out ,w1, w2, sel[2]);
 
 endmodule
 
