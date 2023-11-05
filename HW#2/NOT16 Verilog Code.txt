@@ -1,7 +1,7 @@
 // NOT16 Verilog Code
 // Code your design here
 // NOT16 Verilog Code
-module notcode1 (SW, LEDR);
+module muxeightway (SW, LEDR);
   input [15:0] SW;
   output [15:0] LEDR;
 
@@ -16,9 +16,9 @@ module notcode1 (SW, LEDR);
 
 endmodule
 
-module Not16 ( out, in);
-  input [15:0] in;
-  output [15:0] out;
+module Not16 ( in, out);
+  input [15:0] out;
+  output [15:0] in;
   
   not aa (in[0],out[0]);
   not ab (in[1],out[1]);
@@ -38,7 +38,6 @@ module Not16 ( out, in);
   not as (in[15],out[15]);
 			  
 endmodule
-
   // Code your testbench here
 // or browse Examples
 module Not16Test;
