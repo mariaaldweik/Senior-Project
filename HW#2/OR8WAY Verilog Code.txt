@@ -2,9 +2,9 @@
 
 module OR8WayTst(SW,LEDR);
 input [7:0] SW;
-output LEDR;
+output [1:0] LEDR;
 
-eightwayOR16  a1(LEDR,SW);
+eightwayOR16  a1(LEDR[0],SW);
 
 
 endmodule
