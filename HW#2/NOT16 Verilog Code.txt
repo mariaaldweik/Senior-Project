@@ -1,15 +1,43 @@
 // NOT16 Verilog Code
 // Code your design here
-module Not16(out,a);
-  input [15:0] a;
-  output [15:0]out;
-  genvar i;
-generate  for (i=0;i<16;i=i+1)
-    begin 
-      nand(out[i],a[i],a[i]); 
-    end     
-   endgenerate 
-     endmodule 
+// NOT16 Verilog Code
+module notcode1 (SW, LEDR);
+  input [15:0] SW;
+  output [15:0] LEDR;
+
+  wire [15:0] a;
+  wire [15:0] out;
+
+
+  assign a=SW[15:0];
+  assign LEDR[15:0] = out;
+
+  Not16 u1 (out,a);
+
+endmodule
+
+module Not16 ( out, in);
+  input [15:0] in;
+  output [15:0] out;
+  
+  not aa (in[0],out[0]);
+  not ab (in[1],out[1]);
+  not ac (in[2],out[2]);
+  not ad (in[3],out[3]);
+  not ae (in[4],out[4]);
+  not af (in[5],out[5]);
+  not ag (in[6],out[6]);
+  not ah (in[7],out[7]);
+  not ai (in[8],out[8]);
+  not aj (in[9],out[9]);
+  not ak (in[10],out[10]);
+  not al (in[11],out[11]);
+  not am (in[12],out[12]);
+  not an (in[13],out[13]);
+  not au(in[14],out[14]);
+  not as (in[15],out[15]);
+			  
+endmodule
 
   // Code your testbench here
 // or browse Examples
