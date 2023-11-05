@@ -1,7 +1,5 @@
 // NOT16 Verilog Code
-// Code your design here
-// NOT16 Verilog Code
-module muxeightway (SW, LEDR);
+module notcode1 (SW, LEDR);
   input [15:0] SW;
   output [15:0] LEDR;
 
@@ -16,26 +14,26 @@ module muxeightway (SW, LEDR);
 
 endmodule
 
-module Not16 ( in, out);
-  input [15:0] out;
-  output [15:0] in;
+module Not16 ( out, in);
+  input [15:0] in;
+  output [15:0] out;
   
-  not aa (in[0],out[0]);
-  not ab (in[1],out[1]);
-  not ac (in[2],out[2]);
-  not ad (in[3],out[3]);
-  not ae (in[4],out[4]);
-  not af (in[5],out[5]);
-  not ag (in[6],out[6]);
-  not ah (in[7],out[7]);
-  not ai (in[8],out[8]);
-  not aj (in[9],out[9]);
-  not ak (in[10],out[10]);
-  not al (in[11],out[11]);
-  not am (in[12],out[12]);
-  not an (in[13],out[13]);
-  not au(in[14],out[14]);
-  not as (in[15],out[15]);
+  not aa (out[0],in[0]);
+  not ab (out[1],in[1]);
+  not ac (out[2],in[2]);
+  not ad (out[3],in[3]);
+  not ae (out[4],in[4]);
+  not af (out[5],in[5]);
+  not ag (out[6],in[6]);
+  not ah (out[7],in[7]);
+  not ai (out[8],in[8]);
+  not aj (out[9],in[9]);
+  not ak (out[10],in[10]);
+  not al (out[11],in[11]);
+  not am (out[12],in[12]);
+  not an (out[13],in[13]);
+  not au(out[14],in[14]);
+  not as (out[15],in[15]);
 			  
 endmodule
   // Code your testbench here
