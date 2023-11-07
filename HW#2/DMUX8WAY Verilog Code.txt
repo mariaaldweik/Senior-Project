@@ -1,6 +1,4 @@
 // DMUX8WAY Verilog Code
-
-
 module DmuxWay8(SW,LEDR);
 input [17:14] SW;
 output [7:0] LEDR;
