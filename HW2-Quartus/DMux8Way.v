@@ -19,7 +19,7 @@ module DMux8Way(
 	output h
 );
 
-   wire w1,w2,w3,w5,w6;
+   wire w1,w2,w3,w5,w4,w6;
 
 
   DMux dm1 (w1,w2,in,sel[2]);

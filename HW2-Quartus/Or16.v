@@ -9,9 +9,7 @@ module Or16(
 	output [15:0] out
 );
 
-module Or16(out,a,b);
-input [15:0] a,b;
-output [15:0] out;
+
 or Or0(out[0],a[0],b[0]);
 or Or1(out[1],a[1],b[1]);
   or Or2(out[2],a[2],b[2]);

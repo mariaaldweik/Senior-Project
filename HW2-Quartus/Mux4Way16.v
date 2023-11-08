@@ -17,6 +17,6 @@ wire w1,w2;
 
 	Mux16 m1(a,b,sel[0],w1);
 	Mux16 m2(c,d,sel[0],w2);
-	Mux16 m1(w1,w2,sel[0],out);
+	Mux16 m3(w1,w2,sel[0],out);
 
 endmodule
