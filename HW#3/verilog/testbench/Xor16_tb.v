@@ -15,7 +15,7 @@ module Xor16_tb();
 	
 	// Compare
 	wire [15:0] out_cmp;
-	assign out_cmp = a&b;
+	assign out_cmp = a^b;
 
 	reg fail = 0;
 	reg [15:0] n = 0;
