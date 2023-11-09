@@ -2,7 +2,6 @@
  * Computes the sum of two bits.
  */
 
-`default_nettype none
 module HalfAdder(
 	input a,		//1-bit input
 	input b,		//1-bit inpur
@@ -10,6 +9,6 @@ module HalfAdder(
 	output carry	//Lef bit of a + b
 );
 
-	// Put your code here:
-
+xor (sum,a,b);
+and(carry,a,b);
 endmodule
