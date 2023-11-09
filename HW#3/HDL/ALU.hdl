@@ -1,5 +1,4 @@
-
- * ALU (Arithmetic Logic Unit):
+ /* ALU (Arithmetic Logic Unit):
  * Computes out = one of the following functions:
  *                0, 1, -1,
  *                x, y, !x, !y, -x, -y,
@@ -37,15 +36,17 @@ CHIP ALU {
 
     PARTS:
     //// Replace this comment with your code.
- Mux16(a=x,b=0,sel=zx,out=w1);
-      Mux16(a=y,b=0,sel=zy,out=w2);
-      Xor16(a=w1,b=nx,out=w3);
-      Xor16(a=w2,b=ny,out=w4);
+ Mux16(a=x,b=false,sel=zx,out=w1);
+      Mux16(a=y,b=false,sel=zy,out=w2);
+      Not16(in=w1,out=w11);
+      Mux16(a=w1,b=w11,sel=no,out=out,w10);
+      //Xor16(a=w1,b=nx,out=w3);
+      //Xor16(a=w2,b=ny,out=w4);
       Add16(a=w3,b=w4,out=w6);
       And16(a=w3,b=w4,out=w7);
       Mux16(a=w6,b=w7,sel=f,out=w8);
       Not16(in=w8,out=w9);
       Mux16(a=w8,b=w9,sel=no,out=out,w10);
     Or16Way(a=w10,out=zr);
-    or(a=w10[15],b=0,out=ng);
+    or(a=w10[15],b=false,out=ng);
 }
