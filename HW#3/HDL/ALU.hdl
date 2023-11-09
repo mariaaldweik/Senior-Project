@@ -45,6 +45,6 @@ CHIP ALU {
       And16(a=w3,b=w4,out=w5);
       Mux16(a=w6,b=w5,sel=f,out=w7);
       Not16(in=w7,out=w8);
-      Mux16(a=y,b=0,sel=zy,out=w9);
+      Mux16(a=y,b=0,sel=n0,out=w9);
       Not16(in=w9,out=out);
 }
