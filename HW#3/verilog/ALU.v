@@ -21,7 +21,7 @@
 // if (out == 0) set zr = 1
 // if (out < 0) set ng = 1
 
-`default_nettype none
+//`default_nettype none
 module ALU(
 	input [15:0] x,		// input x (16 bit)
 	input [15:0] y,		// input y (16 bit)
@@ -37,5 +37,27 @@ module ALU(
 );
 
 	// Put your code here:
+wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15;
+    Mux16 xm(x,false,zx,w1);
+      Mux16 ym(y,false,zy,w2);
+
+      Xor16 xinv(w1,nx,w3);
+      Xor16 yinv(w2,ny,w4);
+
+    
+
+      Add16 adder(w3,w4,w5);
+      And16 andxy(w3,w4,w6);
+      Mux16 mf(w6,w5,f,w7);
+      Not16 nm(w7,w8);
+      Mux16 mm(w7,w8,no,out);
+      //assign w10=out[0:7];
+      //assign w11=out[8:15];
+      //assign w12=out[15];
+      Or8Way om(out[7:0],w13);
+      Or8Way on(out[15:8],w14);
+      or o(w13,w14,w15);
+      not nout(w15,zr);
+      or neg(out[15],false,ng);
 
 endmodule
