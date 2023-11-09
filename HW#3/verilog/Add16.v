@@ -10,7 +10,6 @@ module Add16(
 	input [15:0] b,
 	output [15:0] out
 );
-
 wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16;
     HalfAdder h1(out[0],w1,a[0],b[0]);
     FullAdder f1(out[1],w2,a[1],b[0],w1);
@@ -29,3 +28,4 @@ wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16;
  FullAdder f14(out[14],w15,a[0],b[14],w14);
  FullAdder f15(out[15],w16,a[0],b[15],w15);
 endmodule
+
