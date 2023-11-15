@@ -49,15 +49,11 @@ wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15;
       Add16 adder(w3,w4,w5);
       And16 andxy(w3,w4,w6);
       Mux16 mf(w6,w5,f,w7);
-      Not16 nm(w7,w8);
-      Mux16 mm(w7,w8,no,out);
-      //assign w10=out[0:7];
-      //assign w11=out[8:15];
-      //assign w12=out[15];
+      Xor16 mm(w7,no,out);
       Or8Way om(out[7:0],w13);
       Or8Way on(out[15:8],w14);
       or o(w13,w14,w15);
       not nout(w15,zr);
-      or neg(out[15],false,ng);
+      assign ng=out[15];
 
 endmodule

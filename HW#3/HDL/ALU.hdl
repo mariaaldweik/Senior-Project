@@ -20,7 +20,7 @@
 // if (f == 1)  sets out = x + y  // integer 2's complement addition
 // if (f == 0)  sets out = x & y  // bitwise and
 // if (no == 1) sets out = !out   // bitwise not
-CHIP ALU {
+CHIP ALU{
     IN  
         x[16], y[16],  // 16-bit inputs        
         zx, // zero the x input?
@@ -47,11 +47,10 @@ CHIP ALU {
       Add16(a=w3,b=w4,out=w5);
       And16(a=w3,b=w4,out=w6);
       Mux16(a=w6,b=w5,sel=f,out=w7);
-      Not16(in=w7,out=w8);
-      Mux16(a=w7,b=w8,sel=no,out=out,out=w9,out[0..7]=w10,out[8..15]=w11,out[15]=w12);
+      Xor16(a=w7,b=no,out=out,out=w9,out[0..7]=w10,out[8..15]=w11,out[15]=ng);
       Or8Way(in=w10,out=w13);
       Or8Way(in=w11,out=w14);
       Or(a=w13,b=w14,out=w15);
       Not(in=w15,out=zr);
-      Or(a=w12,b=false,out=ng);
+      
 }
