@@ -4,14 +4,19 @@
  *    else out does not change (out[t+1] = out[t])
  */
 
-`default_nettype none
+//`default_nettype none
 module Bit(
 	input clk,
 	input in,
 	input load,
-	output out
+	output  out
 );
 
-	// Put your code here:
+wire w1,w2;
+ 
+	Mux m1(w2,in,load,w1);
+	DFF d1(clk,w1,w2);
+
+assign out=w2;
 
 endmodule

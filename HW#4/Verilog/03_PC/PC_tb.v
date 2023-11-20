@@ -6,6 +6,7 @@ module PC_tb();
 	reg [15:0] in;
 	reg load,inc,reset;
 	wire [15:0] out;
+	reg [15:0] n = 0;
 
 	// Part
 	PC PC(
@@ -32,7 +33,6 @@ module PC_tb();
 		out_cmp <= (reset?0:(load?in:(inc?out+1:out)));	
 	
 	reg fail = 0;
-	reg [15:0] n = 0;
 	task check;
 		#1
 		if (out != out_cmp) 
@@ -53,6 +53,8 @@ module PC_tb();
 			check();
 		
 		if (fail==0) $display("passed");
+		$display("------------------------");
+		if (fail==1) $display("failed");
 		$display("------------------------");
 		$finish;
 	end
