@@ -15,12 +15,11 @@ module PC(
 	input reset,
 	output [15:0] out
 );	
-	wire [15:0] winc,w1,wout,w2,w3,outreg;
-Inc16 inc0(in,winc);
-Mux16 m0(winc,0,reset,w1);
-    Mux16 m1(wout,in,load,w2);
-    or(inc,reset,w3);
-    Mux16 m3(w2,w1,w3,outreg);
-    Register r1(clk,outreg,load,wout);
-	assign out=wout;
+	wire [15:0] w1,w2,w3,w4,outreg;
+    Inc16 in0(outreg,w1);
+    Mux16 m0(outreg,w1,inc,w2);
+    Mux16 m1(w2,in,load,w3);
+    Mux16 m2(w3,0,reset,w4);
+    Register r0(w4,1,outreg);
+	assign out=outreg;
 endmodule
