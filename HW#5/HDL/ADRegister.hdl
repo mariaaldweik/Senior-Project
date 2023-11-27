@@ -1,0 +1,30 @@
+
+/**
+ * 16-bit register:
+ * If load is asserted, the register's value is set to in;
+ * Otherwise, the register maintains its current value.
+ * out(t+1) = (load(t), in(t), out(t))
+ */
+CHIP ADRegister {
+    IN in[16], load,reset;
+    OUT out[16];
+
+    PARTS:
+    Mux16(a=in,b=false,sel=reset,out[0]=in0,out[1]=in1,out[2]=in2,out[3]=in3,out[4]=in4,out[5]=in5,out[6]=in6,out[7]=in7,out[8]=in8,out[9]=in9,out[10]=in10,out[11]=in11,out[12]=in12,out[13]=in13,out[14]=in14,out[15]=in15);
+    Bit(in=in0,load=load,out=out[0]);
+    Bit(in=in1,load=load,out=out[1]);
+    Bit(in=in2,load=load,out=out[2]);
+    Bit(in=in3,load=load,out=out[3]);
+    Bit(in=in4,load=load,out=out[4]);
+    Bit(in=in5,load=load,out=out[5]);
+    Bit(in=in6,load=load,out=out[6]);
+    Bit(in=in7,load=load,out=out[7]);
+    Bit(in=in8,load=load,out=out[8]);
+    Bit(in=in9,load=load,out=out[9]);
+    Bit(in=in10,load=load,out=out[10]);
+    Bit(in=in11,load=load,out=out[11]);
+    Bit(in=in12,load=load,out=out[12]);
+    Bit(in=in13,load=load,out=out[13]);
+    Bit(in=in14,load=load,out=out[14]);
+    Bit(in=in15,load=load,out=out[15]);
+}

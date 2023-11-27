@@ -23,11 +23,22 @@ CHIP CPU {
                          // program (reset==1) or continue executing
                          // the current program (reset==0).
 
-    OUT outM[16],        // M value output
+    OUT outM[16],        // M value output //ALU Out= woutM
         writeM,          // Write to M? 
         addressM[15],    // Address in data memory (of M)
         pc[15];          // Address of next instruction
 
     PARTS:
-    //// Replace this comment with your code.
+    And(a=instruction[15],b=instruction[5],out=w1);
+    Mux16(a=instruction,b=woutM,sel=w1,out=ouToAreg);
+    ADRegister(in=ouToAreg,load=true,reset=reset,out=outAreg);
+    Mux16(a=inM,b=outAreg,sel=instruction[12],out=alubin);
+
+    //pc
+
+    And(a=instruction[5],b=instruction[4],out=w2);
+    ADRegister(in=woutM,load=w2,reset=reset,out=outDreg);
+    ALU(x=outDreg,y=outAreg,no=instruction[6],f=instruction[7],ny=instruction[8],zy=instruction[9],nx=instruction[10],zx=instruction[11],out=woutM,zr=wzr,ng=wng);
+    
+
 }

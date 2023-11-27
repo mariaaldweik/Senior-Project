@@ -1,0 +1,4 @@
+Register(in=in,load=load,out=Areg);
+
+Register(in=in,load=load,out=Dreg);
+
