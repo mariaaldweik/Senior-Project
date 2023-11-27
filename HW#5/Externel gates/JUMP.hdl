@@ -1,0 +1,22 @@
+CHIP JUMP{
+IN
+ng,
+zr,
+j[3];
+OUT
+ngzr,
+gt,
+jlt,
+jeq,
+jgt,
+ple,
+pass;
+PARTS:
+Or(a=ng,b=zr,out=ngzr,out=w1);
+Not(in=w1,out=gt,out=w2);
+And(a=ng,b=j[0],out=jlt,out=w3);
+And(a=zr,b=j[1],out=jeq,out=w4);
+And(a=w2,b=j[2],out=jgt,out=w5);
+Or(a=w3,b=w4,out=ple,out=w6);
+Or(a=w6,b=w5,out=pass);
+}
