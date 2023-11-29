@@ -42,8 +42,8 @@ wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
    not(w1,instruction[15]);
     Mux16 m0(woutM,instruction,w1,ouToAreg);
     or(aLoad,instruction[5],w1);
-    ADRegister Areg(clk,ouToAreg,reset,aLoad,outAreg);  //A register
-	assign addressM=outAreg[14:0];
+    ADRegister Areg(ouToAreg,aLoad,reset,outAreg);  //A register
+	assign addressM=outAreg;
     and(AoM,instruction[15],instruction[12]);
     Mux16 m1(outAreg,inM,AoM,alubin);
 
@@ -51,10 +51,10 @@ wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
 
 
     and(w2,instruction[15],instruction[4]);
-    ADRegister Dreg(clk,woutM,reset,w2,wDRegister);
+    ADRegister Dreg(woutM,w2,reset,wDRegister);
 
     //ALU
-    ALU alu(wDRegister,alubin,instruction[11],instruction[10],instruction[9],instruction[8],instruction[7],instruction[6],outM,wzr,wng);
+    ALU alu(wDRegister,alubin,instruction[6],instruction[7],instruction[8],instruction[9],instruction[10],instruction[11],woutM,outM,wzr,wng);
     
 
     //jump
@@ -68,7 +68,7 @@ wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
 
     //PC
     and(pcload,instruction[15],pass);
-    PC pc0(clk,outAreg,pcload,1,reset,pc);
+    PC pc0(outAreg,pcload,1,reset,pc);
     and(writeM,instruction[15],instruction[3]);
 
 endmodule
