@@ -31,14 +31,28 @@ CHIP CPU {
     PARTS:
     And(a=instruction[15],b=instruction[5],out=w1);
     Mux16(a=instruction,b=woutM,sel=w1,out=ouToAreg);
-    ADRegister(in=ouToAreg,load=true,reset=reset,out=outAreg);
+    ADRegister(in=ouToAreg,load=true,reset=reset,out=outAreg,out[0..14]=addressM);
     Mux16(a=inM,b=outAreg,sel=instruction[12],out=alubin);
 
     //pc
 
     And(a=instruction[5],b=instruction[4],out=w2);
-    ADRegister(in=woutM,load=w2,reset=reset,out=outDreg);
-    ALU(x=outDreg,y=outAreg,no=instruction[6],f=instruction[7],ny=instruction[8],zy=instruction[9],nx=instruction[10],zx=instruction[11],out=woutM,zr=wzr,ng=wng);
+    ADRegister(in=woutM,load=w2,reset=reset,out=wDRegiste);
+    ALU(x=wDRegiste,y=outAreg,no=instruction[6],f=instruction[7],ny=instruction[8],zy=instruction[9],nx=instruction[10],zx=instruction[11],out=woutM,zr=wzr,ng=wng);
     
+
+    //jump
+    Or(a=wng,b=wzr,out=ngzr,out=w3);
+    Not(in=w3,out=gt,out=w4);
+And(a=wng,b=instruction[2],out=jlt,out=w5);
+And(a=wzr,b=instruction[1],out=jeq,out=w6);
+And(a=w4,b=instruction[0],out=jgt,out=w7);
+Or(a=w5,b=w6,out=ple,out=w8);
+Or(a=w8,b=w7,out=pass);
+
+And(a=instruction[15],b=pass,out=pcload);
+Or4way(a=instruction[0],b=instruction[1],c=instruction[3],d=false,out=wincr);//code up
+PC(in=outAreg,load=pcload,inc=wincr,out[0..14]=pc);
+And(a=instruction[15],b=instruction[3],out= writeM);
 
 }
