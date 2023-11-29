@@ -31,8 +31,8 @@ module CPU(
 
     	output [15:0] outM,			// M value output
     	output writeM,				// Write to M? 
-    	output [15:0] addressM,		// Address in data memory (of M) to read
-    	output [15:0] pc			// address of next instruction
+    	output [14:0] addressM,		// Address in data memory (of M) to read
+    	output [14:0] pc			// address of next instruction
 );
 wire w1,w2,w3,w4,w5,w6,w7,w8,aLoad,AoM,wzr,wng,pass,pcload;
 wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
@@ -43,7 +43,7 @@ wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
     Mux16 m0(woutM,instruction,w1,ouToAreg);
     or(aLoad,instruction[5],w1);
     ADRegister Areg(clk,ouToAreg,reset,aLoad,outAreg);  //A register
-	assign addressM=outAreg[14:0];
+	assign addressM=outAreg[0:14];
     and(AoM,instruction[15],instruction[12]);
     Mux16 m1(outAreg,inM,AoM,alubin);
 
