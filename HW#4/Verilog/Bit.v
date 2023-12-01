@@ -9,14 +9,12 @@ module Bit(
 	input clk,
 	input in,
 	input load,
-	output  out
+	output out
 );
 
 wire w1,w2;
- 
 	Mux m1(w2,in,load,w1);
-	DFF d1(clk,w1,w2);
-
+	DFF d1(.clk(clk),.in(w1),.out(w2));
 assign out=w2;
 
 endmodule

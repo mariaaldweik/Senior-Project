@@ -31,44 +31,83 @@ module CPU(
 
     	output [15:0] outM,			// M value output
     	output writeM,				// Write to M? 
-    	output [14:0] addressM,		// Address in data memory (of M) to read
-    	output [14:0] pc			// address of next instruction
+    	output [15:0] addressM,		// Address in data memory (of M) to read
+    	output [15:0] pc			// address of next instruction
 );
-wire w1,w2,w3,w4,w5,w6,w7,w8,aLoad,AoM,wzr,wng,pass,pcload;
+wire w1,w2,aLoad,AoM,wzr,wng,pass,pcload, ngzr,gt,jlt,jeq,jgt,ple;
 wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
+wire w0=1'b1;
 
-	// Put your code here:
-	// Compare	
-   not(w1,instruction[15]);
-    Mux16 m0(woutM,instruction,w1,ouToAreg);
-    or(aLoad,instruction[5],w1);
-    ADRegister Areg(clk,ouToAreg,reset,aLoad,outAreg);  //A register
-	assign addressM=outAreg[0:14];
-    and(AoM,instruction[15],instruction[12]);
-    Mux16 m1(outAreg,inM,AoM,alubin);
+
+//    Not(in=instruction[15],out=w1);
+      not(w1,instruction[15]);
+
+//    Mux16(a=woutM,b=instruction,sel=w1,out=ouToAreg);
+      Mux16 m0(.a(woutM),.b(instruction),.sel(w1),.out(ouToAreg));  
+  
+//    Or(a=instruction[5],b=w1,out=aLoad);
+      or(aLoad,instruction[5],w1);
+
+//    ADRegister(in=ouToAreg,load=aLoad,reset=reset,out=outAreg,out[0..14]=addressM);  //A register
+    //  ADRegister Areg(.clk(clk),.in(ouToAreg),.reset(reset),.load(aLoad),.out(outAreg));
+      Register Areg(.clk(clk),.in(ouToAreg),.load(aLoad),.out(outAreg));
+      assign addressM=outAreg;
+
+//    And(a=instruction[15],b=instruction[12],out=AoM);
+      and(AoM,instruction[15],instruction[12]);  
+  
+//    Mux16(a=outAreg,b=inM,sel=AoM,out=alubin);
+      Mux16 m1(.a(outAreg),.b(inM),.sel(AoM),.out(alubin));
 
     
 
 
-    and(w2,instruction[15],instruction[4]);
-    ADRegister Dreg(clk,woutM,reset,w2,wDRegister);
+//    And(a=instruction[15],b=instruction[4],out=w2);
+      and(w2,instruction[15],instruction[4]);  
+  
+//   Dregister(in=woutM,load=w2,reset=reset,out=wDRegister);
+    // ADRegister Dreg(.clk(clk),.in(woutM),.reset(reset),.load(w2),.out(wDRegister));
+      Register Dreg(.clk(clk),.in(woutM),.load(w2),.out(wDRegister));
 
     //ALU
-    ALU alu(wDRegister,alubin,instruction[11],instruction[10],instruction[9],instruction[8],instruction[7],instruction[6],outM,wzr,wng);
-    
+//    ALU(x=wDRegister,y=alubin,no=instruction[6],f=instruction[7],ny=instruction[8],zy=instruction[9],nx=instruction[10],zx=instruction[11],out=woutM,out=outM,zr=wzr,ng=wng);
+      ALU alu0(.x(wDRegister),.y(alubin),.zx(instruction[11]),.nx(instruction[10]),.zy(instruction[9]),.ny(instruction[8]),.f(instruction[7]),.no(instruction[6]),.out(woutM),.zr(wzr),.ng(wng));
+      assign outM=woutM;  
 
     //jump
-    or(w3,wng,wzr); //w3=nqzr
-    not(w4,w3); //w4=gt
-    and(w5,wng,instruction[2]); //w5=jlt
-    and(w6,wzr,instruction[1]); //w6=jeq
-    and(w7,w4,instruction[0]); //w7=jgt
-    or(w8,w5,w6); //w8=ple
-    or(pass,w8,w7); 
+//    Or(a=wng,b=wzr,out=ngzr,out=w3);
+      or(ngzr,wng,wzr);
+     // assign ngzr=w3;
+//    Not(in=w3,out=gt,out=w4);
+      not(gt,ngzr);
+      
+     
+
+//    And(a=wng,b=instruction[2],out=jlt,out=w5);
+      and(jlt,wng,instruction[2]);
+
+//    And(a=wzr,b=instruction[1],out=jeq,out=w6);
+      and(jeq,wzr,instruction[1]);
+
+//    And(a=gt,b=instruction[0],out=jgt,out=w7);
+      and(jgt,gt,instruction[0]);
+
+//    Or(a=w5,b=w6,out=ple,out=w8);
+      or(ple,jlt,jeq);
+
+ //   Or(a=w8,b=w7,out=pass);
+      or(pass,jgt,ple);
+
 
     //PC
-    and(pcload,instruction[15],pass);
-    PC pc0(clk,outAreg,pcload,1,reset,pc);
-    and(writeM,instruction[15],instruction[3]);
+ //   And(a=instruction[15],b=pass,out=pcload);
+      and(pcload,instruction[15],pass);
+
+//    PC(in=outAreg,load=pcload,inc=true,reset=reset,out[0..14]=pc);
+      PC pc0(.clk(clk),.in(outAreg),.load(pcload),.inc(w0),.reset(reset),.out(pc));
+
+//    And(a=instruction[15],b=instruction[3],out= writeM);
+      and(writeM,instruction[15],instruction[3]);
+
 
 endmodule

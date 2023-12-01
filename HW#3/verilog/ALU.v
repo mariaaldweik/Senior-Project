@@ -37,23 +37,26 @@ module ALU(
 );
 
 	// Put your code here:
-wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15;
-    Mux16 xm(x,false,zx,w1);
-      Mux16 ym(y,false,zy,w2);
+wire [15:0] w0,w1,w2,w3,w4,w5,w6,w7;
+wire w13,w14,w15;
+assign w0=16'h0000;
 
-      Xor16 xinv(w1,nx,w3);
-      Xor16 yinv(w2,ny,w4);
+    Mux16 xm(x,w0,zx,w1);
+      Mux16 ym(y,w0,zy,w2);
+
+      Xor16 xinv(w3,w1,nx);
+      Xor16 yinv(w4,w2,ny);
 
     
 
       Add16 adder(w3,w4,w5);
       And16 andxy(w3,w4,w6);
       Mux16 mf(w6,w5,f,w7);
-      Xor16 mm(w7,no,out);
+      Xor16 mm(out,w7,no);
       Or8Way om(out[7:0],w13);
       Or8Way on(out[15:8],w14);
-      or o(w13,w14,w15);
-      not nout(w15,zr);
+      or o(w15,w13,w14);
+      not nout(zr,w15);
       assign ng=out[15];
 
 endmodule

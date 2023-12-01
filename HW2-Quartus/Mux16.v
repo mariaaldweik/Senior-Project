@@ -11,20 +11,22 @@ module Mux16(
 	output [15:0] out
 );
 
-  Mux mux0(out[0],a[0],b[0],sel);
-  Mux mux2(out[1],a[1],b[1],sel);
-  Mux mux3(out[2],a[2],b[2],sel);
-  Mux mux4(out[3],a[3],b[3],sel);
-  Mux mux5(out[4],a[4],b[4],sel);
-  Mux mux6(out[5],a[5],b[5],sel);
-  Mux mux7(out[6],a[6],b[6],sel);
-  Mux mux8(out[7],a[7],b[7],sel);
-  Mux mux9(out[8],a[8],b[8],sel);
-  Mux mux10(out[9],a[9],b[9],sel);
-  Mux mux11(out[10],a[10],b[10],sel);
-  Mux mux12(out[11],a[11],b[11],sel);
-  Mux mux13(out[12],a[12],b[12],sel);
-  Mux mux14(out[13],a[13],b[13],sel);
-  Mux mux15(out[14],a[14],b[14],sel);
-  Mux mux16(out[15],a[15],b[15],sel);
+ Mux m0(.a(a[0]),.b(b[0]),.sel(sel),.out(out[0]));
+Mux m1(.a(a[1]),.b(b[1]),.sel(sel),.out(out[1]));
+Mux m2(.a(a[2]),.b(b[2]),.sel(sel),.out(out[2]));
+Mux m3(.a(a[3]),.b(b[3]),.sel(sel),.out(out[3]));
+Mux m4(.a(a[4]),.b(b[4]),.sel(sel),.out(out[4]));
+Mux m5(.a(a[5]),.b(b[5]),.sel(sel),.out(out[5]));
+Mux m6(.a(a[6]),.b(b[6]),.sel(sel),.out(out[6]));
+Mux m7(.a(a[7]),.b(b[7]),.sel(sel),.out(out[7]));
+Mux m8(.a(a[8]),.b(b[8]),.sel(sel),.out(out[8]));
+Mux m9(.a(a[9]),.b(b[9]),.sel(sel),.out(out[9]));
+Mux m10(.a(a[10]),.b(b[10]),.sel(sel),.out(out[10]));
+Mux m11(.a(a[11]),.b(b[11]),.sel(sel),.out(out[11]));
+Mux m12(.a(a[12]),.b(b[12]),.sel(sel),.out(out[12]));
+Mux m13(.a(a[13]),.b(b[13]),.sel(sel),.out(out[13]));
+Mux m14(.a(a[14]),.b(b[14]),.sel(sel),.out(out[14]));
+Mux m15(.a(a[15]),.b(b[15]),.sel(sel),.out(out[15]));
+
+ 
 endmodule

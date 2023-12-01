@@ -10,10 +10,11 @@ module Register(
 	input clk,
 	input [15:0] in,
 	input load,
-	output [15:0] out
+	output  [15:0] out
 );
 
-Bit b0(clk,in[0],load,out[0]);
+
+    Bit b0(clk,in[0],load,out[0]);
     Bit b1(clk,in[1],load,out[1]);
     Bit b2(clk,in[2],load,out[2]);
     Bit b3(clk,in[3],load,out[3]);

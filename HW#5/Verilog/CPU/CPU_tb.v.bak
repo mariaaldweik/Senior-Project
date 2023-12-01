@@ -1,4 +1,4 @@
-`default_nettype none
+//`default_nettype none
 module CPU_tb();
 
 	// IN,OUT
@@ -10,7 +10,7 @@ module CPU_tb();
     wire writeM;
     wire [15:0] addressM;
     wire [15:0] pc;
-	
+	reg [15:0] n = 0;
 	// Part
 	CPU CPU(
 		.clk(clk),
@@ -26,9 +26,11 @@ module CPU_tb();
 	// Simulation
 	always #1 clk=~clk;
 	always @(posedge clk) begin
-		inM <= $random;
+		//inM <= $random;
+                inM <= 1110110100000110; 
 		reset <= (n<=10) || ((n>20) && (n<40));
-		instruction <= $random;	
+		//instruction <= $random;	
+                 instruction <=0011101011001010;
 	end
 
 	// Compare	
@@ -39,7 +41,7 @@ module CPU_tb();
 	wire [15:0] out_cmp;
 	wire [15:0] x,y;
 	wire zr,ng;
-reg [15:0] n = 0;
+
 	assign x = instruction[10]?(instruction[11]?~0:~regD):(instruction[11]?0:regD);
 	assign y = instruction[8]?(instruction[9]?~0:~(instruction[12]?inM:addressM_cmp)):(instruction[9]?0:(instruction[12]?inM:addressM_cmp));
 	assign out_cmp = instruction[6]?(instruction[7]?~(x+y):~(x&y)):(instruction[7]?(x+y):(x&y));
@@ -63,6 +65,7 @@ reg [15:0] n = 0;
 		#1
 		if ((pc != pc_cmp) || (addressM != addressM_cmp) || (outM != out_cmp) || (writeM != writeM_cmp)) 
 			begin
+				$display("FAIL: clk=%1b, inM=%16b, instruction=%16b, reset=%1b, out_cmp=%16b, writeM_cmp=%1b, addressM_cmp=%16b, pc_cmp=%16b",clk,inM,instruction,reset,out_cmp,writeM_cmp,addressM_cmp,pc_cmp);
 				$display("FAIL: clk=%1b, inM=%16b, instruction=%16b, reset=%1b, outM=%16b, writeM=%1b, addressM=%16b, pc=%16b",clk,inM,instruction,reset,outM,writeM,addressM,pc);
 				fail=1;
 			end

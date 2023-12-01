@@ -26,9 +26,11 @@ module CPU_tb();
 	// Simulation
 	always #1 clk=~clk;
 	always @(posedge clk) begin
-		inM <= $random;
+		//inM <= $random;
+                inM <= 'b1110110100000110; 
 		reset <= (n<=10) || ((n>20) && (n<40));
-		instruction <= $random;	
+		//instruction <= $random;	
+                 instruction <='b0011101011001010;
 	end
 
 	// Compare	
@@ -63,6 +65,7 @@ module CPU_tb();
 		#1
 		if ((pc != pc_cmp) || (addressM != addressM_cmp) || (outM != out_cmp) || (writeM != writeM_cmp)) 
 			begin
+				$display("FAIL: clk=%1b, inM=%16b, instruction=%16b, reset=%1b, out_cmp=%16b, writeM_cmp=%1b, addressM_cmp=%16b, pc_cmp=%16b",clk,inM,instruction,reset,out_cmp,writeM_cmp,addressM_cmp,pc_cmp);
 				$display("FAIL: clk=%1b, inM=%16b, instruction=%16b, reset=%1b, outM=%16b, writeM=%1b, addressM=%16b, pc=%16b",clk,inM,instruction,reset,outM,writeM,addressM,pc);
 				fail=1;
 			end

@@ -9,7 +9,6 @@ module Inc16(
 	output [15:0] out
 );
 
-wire [15:0] w1;
-assign w1=0000000000000001;
+wire [15:0] w1=16'h0001;
 	Add16 add(w1,in,out);
 endmodule

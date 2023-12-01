@@ -13,10 +13,10 @@ module Mux4Way16(
 	output [15:0] out
 );
 
-wire w1,w2;
+wire [15:0] w1,w2;
 
-	Mux16 m1(a,b,sel[0],w1);
-	Mux16 m2(c,d,sel[0],w2);
-	Mux16 m3(w1,w2,sel[0],out);
+	Mux16 m1(.a(a),.b(b),.sel(sel[0]),.out(w1));
+	Mux16 m2(.a(c),.b(d),.sel(sel[0]),.out(w2));
+	Mux16 m3(.a(w1),.b(w2),.sel(sel[1]),.out(out));
 
 endmodule

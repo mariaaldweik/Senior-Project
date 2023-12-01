@@ -20,6 +20,7 @@ module Register_tb();
 	always @(posedge clk) begin
 		in <= $random;	
 		load <= $random;
+		//#3;
 	end
 	reg [15:0] out_cmp;
 	always @(posedge clk)

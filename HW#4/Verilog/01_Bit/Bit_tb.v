@@ -5,7 +5,7 @@ module Bit_tb();
 	reg clk = 1;
 	reg in,load;
 	wire out;
-
+reg [15:0] n = 0;
 	// Part
 	Bit BIT(
 		.clk(clk),
@@ -25,7 +25,7 @@ module Bit_tb();
 		out_cmp <= (load?in:out);	
 	
 	reg fail = 0;
-	reg [15:0] n = 0;
+	
 	task check;
 		#1
 		if (out != out_cmp) 
