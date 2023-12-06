@@ -1,5 +1,0 @@
-Register(in=in,load=load,out=Areg);
-
-Register(in=in,load=load,out=Dreg);
-
-				$display("FAIL: clk=%1b, inM=%16b, instruction=%16b, reset=%1b, out_cmp=%16b, writeM_cmp=%1b, addressM_cmp=%16b, pc_cmp=%16b",clk,inM,instruction,reset,out_cmp,writeM_cmp,addressM_cmp,pc_cmp);

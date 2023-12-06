@@ -22,12 +22,12 @@ module DMux8Way(
    wire w1,w2,w3,w5,w4,w6;
 
 
-  DMux dm1 (w1,w2,in,sel[2]);
-  DMux dm2 (w3,w4,w1,sel[1]);
-  DMux dm3 (w5,w6,w2,sel[1]);
-  DMux dm4 (a,b,w3,sel[0]);
-  DMux dm5 (c,d,w4,sel[0]);
-  DMux dm6 (e,f,w5,sel[0]);
-  DMux dm7 (g,h,w6,sel[0]);
+  DMux dm1 (.in(in),.sel(sel[2]),.a(w1),.b(w2));
+  DMux dm2 (.in(w1),.sel(sel[1]),.a(w3),.b(w4));
+  DMux dm3 (.in(w2),.sel(sel[1]),.a(w5),.b(w6));
+  DMux dm4 (.in(w3),.sel(sel[0]),.a(a),.b(b));
+  DMux dm5 (.in(w4),.sel(sel[0]),.a(c),.b(d));
+  DMux dm6 (.in(w5),.sel(sel[0]),.a(e),.b(f));
+  DMux dm7 (.in(w6),.sel(sel[0]),.a(g),.b(h));
   
 endmodule
