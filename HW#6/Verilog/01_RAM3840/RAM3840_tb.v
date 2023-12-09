@@ -7,7 +7,7 @@ module RAM3840_tb();
 	reg [11:0] address;
 	reg load;
 	wire [15:0] out;
-
+reg [15:0] n = 0;
 	// Part
 	RAM3840 RAM3840(
 		.clk(clk),
@@ -32,7 +32,7 @@ module RAM3840_tb();
 	wire[15:0] out_cmp = regRAM[address[11:0]];
 	
 	reg fail = 0;
-	reg [15:0] n = 0;
+	
 	task check;
 		#1
 		if (out != out_cmp) 

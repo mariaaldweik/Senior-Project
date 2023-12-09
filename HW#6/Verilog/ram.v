@@ -4,7 +4,7 @@
 * if (load =i= 1) M[address][t+1] = in[t]
 */
 
-`default_nettype none
+//`default_nettype none
 module ram(
 	input clk,
 	input [7:0] address,
