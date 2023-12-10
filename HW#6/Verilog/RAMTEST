@@ -1,0 +1,365 @@
+
+module RAM3840(
+	input clk,
+	input [11:0] address,
+	input [15:0] in,
+	input load,
+	output reg [15:0] out
+);
+reg  wl0,wl1,wl2,wl3,wl4,wl5,wl6,wl7,wl8,wl9,wl10,wl11,wl12,wl13,wl14;
+wire [15:0] w0,w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14;
+
+
+// Bank3
+always@(posedge clk)
+begin
+if(address[11:8]<=4'd4)
+begin
+if(address[11:8]==4'd0)
+begin
+
+  wl0<=load;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=4'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+   out<=w0;
+end
+else
+if(address[11:8]==4'd1)
+begin
+  wl0<=1'd0;
+  wl1<=load;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=4'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w1;
+end
+else
+if(address[11:8]==4'd2)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=load;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w2;
+end
+else
+if(address[11:8]==4'd3)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=load;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+  out<=w3;
+end
+else
+if(address[11:8]==4'd4)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=load;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w4;
+
+end
+end
+//bank0 
+
+
+if(address[11:8]<=4'd8)
+begin
+if(address[11:8]==4'd5)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=load;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w5;
+end
+else
+if(address[11:8]==4'd6)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=load;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+  out<=w6;
+end
+else
+
+if(address[11:8]==4'd7)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=load;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+ out<=w7;
+end
+else
+if(address[11:8]==4'd8)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=load;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w8;
+end
+end
+// Bank1
+if(address[11:8]<=4'd12)
+begin
+if(address[11:8]==4'd9)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=load;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+out<=w9;
+
+end
+else
+if(address[11:8]==4'd10)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=load;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+ out<=w10;
+end
+else
+if(address[11:8]==4'd11)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=load;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=1'd0;
+ out<=w11;
+end
+else
+if(address[11:8]==4'd12)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=load;
+  wl13<=1'd0;
+  wl14<=1'd0;
+ out<=w12;
+
+end
+end
+// Bank2
+
+
+if(address[11:8]<=4'd14)
+begin
+if(address[11:8]==4'd13)
+begin 
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=load;
+  wl14<=1'd0;
+  out<=w13;
+end
+else
+if(address[11:8]==4'd14)
+begin
+  wl0<=1'd0;
+  wl1<=1'd0;
+  wl2<=1'd0;
+  wl3<=1'd0;
+  wl4<=1'd0;
+  wl5<=1'd0;
+  wl6<=1'd0;
+  wl7<=1'd0;
+  wl8<=1'd0;
+  wl9<=1'd0;
+  wl10<=1'd0;
+  wl11<=1'd0;
+  wl12<=1'd0;
+  wl13<=1'd0;
+  wl14<=load;
+  out<=w14;
+end
+end
+// Bank3
+
+end
+
+
+
+ram r0(.clk(clk),.address(address[7:0]),.in(in),.load(wl0),.out(w0));
+ram r1(.clk(clk),.address(address[7:0]),.in(in),.load(wl1),.out(w1));
+ram r2(.clk(clk),.address(address[7:0]),.in(in),.load(wl2),.out(w2));
+ram r3(.clk(clk),.address(address[7:0]),.in(in),.load(wl3),.out(w3));
+
+//bank0 
+
+ram r4(.clk(clk),.address(address[7:0]),.in(in),.load(wl4),.out(w4));
+ram r5(.clk(clk),.address(address[7:0]),.in(in),.load(wl5),.out(w5));
+ram r6(.clk(clk),.address(address[7:0]),.in(in),.load(wl6),.out(w6));
+ram r7(.clk(clk),.address(address[7:0]),.in(in),.load(wl7),.out(w7));
+
+// Bank1
+
+ram r8(.clk(clk),.address(address[7:0]),.in(in),.load(wl8),.out(w8));
+ram r9(.clk(clk),.address(address[7:0]),.in(in),.load(wl9),.out(w9));
+ram r10(.clk(clk),.address(address[7:0]),.in(in),.load(wl10),.out(w10));
+ram r11(.clk(clk),.address(address[7:0]),.in(in),.load(wl11),.out(w11));
+// Bank2
+
+ram r12(.clk(clk),.address(address[7:0]),.in(in),.load(wl12),.out(w12));
+ram r13(.clk(clk),.address(address[7:0]),.in(in),.load(wl13),.out(w13));
+ram r14(.clk(clk),.address(address[7:0]),.in(in),.load(wl14),.out(w14));
+endmodule
