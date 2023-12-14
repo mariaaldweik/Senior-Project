@@ -1,6 +1,6 @@
 module and4way(
-output out,
-	input a,b,c,d;
+output out
+input a,b,c,d,
 	
 );
 wire w0,w1;
