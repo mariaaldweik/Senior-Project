@@ -1,0 +1,28 @@
+module Decoder4x16(
+        	output  [15:0] out,
+	input [3:0] in
+	
+);
+wire w0,w1,w2,w3,w4;
+not n0(w0,in[0]);
+not n1(w1,in[1]);
+not n2(w2,in[2]);
+not n3(w3,in[3]);
+and4way y0(out[0],w0,w1,w2,w3); 
+and4way y1(out[1],in[0],w1,w2,w3); 
+and4way y2(out[2],w0,in[1],w2,w3); 
+and4way y3(out[3],in[0],in[1],w2,w3); 
+and4way y4(out[4],w0,w1,in[2],w3); 
+and4way y5(out[5],in[0],w1,in[2],w3); 
+and4way y6(out[6],w0,in[1],in[2],w3); 
+and4way y7(out[7],in[0],in[1],in[2],w3); 
+and4way y8(out[8],w0,w1,w2,in[3]);
+and4way y9(out[9],in[0],w1,w2,in[3]);
+and4way y10(out[10],w0,in[1],w2,in[3]);
+and4way y11(out[11],in[0],in[1],w2,in[3]);
+and4way y12(out[12],w0,w1,in[2],in[3]);
+and4way y13(out[13],in[0],w1,in[2],in[3]);
+and4way y14(out[14],w0,in[1],in[2],in[3]);
+and4way y15(out[15],in[0],in[1],in[2],in[3]);
+
+endmodule
