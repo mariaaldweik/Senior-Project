@@ -363,3 +363,17 @@ ram r12(.clk(clk),.address(address[7:0]),.in(in),.load(wl12),.out(w12));
 ram r13(.clk(clk),.address(address[7:0]),.in(in),.load(wl13),.out(w13));
 ram r14(.clk(clk),.address(address[7:0]),.in(in),.load(wl14),.out(w14));
 endmodule
+
+
+
+// MUX16WAY Verilog Code
+module MUX16WAY (A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,sel,out);
+input[15:0] A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P;
+  input[3:0] sel;
+  output[15:0] out;
+  wire [15:0] w1,w2;
+  
+  MUX8WAY a1(.a(A),.b(B),.c(C),.d(D),.e(E),.f(F),.g(G),.h(H),.sel(sel[2:0]),.out(w1));
+  MUX8WAY a2(.a(I),.b(J),.c(K),.d(L),.e(M),.f(N),.g(O),.h(P),.sel(sel[2:0]),.out(w2));
+  mux16 a3(.a(w1),.b(w2), .sel(sel[3]),.out(out));
+endmodule 
