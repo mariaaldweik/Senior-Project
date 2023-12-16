@@ -20,6 +20,6 @@ module Mux8Way16(
   wire [15:0] w1,w2;
 
   Mux4Way16 m0(.a(a),.b(b),.c(c),.d(d),.sel(sel[1:0]),.out(w1));
-  Mux4Way16 m1(.a(e),.b(f),.c(g),.d(g),.sel(sel[1:0]),.out(w2));
+  Mux4Way16 m1(.a(e),.b(f),.c(g),.d(h),.sel(sel[1:0]),.out(w2));
   Mux16 m2(.a(w1),.b(w2),.sel(sel[2]),.out(out));
 endmodule
