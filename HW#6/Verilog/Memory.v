@@ -14,7 +14,7 @@
  * The behavior of IO addresses is described in 06_IO-Devices
  */
 
-`default_nettype none
+//`default_nettype none
 module Memory(
 	input [15:0] address,
 	input load,
@@ -55,6 +55,77 @@ module Memory(
 	input [15:0] inIOF
 );
 
+wire [15:0] wout;
 	// Put your code here:
 
+and(loadRAM,~address[12],load);
+// RAM Load
+
+
+nor(loadIO0,~address[12],address[3],address[2],address[1],address[0],~load);
+//LED Load
+
+
+nor(loadIO1,~address[12],address[3],address[2],address[1],~address[0],~load);
+// BUTTON Load
+
+
+
+nor(loadIO2,~address[12],address[3],address[2],~address[1],address[0],~load);
+// TX Load
+
+
+and(loadIO3,address[12],~address[3],~address[2],address[1],address[0],load);
+// RX Load
+
+
+nor(loadIO4,~address[12],address[3],~address[2],address[1],address[0],~load);
+// SPI Load
+
+
+and(loadIO5,address[12],~address[3],address[2],~address[1],address[0],load);
+// SRAM_ADDR Load
+
+
+and(loadIO6,address[12],~address[3],address[2],address[1],~address[0],load);
+// SRAM_DATA Load
+
+
+and(loadIO7,address[12],~address[3],address[2],address[1],address[0],load);
+// GO Load
+
+
+nor(loadIO8,~address[12],~address[3],address[2],address[1],address[0],~load);
+// LCD8 Load
+
+
+and(loadIO9,address[12],address[3],~address[2],~address[1],address[0],load);
+// LCD16 Load
+
+
+and(loadIOA,address[12],address[3],~address[2],address[1],~address[0],load);
+// RTP Load
+
+
+and(loadIOB,address[12],address[3],~address[2],address[1],address[0],load);
+// DEBUG0 Load
+
+
+and(loadIOC,address[12],address[3],address[2],~address[1],~address[0],load);
+// DEBUG1 Load
+
+
+and(loadIOD,address[12],address[3],address[2],~address[1],address[0],load);
+// DEBUG2 Load
+
+
+and(loadIOE,address[12],address[3],address[2],address[1],~address[0],load);
+// DEBUG3 Load
+
+and(loadIOF,address[12],load,address[0],address[1],address[2],address[3]);
+// DEBUG4 Load
+
+
+Mux16way m0(.A(inIO0),.B(inIO1),.C(inIO2),.D(inIO3),.E(inIO4),.F(inIO5),.G(inIO6),.H(inIO7),.I(inIO8),.J(inIO9),.K(inIOA),.L(inIOB),.M(inIOC),.N(inIOD),.O(inIOE),.P(inIOF),.sel(address[3:0]),.out(wout));
+Mux16 m1(.a(inRAM),.b(wout),.sel(address[12]),.out(out));
 endmodule

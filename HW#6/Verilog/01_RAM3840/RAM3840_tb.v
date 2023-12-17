@@ -7,6 +7,7 @@ module RAM3840_tb();
 	reg [11:0] address;
 	reg load;
 	wire [15:0] out;
+	reg [15:0] out_cmp ;
 reg [15:0] n = 0;
 	// Part
 	RAM3840 RAM3840(
@@ -28,16 +29,19 @@ reg [15:0] n = 0;
 	// Compare
 	reg [15:0] regRAM [0:3839];
 	always @(posedge clk)
+	begin
 		if (load) regRAM[address[11:0]] <= in;
-	wire[15:0] out_cmp = regRAM[address[11:0]];
-	
+	 out_cmp <= regRAM[address[11:0]];
+
+	end
 	reg fail = 0;
 	
 	task check;
 		#1
 		if (out != out_cmp) 
 			begin
-				$display("FAIL: clk=%1b, address=%12b, in=%16b, load=%1b, out=%16b",clk,address,in,load,out);
+				$display("FAIL: clk=%1b, address=%4h, in=%16b, load=%1b, out_cmp=%4h",clk,address,in,load,out_cmp);
+				$display("FAIL: clk=%1b, address=%4h, in=%16b, load=%1b, out=%4h",clk,address,in,load,out);
 				fail=1;
 			end
 	endtask
