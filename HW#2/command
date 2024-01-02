@@ -1,0 +1,1 @@
+.\winiceprogduino.exe -I \\.\COM5 C:\Users\abdul\Documents\apio\iCE40-HX8K-EVB\leds\hardware.bin 
