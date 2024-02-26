@@ -36,7 +36,7 @@ ram r11(.clk(clk),.address(address[7:0]),.in(in),.load(wl[11]),.out(w11));
 ram r12(.clk(clk),.address(address[7:0]),.in(in),.load(wl[12]),.out(w12));
 ram r13(.clk(clk),.address(address[7:0]),.in(in),.load(wl[13]),.out(w13));
 ram r14(.clk(clk),.address(address[7:0]),.in(in),.load(wl[14]),.out(w14));
-ram r15(.clk(clk),.address(address[7:0]),.in(in),.load(wl[15]),.out(w15));
+//ram r15(.clk(clk),.address(address[7:0]),.in(in),.load(wl[15]),.out(w15));
 
 //Bank3
 
