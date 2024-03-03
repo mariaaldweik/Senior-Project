@@ -1,5 +1,5 @@
 `default_nettype none
-module Memory_tb();
+module MemoryDecoder_tb();
 
 	// IN,OUT
 	reg [15:0] address;
@@ -41,7 +41,7 @@ module Memory_tb();
 	reg [15:0] inIOF;
 
 	// Part
-	Memory MEMORY(
+	MemoryDecoder MEMORY(
 		.address(address),
 		.load(load),
 		.out(out),
@@ -136,11 +136,11 @@ module Memory_tb();
 	
 	// Test 
   	initial begin
-  		$dumpfile("Memory_tb.vcd");
-  		$dumpvars(0, Memory_tb);
+  		$dumpfile("MemoryDecoder_tb.vcd");
+  		$dumpvars(0, MemoryDecoder_tb);
 		
 		$display("------------------------");
-		$display("Testbench: Memory");
+		$display("Testbench: MemoryDecoder");
 		
 		inRAM=$random;
 		inIO0=$random;
