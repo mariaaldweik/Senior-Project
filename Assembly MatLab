@@ -1,1 +1,158 @@
+% Open the file for reading
+fileID_read = fopen('test.txt', 'r');
+
+% Check if the file opened successfully
+if fileID_read == -1
+    error('Could not open input file');
+end
+
+% Initialize cell array to store lines
+lines = {};
+
+% Read each line until the end of the file
+line = fgetl(fileID_read);
+while ischar(line)
+    % Append the line to the cell array
+    lines{end+1} = line
+    % Read the next line
+    line = fgetl(fileID_read);
+end
+
+
+decimall={};
+test=zeros(10,1);
+temp={};
+% Iterate through each element in the lines array
+for i = 1:numel(lines)
+    line = lines{i};  % Get the current line
+    
+    % Iterate through each character in the line
+    for j = 1:length(line)
+       
+        character = line(j);
+
+        if(character =='@')
+        decimall{i}=line(2:end)
+        break
+        end
+         if(character =='D')
+            decimall{i}=16+57344;
+            temp = line(3:5);
+  % START OF D+1
+            if( temp =='D+1')  
+            decimall{i}=decimall{i}+1984;
+            temp=line(6:end)
+            if(temp =='; nul')
+             decimall{i}=decimall{i};
+          break
+            end 
+          if(temp =='; JGT')
+          decimall{i}=decimall{i}+1;
+          break
+          end
+          if(temp =='; JEQ')
+             decimall{i}=decimall{i}+2;
+          break
+          end
+          if(temp =='; JGE')
+           decimall{i}=decimall{i}+3;
+          break
+          end
+          if(temp =='; JLT')
+             decimall{i}=decimall{i}+4;
+          break
+          end
+          if(temp =='; JNE')
+             decimall{i}=decimall{i}+5;
+          break
+          end
+       if(temp =='; JLE')
+             decimall{i}=decimall{i}+6;
+          break
+       end
+                   if(temp =='; JMP')
+             decimall{i}=decimall{i}+7;
+          break
+                   end
+                   
+            end
+      %END OF D+1
+       % START OF D-1
+            if( temp =='D-1')  
+            decimall{i}=decimall{i}+1984;
+            temp=line(6:end)
+            if(temp =='; nul')
+             decimall{i}=decimall{i};
+          break
+            end 
+          if(temp =='; JGT')
+          decimall{i}=decimall{i}+1;
+          break
+          end
+          if(temp =='; JEQ')
+             decimall{i}=decimall{i}+2;
+          break
+          end
+          if(temp =='; JGE')
+           decimall{i}=decimall{i}+3;
+          break
+          end
+          if(temp =='; JLT')
+             decimall{i}=decimall{i}+4;
+          break
+          end
+          if(temp =='; JNE')
+             decimall{i}=decimall{i}+5;
+          break
+          end
+       if(temp =='; JLE')
+             decimall{i}=decimall{i}+6;
+          break
+       end
+                   if(temp =='; JMP')
+             decimall{i}=decimall{i}+7;
+          break
+                   end
+                   
+            end
+      %END OF D-1
+                        
+
+         end
+
+         end
+        
+    end
+
+                     binary_array = dec2bin(decimall{i})
+
+
+
+
+
+
+
+
+
+% Close the input file
+fclose(fileID_read);
+
+% Open a new file for writing
+fileID_write = fopen("C:\Users\abdul\Desktop\gp\assembler\AAM.txt", 'w');
+
+% Check if the file opened successfully
+if fileID_write == -1
+    error('Could not open output file');
+end
+
+% Write each line from the cell array to the new file
+for i = 1:numel(lines)
+    fprintf(fileID_write, '%s\n', lines{i});
+end
+
+% Close the output file
+fclose(fileID_write);
+
+
+
 
