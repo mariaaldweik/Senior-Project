@@ -18,8 +18,11 @@ while ischar(line)
     line = fgetl(fileID_read);
 end
 
+%for i = 1:63 
+ % decimall{i} = zeros(a,b); 
+%end
+decimall=cell(1,15);
 
-decimall={};
 
 
 A = {'D+1; nul','D+1; JGT','D+1; JEQ','D+1; JGE','D+1; JLT','D+1; JNE','D+1; JLE','D+1; JMP';...
@@ -72,44 +75,48 @@ for i = 1:numel(lines)
         break
         end
         %D
-         if(character1 =='D'&&character2 ~='A'&&character3 ~='M')
+         if(character1 =='D')
            decimall{i}=16+57344;
             temp = line(3:end);
          end
+         %        if(character1 =='D'&&character2 =='='&&character3 =='M')
+         %   decimall{i}=16+57344;
+         %    temp = line(3:end);
+         % end
          %M
-         if(character1 =='M'&&character2 ~='A'&&character3 ~='D')
+         if(character1 =='M'&&character2 ~='D')
             decimall{i}=8+57344;
             temp = line(3:end);
          end
          %A
-           if(character1 =='A'&&character2 ~='M'&&character3 ~='D')
+           if(character1 =='A'&&character2 ~='M'&&character3 ~='D'&&character2 ~='D')
             decimall{i}=32+57344;
             temp = line(3:end);
            end
            %AM
             if(character1 =='A'&&character2 =='M'&&character3 ~='D')
             decimall{i}=40+57344;
-            temp = line(3:end);
+            temp = line(4:end);
             end
             %AMD
             if(character1 =='A'&&character2 =='M'&&character3 =='D')
             decimall{i}=56+57344;
-            temp = line(3:end);
+            temp = line(5:end);
             end
             %MD
-             if(character1 =='M'&&character2 =='D'&&character3 ~='A')
+             if(character1 =='M'&&character2 =='D')
             decimall{i}=24+57344;
-            temp = line(3:end);
+            temp = line(4:end);
              end
               %AD
             if(character1 =='A'&&character2 =='D'&&character3 ~='M')
             decimall{i}=48+57344;
-            temp = line(3:end);
+            temp = line(4:end);
             end
               %nul
             if(character1 =='n'&&character2 =='u'&&character3 =='l')
             decimall{i}=0+57344;
-            temp = line(3:end);
+            temp = line(5:end);
             end
 
          % START OF D+1
