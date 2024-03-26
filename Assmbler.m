@@ -520,35 +520,35 @@ for i = 1:numel(lines)
       %END OF 1
          % START OF -1
           
-            if(temp =='-1; nul')
+            if(temp ==str(12,1))
              decimall{i}=decimall{i}+3712;
           break
             end 
-          if(temp =='-1; JGT')
+          if(temp ==str(12,2))
           decimall{i}=decimall{i}+3712+1;
           break
           end
-          if(temp =='-1; JEQ')
+          if(temp ==str(12,3))
              decimall{i}=decimall{i}+3712+2;
           break
           end
-          if(temp =='-1; JGE')
+          if(temp ==str(12,4))
            decimall{i}=decimall{i}+3712+3;
           break
           end
-          if(temp =='-1; JLT')
+          if(temp ==str(12,5))
              decimall{i}=decimall{i}+3712+4;
           break
           end
-          if(temp =='-1; JNE')
+          if(temp ==str(12,6))
              decimall{i}=decimall{i}+3712+5;
           break
           end
-       if(temp =='-1; JLE')
+       if(temp ==str(12,7))
              decimall{i}=decimall{i}+3712+6;
           break
        end
-       if(temp =='-1; JMP')
+       if(temp ==str(12,8))
              decimall{i}=decimall{i}+3712+7;
           break
                    end
@@ -557,35 +557,35 @@ for i = 1:numel(lines)
       %END OF -1
          % START OF D
           
-            if(temp =='D; nul')
+            if(temp ==str(13,1))
              decimall{i}=decimall{i}+768;
           break
             end 
-          if(temp =='D; JGT')
+          if(temp ==str(13,2))
           decimall{i}=decimall{i}+768+1;
           break
           end
-          if(temp =='D; JEQ')
+          if(temp ==str(13,3))
              decimall{i}=decimall{i}+768+2;
           break
           end
-          if(temp =='D; JGE')
+          if(temp ==str(13,4))
            decimall{i}=decimall{i}+768+3;
           break
           end
-          if(temp =='D; JLT')
+          if(temp ==str(13,5))
              decimall{i}=decimall{i}+768+4;
           break
           end
-          if(temp =='D; JNE')
+          if(temp ==str(13,6))
              decimall{i}=decimall{i}+768+5;
           break
           end
-       if(temp =='D; JLE')
+       if(temp ==str(13,7))
              decimall{i}=decimall{i}+768+6;
           break
        end
-       if(temp =='D; JMP')
+       if(temp ==str(13,8))
              decimall{i}=decimall{i}+768+7;
           break
                    end
@@ -594,35 +594,35 @@ for i = 1:numel(lines)
       %END OF D
   % START OF A
           
-            if(temp =='A; nul')
+            if(temp ==str(14,1))
              decimall{i}=decimall{i}+3072;
           break
             end 
-          if(temp =='A; JGT')
+          if(temp ==str(14,2))
           decimall{i}=decimall{i}+3072+1;
           break
           end
-          if(temp =='A; JEQ')
+          if(temp ==str(14,3))
              decimall{i}=decimall{i}+3072+2;
           break
           end
-          if(temp =='A; JGE')
+          if(temp ==str(14,4))
            decimall{i}=decimall{i}+3072+3;
           break
           end
-          if(temp =='A; JLT')
+          if(temp ==str(14,5))
              decimall{i}=decimall{i}+3072+4;
           break
           end
-          if(temp =='A; JNE')
+          if(temp ==str(14,6))
              decimall{i}=decimall{i}+3072+5;
           break
           end
-       if(temp =='A; JLE')
+       if(temp ==str(14,7))
              decimall{i}=decimall{i}+3072+6;
           break
        end
-       if(temp =='A; JMP')
+       if(temp ==str(14,8))
              decimall{i}=decimall{i}+3072+7;
           break
                    end
@@ -631,35 +631,35 @@ for i = 1:numel(lines)
       %END OF A
    % START OF !D
           
-            if(temp =='!D; nul')
+            if(temp ==str(15,1))
              decimall{i}=decimall{i}+832;
           break
             end 
-          if(temp =='!D; JGT')
+          if(temp ==str(15,2))
           decimall{i}=decimall{i}+832+1;
           break
           end
-          if(temp =='!D; JEQ')
+          if(temp ==str(15,3))
              decimall{i}=decimall{i}+832+2;
           break
           end
-          if(temp =='!D; JGE')
+          if(temp ==str(15,4))
            decimall{i}=decimall{i}+832+3;
           break
           end
-          if(temp =='!D; JLT')
+          if(temp ==str(15,5))
              decimall{i}=decimall{i}+832+4;
           break
           end
-          if(temp =='!D; JNE')
+          if(temp ==str(15,6))
              decimall{i}=decimall{i}+832+5;
           break
           end
-       if(temp =='!D; JLE')
+       if(temp ==str(15,7))
              decimall{i}=decimall{i}+832+6;
           break
        end
-       if(temp =='!D; JMP')
+       if(temp ==str(15,8))
              decimall{i}=decimall{i}+832+7;
           break
                    end
@@ -668,35 +668,35 @@ for i = 1:numel(lines)
       %END OF !D
         % START OF !A
           
-            if(temp =='1A; nul')
+            if(temp ==str(16,1))
              decimall{i}=decimall{i}+3136;
           break
             end 
-          if(temp =='!A; JGT')
+          if(temp ==str(16,2))
           decimall{i}=decimall{i}+3136+1;
           break
           end
-          if(temp =='!A; JEQ')
+          if(temp ==str(16,3))
              decimall{i}=decimall{i}+3136+2;
           break
           end
-          if(temp =='!A; JGE')
+          if(temp ==str(16,4))
            decimall{i}=decimall{i}+3136+3;
           break
           end
-          if(temp =='!A; JLT')
+          if(temp ==str(16,5))
              decimall{i}=decimall{i}+3136+4;
           break
           end
-          if(temp =='!A; JNE')
+          if(temp ==str(16,6))
              decimall{i}=decimall{i}+3136+5;
           break
           end
-       if(temp =='!A; JLE')
+       if(temp ==str(16,7))
              decimall{i}=decimall{i}+3136+6;
           break
        end
-       if(temp =='!A; JMP')
+       if(temp ==str(16,8))
              decimall{i}=decimall{i}+3136+7;
           break
                    end
@@ -705,35 +705,35 @@ for i = 1:numel(lines)
       %END OF !A
           % START OF -D
           
-            if(temp =='-D; nul')
+            if(temp ==str(17,1))
              decimall{i}=decimall{i}+960;
           break
             end 
-          if(temp =='-D; JGT')
+          if(temp ==str(17,2))
           decimall{i}=decimall{i}+960+1;
           break
           end
-          if(temp =='-D; JEQ')
+          if(temp ==str(17,3))
              decimall{i}=decimall{i}+960+2;
           break
           end
-          if(temp =='-D; JGE')
+          if(temp ==str(17,4))
            decimall{i}=decimall{i}+960+3;
           break
           end
-          if(temp =='-D; JLT')
+          if(temp ==str(17,5))
              decimall{i}=decimall{i}+960+4;
           break
           end
-          if(temp =='-D; JNE')
+          if(temp ==str(17,6))
              decimall{i}=decimall{i}+960+5;
           break
           end
-       if(temp =='-D; JLE')
+       if(temp ==str(17,7))
              decimall{i}=decimall{i}+960+6;
           break
        end
-       if(temp =='-D; JMP')
+       if(temp ==str(17,8))
              decimall{i}=decimall{i}+960+7;
           break
                    end
@@ -742,35 +742,35 @@ for i = 1:numel(lines)
       %END OF -D
         % START OF -A
           
-            if(temp =='-A; nul')
+            if(temp ==str(18,1))
              decimall{i}=decimall{i}+3264;
           break
             end 
-          if(temp =='-A; JGT')
+          if(temp ==str(18,2))
           decimall{i}=decimall{i}+3264+1;
           break
           end
-          if(temp =='-A; JEQ')
+          if(temp ==str(18,3))
              decimall{i}=decimall{i}+3264+2;
           break
           end
-          if(temp =='-A; JGE')
+          if(temp ==str(18,4))
            decimall{i}=decimall{i}+3264+3;
           break
           end
-          if(temp =='-A; JLT')
+          if(temp ==str(18,5))
              decimall{i}=decimall{i}+3264+4;
           break
           end
-          if(temp =='-A; JNE')
+          if(temp ==str(18,6))
              decimall{i}=decimall{i}+3264+5;
           break
           end
-       if(temp =='-A; JLE')
+       if(temp ==str(18,7))
              decimall{i}=decimall{i}+3264+6;
           break
        end
-       if(temp =='-A; JMP')
+       if(temp ==str(18,8))
              decimall{i}=decimall{i}+3264+7;
           break
                    end
