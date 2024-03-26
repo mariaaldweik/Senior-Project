@@ -64,8 +64,9 @@ for i = 1:numel(lines)
        
         character1 = line(j);
         character2 = line(2);
+        if(length(line)>=3)
         character3 = line(3);
-
+        end
         if(character1 =='@')
            temp{i}=str2num(line(2:end))
         decimall{i}=temp{i}
@@ -1160,7 +1161,7 @@ end
 fclose(fileID_read);
 
 % Open a new file for writing
-fileID_write = fopen("C:\Users\abdul\Desktop\gp\assembler\AAM.txt", 'w');
+fileID_write = fopen("C:\Users\abdul\Desktop\gp\assembler\AAMM.hack", 'w');
 
 % Check if the file opened successfully
 if fileID_write == -1
