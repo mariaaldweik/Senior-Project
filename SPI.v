@@ -16,7 +16,7 @@ module SPI(
 	input SDI,
 	output SCK
 );
-wire wCSX;
+wire w0=1;
 	  reg[4:0] bits=0;
            wire busy=|bits;
 	 assign SCK= busy&~bits[0];
@@ -31,10 +31,9 @@ wire wCSX;
 		miso_s <= SDI;
 	always @(posedge clk)
 		shift <= load?in[7:0]:(~SCK?shift:{shift[6:0],miso_s});
-        assign wCSX=1;
 	
 	always @(posedge clk)
-		CSX<=load?in[8]:wCSX;
+		 CSX<=load?in[8]:w0;
 	assign SDO=shift[7];	
 
 
