@@ -1,45 +1,42 @@
+/**
+ 
+ * When load=1 transmission of byte in[7:0] is initiated. The byte is send to
+ * MOSI (master out slave in) bitwise together with 8 clock signals on SCK.
+ * At the same time the SPI recieves a byte at MISO (master in slave out).
+ * Sampling of MISO is done at rising edge of SCK and shiftingis done at
+ */ 
 
 module SPI(
-        input clk,
+	input clk,
 	input load,
 	input [15:0] in,
 	output [15:0] out,
-	output CSX,
+	output reg CSX,
 	output SDO,
 	input SDI,
-	output reg SCK
+	output SCK
 );
+wire wCSX;
+	  reg[4:0] bits=0;
+           wire busy=|bits;
+	 assign SCK= busy&~bits[0];
+	
+	always @(posedge clk)
+		bits <= (load&~in[8])?1:((bits==16)?0:(busy?bits+1:0));
+	reg [7:0] shift=0;
+	assign out = {busy,7'd0,shift};
+	
+	reg miso_s;
+	always @(posedge clk)
+		miso_s <= SDI;
+	always @(posedge clk)
+		shift <= load?in[7:0]:(~SCK?shift:{shift[6:0],miso_s});
+        assign wCSX=1;
+	
+	always @(posedge clk)
+		CSX<=load?in[8]:wCSX;
+	assign SDO=shift[7];	
 
-reg [7:0] shiftreg;
-reg [3:0] counter;
-reg sampling;
-reg shifting;
 
-always @(posedge clk) begin
-    if (load) begin
-        shiftreg <= in;
-        counter <= 4'b0000;
-        sampling <= 1'b1;
-        shifting <= 1'b0;
-        SCK <= 1'b0;
-    end else begin
-        if (counter == 4'b1000) begin
-          counter <= 4'b0000;
-            sampling <= 1'b0;
-            shifting <= 1'b1;
-        end else if (sampling) begin
-            counter <= counter + 1;
-            SCK <= ~SCK;
-        end else if (shifting) begin
-            counter <= counter + 1;
-            shiftreg <= {shiftreg[6:0], SDI};
-            SCK <= ~SCK;
-        end
-    end
-end
-
-assign out = shiftreg;
-assign CSX = load;
-assign SDO = shiftreg[7];
 
 endmodule
