@@ -11,12 +11,13 @@ module SPI(
 	input load,
 	input [15:0] in,
 	output [15:0] out,
-	output reg CSX,
+	output  CSX,
 	output SDO,
 	input SDI,
 	output SCK
 );
 wire w0=1;
+reg wCSX=1;
 	  reg[4:0] bits=0;
            wire busy=|bits;
 	 assign SCK= busy&~bits[0];
@@ -33,7 +34,8 @@ wire w0=1;
 		shift <= load?in[7:0]:(~SCK?shift:{shift[6:0],miso_s});
 	
 	always @(posedge clk)
-		 CSX<=load?in[8]:w0;
+		 wCSX<=load?in[8]:wCSX;
+	assign CSX=wCSX;
 	assign SDO=shift[7];	
 
 
