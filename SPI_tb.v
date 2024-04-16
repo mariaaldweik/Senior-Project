@@ -1,3 +1,4 @@
+
 `timescale 10ns/1ns
 `default_nettype none
 
@@ -62,7 +63,7 @@ module SPI_tb();
 		#4
 		if ((out!=out_cmp)||(SCK!=SCK_cmp)||(SDO!=SDO_cmp)||(CSX!=CSX_cmp))
 			begin
-				$display("FAIL: clk=%1b, load=%1b, in=%16b, out=%16b, CSX=%1b, SDO=%1b, SDI=%1b, SCK=%1b",clk,load,in,out,CSX,SDO,SDI,SCK);
+				$display("FAIL: clk=%1b, load=%1b, in=%16b, out=%16b, CSX=%1b, SDO=%1b, SDI=%1b, SCK=%1b,out_cmp=%16b,CSX_cmp=%1b, SDO_cmp=%1b,SCK_cmp=%1b",clk,load,in,out,CSX,SDO,SDI,SCK,out_cmp,CSX_cmp,SDO_cmp,SCK_cmp);
 				fail=1;
 			end
 	endtask
