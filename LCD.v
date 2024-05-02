@@ -38,6 +38,7 @@ module LCD(
 		bits <= (load&~in[8]|load16)?1:(((bits[4]&~d16)|bits[5])?0:(busy?bits+1:0));
 	assign SCK=busy&~bits[0];
 	assign out[15] = busy;
+assign out[14:0=0;
 	reg [15:0] shift=0;
 	always @(posedge clk)
 		shift <= (load|load16)?in:(~SCK?shift:{shift[14:0],1'b0});
