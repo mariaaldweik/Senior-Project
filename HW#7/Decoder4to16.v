@@ -2,6 +2,8 @@ module Decoder4to16(
     input [3:0] in,
     input load,
     output  [15:0] out
+	
+	
 );
 wire w0,w1,w2,w3,w4;
 //wire [15:0] wout;

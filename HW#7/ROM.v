@@ -6,7 +6,7 @@
  * instruction = ROM[pc]
  */
 
-//`default_nettype none
+
 module ROM(
 	input [15:0] pc,
 	output [15:0] instruction		
@@ -14,10 +14,10 @@ module ROM(
 
 	// No need to implement this chip
 	// The file ROM.BIN holds the hack code 
-	parameter ROMFILE = "ROM.hack";
+	parameter ROMFILE = "FPGAROM.hack";
 	
 	reg [15:0] mem [0:255];
-	assign instruction = mem[pc[7:0]];
+	assign instruction = mem[pc];
 	
 	initial begin
 		$readmemb(ROMFILE,mem);

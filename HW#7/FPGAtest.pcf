@@ -1,0 +1,11 @@
+set_io CLK	J3
+set_io DCX	E4
+set_io SDO	B2
+set_io SCK	F5
+set_io CSX	B1
+set_io RX	L11
+set_io TX	T16
+set_io led[0]	M12
+set_io led[1]	R16
+
+
