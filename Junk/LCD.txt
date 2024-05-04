@@ -1,0 +1,158 @@
+@54
+D=A; nul
+@4104
+M=D; nul
+@72
+D=A; nul
+@4104
+M=D; nul
+@58
+D=A; nul
+@4104
+M=D; nul
+@85
+D=A; nul
+@4104
+M=D; nul
+@17
+D=A; nul
+@4104
+M=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+D=D; nul
+@32767
+D=A; nul
+@114
+D=D-1; JGT
+@32767
+D=A; nul
+@118
+D=D-1; JGT
+@32767
+D=A; nul
+@122
+D=D-1; JGT
+@32767
+D=A; nul
+@126
+D=D-1; JGT
+@32767
+D=A; nul
+@130
+D=D-1; JGT
+@32767
+D=A; nul
+@134
+D=D-1; JGT
+@32767
+D=A; nul
+@138
+D=D-1; JGT
+@32767
+D=A; nul
+@142
+D=D-1; JGT
+@32767
+D=A; nul
+@146
+D=D-1; JGT
+@32767
+D=A; nul
+@150
+D=D-1; JGT
+@32767
+D=A; nul
+@154
+D=D-1; JGT
+@41
+D=A; nul
+@4104
+M=D; nul

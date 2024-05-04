@@ -9,17 +9,23 @@ module Clock25_Reset20(
 	output clk,			// internal clock 25 Mhz
 	output  reset 		// reset signal approx. 20us
 );
-
-wire q1,q2,w0,wreset;
-wire [15:0] w1;
-wire [15:0] outreg=16'h000C;
+reg [11:0] counter=0;
+wire q1,q2;
 DFF dff0(.clk(CLK),.in(~q1),.out(q1));
 DFF dff1(.clk(q1),.in(~q2),.out(q2));
 assign clk=q2;
+always @(posedge CLK) 
+begin
+	if(counter>='d2000)
+  reset<=1'b0;
+	else
+	begin
+		counter<=counter+1;
+  reset<=1'b1;
+	end
+	
+end
 
-   Inc16 in0(.in(outreg),.out(w1));
- Register r0(.clk(clk),.in(w1),.load(wreset),.out(outreg));
+	// Put your code here:
 
-  not (reset,outreg[9]);
- assign wreset=reset;
 endmodule

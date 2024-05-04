@@ -1,0 +1,592 @@
+ % START OF D+1
+            if( temp =='D+1; nul')  
+            decimall{i}=decimall{i}+1984; 
+          break
+            end 
+          if(temp =='D+1; JGT')
+          decimall{i}=decimall{i}+1984+1;
+          break
+          end
+          if(temp =='D+1; JEQ')
+             decimall{i}=decimall{i}+1984+2;
+          break
+          end
+          if(temp =='D+1; JGE')
+           decimall{i}=decimall{i}+1984+3;
+          break
+          end
+          if(temp =='D+1; JLT')
+             decimall{i}=decimall{i}+1984+4;
+          break
+          end
+          if(temp =='D+1; JNE')
+             decimall{i}=decimall{i}+1984+5;
+          break
+          end
+       if(temp =='D+1; JLE')
+             decimall{i}=decimall{i}+1984+6;
+          break
+       end
+                   if(temp =='D+1; JMP')
+             decimall{i}=decimall{i}+1984+7;
+          break
+                   end
+                   
+            end
+      %END OF D+1
+       % START OF D-1
+          
+            if(temp =='D-1; nul')
+             decimall{i}=decimall{i}+896;
+          break
+            end 
+          if(temp =='D-1; JGT')
+          decimall{i}=decimall{i}+896+1;
+          break
+          end
+          if(temp =='D-1; JEQ')
+             decimall{i}=decimall{i}+896+2;
+          break
+          end
+          if(temp =='D-1; JGE')
+           decimall{i}=decimall{i}+896+3;
+          break
+          end
+          if(temp =='D-1; JLT')
+             decimall{i}=decimall{i}+896+4;
+          break
+          end
+          if(temp =='D-1; JNE')
+             decimall{i}=decimall{i}+896+5;
+          break
+          end
+       if(temp =='D-1; JLE')
+             decimall{i}=decimall{i}+896+6;
+          break
+       end
+                   if(temp =='D-1; JMP')
+             decimall{i}=decimall{i}+896+7;
+          break
+                   end
+                   
+            end
+      %END OF D-1
+                        
+  % START OF A+1
+           
+            if(temp =='A+1; nul')
+             decimall{i}=decimall{i}+3520;
+          break
+            end 
+          if(temp =='A+1; JGT')
+          decimall{i}=decimall{i}+3520+1;
+          break
+          end
+          if(temp =='A+1; JEQ')
+             decimall{i}=decimall{i}+3520+2;
+          break
+          end
+          if(temp =='A+1; JGE')
+           decimall{i}=decimall{i}+3520+3;
+          break
+          end
+          if(temp =='A+1; JLT')
+             decimall{i}=decimall{i}+3520+4;
+          break
+          end
+          if(temp =='A+1; JNE')
+             decimall{i}=decimall{i}+3520+5;
+          break
+          end
+       if(temp =='A+1; JLE')
+             decimall{i}=decimall{i}+3520+6;
+          break
+       end
+                   if(temp =='A+1; JMP')
+             decimall{i}=decimall{i}+3520+7;
+          break
+                   end
+                   
+            end
+      %END OF A+1
+        % START OF A-1
+          
+            if(temp =='A-1; nul')
+             decimall{i}=decimall{i}+3200;
+          break
+            end 
+          if(temp =='A-1; JGT')
+          decimall{i}=decimall{i}+3200+1;
+          break
+          end
+          if(temp =='A-1; JEQ')
+             decimall{i}=decimall{i}+3200+2;
+          break
+          end
+          if(temp =='A-1; JGE')
+           decimall{i}=decimall{i}+3200+3;
+          break
+          end
+          if(temp =='A-1; JLT')
+             decimall{i}=decimall{i}+3200+4;
+          break
+          end
+          if(temp =='A-1; JNE')
+             decimall{i}=decimall{i}+3200+5;
+          break
+          end
+       if(temp =='A-1; JLE')
+             decimall{i}=decimall{i}+3200+6;
+          break
+       end
+                   if(temp =='A-1; JMP')
+             decimall{i}=decimall{i}+3200+7;
+          break
+                   end
+                   
+            end
+      %END OF A-1
+          % START OF A-D
+          
+            if(temp =='A-D; nul')
+             decimall{i}=decimall{i}+448;
+          break
+            end 
+          if(temp =='A-D; JGT')
+          decimall{i}=decimall{i}+448+1;
+          break
+          end
+          if(temp =='A-D; JEQ')
+             decimall{i}=decimall{i}+448+2;
+          break
+          end
+          if(temp =='A-D; JGE')
+           decimall{i}=decimall{i}+448+3;
+          break
+          end
+          if(temp =='A-D; JLT')
+             decimall{i}=decimall{i}+448+4;
+          break
+          end
+          if(temp =='A-D; JNE')
+             decimall{i}=decimall{i}+448+5;
+          break
+          end
+       if(temp =='A-D; JLE')
+             decimall{i}=decimall{i}+448+6;
+          break
+       end
+                   if(temp =='A-D; JMP')
+             decimall{i}=decimall{i}+448+7;
+          break
+                   end
+                   
+            end
+      %END OF A-D
+        % START OF D&A
+          
+            if(temp =='D&A; nul')
+             decimall{i}=decimall{i};
+          break
+            end 
+          if(temp =='D&A; JGT')
+          decimall{i}=decimall{i}+1;
+          break
+          end
+          if(temp =='D&A; JEQ')
+             decimall{i}=decimall{i}+2;
+          break
+          end
+          if(temp =='D&A; JGE')
+           decimall{i}=decimall{i}+3;
+          break
+          end
+          if(temp =='D&A; JLT')
+             decimall{i}=decimall{i}+4;
+          break
+          end
+          if(temp =='D&A; JNE')
+             decimall{i}=decimall{i}+5;
+          break
+          end
+       if(temp =='D&A; JLE')
+             decimall{i}=decimall{i}+6;
+          break
+       end
+                   if(temp =='D&A; JMP')
+             decimall{i}=decimall{i}+7;
+          break
+                   end
+                   
+            end
+      %END OF D&A
+        % START OF D|A
+          
+            if(temp =='D|A; nul')
+             decimall{i}=decimall{i}+1344;
+          break
+            end 
+          if(temp =='D|A; JGT')
+          decimall{i}=decimall{i}+1344+1;
+          break
+          end
+          if(temp =='D|A; JEQ')
+             decimall{i}=decimall{i}+1344+2;
+          break
+          end
+          if(temp =='D|A; JGE')
+           decimall{i}=decimall{i}+1344+3;
+          break
+          end
+          if(temp =='D|A; JLT')
+             decimall{i}=decimall{i}+1344+4;
+          break
+          end
+          if(temp =='D|A; JNE')
+             decimall{i}=decimall{i}+1344+5;
+          break
+          end
+       if(temp =='D|A; JLE')
+             decimall{i}=decimall{i}+1344+6;
+          break
+       end
+                   if(temp =='D|A; JMP')
+             decimall{i}=decimall{i}+1344+7;
+          break
+                   end
+                   
+            end
+      %END OF D|A
+              % START OF 0
+          
+            if(temp =='0; nul')
+             decimall{i}=decimall{i}+2688;
+          break
+            end 
+          if(temp =='0; JGT')
+          decimall{i}=decimall{i}+2688+1;
+          break
+          end
+          if(temp =='0; JEQ')
+             decimall{i}=decimall{i}+2688+2;
+          break
+          end
+          if(temp =='0; JGE')
+           decimall{i}=decimall{i}+2688+3;
+          break
+          end
+          if(temp =='0; JLT')
+             decimall{i}=decimall{i}+2688+4;
+          break
+          end
+          if(temp =='0; JNE')
+             decimall{i}=decimall{i}+2688+5;
+          break
+          end
+       if(temp =='0; JLE')
+             decimall{i}=decimall{i}+2688+6;
+          break
+       end
+       if(temp =='0; JMP')
+             decimall{i}=decimall{i}+2688+7;
+          break
+                   end
+                   
+            end
+      %END OF 0
+      % START OF 1
+          
+            if(temp =='1; nul')
+             decimall{i}=decimall{i}+4032;
+          break
+            end 
+          if(temp =='1; JGT')
+          decimall{i}=decimall{i}+4032+1;
+          break
+          end
+          if(temp =='1; JEQ')
+             decimall{i}=decimall{i}+4032+2;
+          break
+          end
+          if(temp =='1; JGE')
+           decimall{i}=decimall{i}+4032+3;
+          break
+          end
+          if(temp =='1; JLT')
+             decimall{i}=decimall{i}+4032+4;
+          break
+          end
+          if(temp =='1; JNE')
+             decimall{i}=decimall{i}+4032+5;
+          break
+          end
+       if(temp =='1; JLE')
+             decimall{i}=decimall{i}+4032+6;
+          break
+       end
+       if(temp =='1; JMP')
+             decimall{i}=decimall{i}+4032+7;
+          break
+                   end
+                   
+            end
+      %END OF 1
+         % START OF -1
+          
+            if(temp =='-1; nul')
+             decimall{i}=decimall{i}+3712;
+          break
+            end 
+          if(temp =='-1; JGT')
+          decimall{i}=decimall{i}+3712+1;
+          break
+          end
+          if(temp =='-1; JEQ')
+             decimall{i}=decimall{i}+3712+2;
+          break
+          end
+          if(temp =='-1; JGE')
+           decimall{i}=decimall{i}+3712+3;
+          break
+          end
+          if(temp =='-1; JLT')
+             decimall{i}=decimall{i}+3712+4;
+          break
+          end
+          if(temp =='-1; JNE')
+             decimall{i}=decimall{i}+3712+5;
+          break
+          end
+       if(temp =='-1; JLE')
+             decimall{i}=decimall{i}+3712+6;
+          break
+       end
+       if(temp =='-1; JMP')
+             decimall{i}=decimall{i}+3712+7;
+          break
+                   end
+                   
+            end
+      %END OF -1
+         % START OF D
+          
+            if(temp =='D; nul')
+             decimall{i}=decimall{i}+768;
+          break
+            end 
+          if(temp =='D; JGT')
+          decimall{i}=decimall{i}+768+1;
+          break
+          end
+          if(temp =='D; JEQ')
+             decimall{i}=decimall{i}+768+2;
+          break
+          end
+          if(temp =='D; JGE')
+           decimall{i}=decimall{i}+768+3;
+          break
+          end
+          if(temp =='D; JLT')
+             decimall{i}=decimall{i}+768+4;
+          break
+          end
+          if(temp =='D; JNE')
+             decimall{i}=decimall{i}+768+5;
+          break
+          end
+       if(temp =='D; JLE')
+             decimall{i}=decimall{i}+768+6;
+          break
+       end
+       if(temp =='D; JMP')
+             decimall{i}=decimall{i}+768+7;
+          break
+                   end
+                   
+            end
+      %END OF D
+  % START OF A
+          
+            if(temp =='A; nul')
+             decimall{i}=decimall{i}+3072;
+          break
+            end 
+          if(temp =='A; JGT')
+          decimall{i}=decimall{i}+3072+1;
+          break
+          end
+          if(temp =='A; JEQ')
+             decimall{i}=decimall{i}+3072+2;
+          break
+          end
+          if(temp =='A; JGE')
+           decimall{i}=decimall{i}+3072+3;
+          break
+          end
+          if(temp =='A; JLT')
+             decimall{i}=decimall{i}+3072+4;
+          break
+          end
+          if(temp =='A; JNE')
+             decimall{i}=decimall{i}+3072+5;
+          break
+          end
+       if(temp =='A; JLE')
+             decimall{i}=decimall{i}+3072+6;
+          break
+       end
+       if(temp =='A; JMP')
+             decimall{i}=decimall{i}+3072+7;
+          break
+                   end
+                   
+            end
+      %END OF A
+   % START OF !D
+          
+            if(temp =='!D; nul')
+             decimall{i}=decimall{i}+832;
+          break
+            end 
+          if(temp =='!D; JGT')
+          decimall{i}=decimall{i}+832+1;
+          break
+          end
+          if(temp =='!D; JEQ')
+             decimall{i}=decimall{i}+832+2;
+          break
+          end
+          if(temp =='!D; JGE')
+           decimall{i}=decimall{i}+832+3;
+          break
+          end
+          if(temp =='!D; JLT')
+             decimall{i}=decimall{i}+832+4;
+          break
+          end
+          if(temp =='!D; JNE')
+             decimall{i}=decimall{i}+832+5;
+          break
+          end
+       if(temp =='!D; JLE')
+             decimall{i}=decimall{i}+832+6;
+          break
+       end
+       if(temp =='!D; JMP')
+             decimall{i}=decimall{i}+832+7;
+          break
+                   end
+                   
+            end
+      %END OF !D
+        % START OF !A
+          
+            if(temp =='1A; nul')
+             decimall{i}=decimall{i}+3136;
+          break
+            end 
+          if(temp =='!A; JGT')
+          decimall{i}=decimall{i}+3136+1;
+          break
+          end
+          if(temp =='!A; JEQ')
+             decimall{i}=decimall{i}+3136+2;
+          break
+          end
+          if(temp =='!A; JGE')
+           decimall{i}=decimall{i}+3136+3;
+          break
+          end
+          if(temp =='!A; JLT')
+             decimall{i}=decimall{i}+3136+4;
+          break
+          end
+          if(temp =='!A; JNE')
+             decimall{i}=decimall{i}+3136+5;
+          break
+          end
+       if(temp =='!A; JLE')
+             decimall{i}=decimall{i}+3136+6;
+          break
+       end
+       if(temp =='!A; JMP')
+             decimall{i}=decimall{i}+3136+7;
+          break
+                   end
+                   
+            end
+      %END OF !A
+          % START OF -D
+          
+            if(temp =='-D; nul')
+             decimall{i}=decimall{i}+960;
+          break
+            end 
+          if(temp =='-D; JGT')
+          decimall{i}=decimall{i}+960+1;
+          break
+          end
+          if(temp =='-D; JEQ')
+             decimall{i}=decimall{i}+960+2;
+          break
+          end
+          if(temp =='-D; JGE')
+           decimall{i}=decimall{i}+960+3;
+          break
+          end
+          if(temp =='-D; JLT')
+             decimall{i}=decimall{i}+960+4;
+          break
+          end
+          if(temp =='-D; JNE')
+             decimall{i}=decimall{i}+960+5;
+          break
+          end
+       if(temp =='-D; JLE')
+             decimall{i}=decimall{i}+960+6;
+          break
+       end
+       if(temp =='-D; JMP')
+             decimall{i}=decimall{i}+960+7;
+          break
+                   end
+                   
+            end
+      %END OF -D
+        % START OF -A
+          
+            if(temp =='-A; nul')
+             decimall{i}=decimall{i}+3264;
+          break
+            end 
+          if(temp =='-A; JGT')
+          decimall{i}=decimall{i}+3264+1;
+          break
+          end
+          if(temp =='-A; JEQ')
+             decimall{i}=decimall{i}+3264+2;
+          break
+          end
+          if(temp =='-A; JGE')
+           decimall{i}=decimall{i}+3264+3;
+          break
+          end
+          if(temp =='-A; JLT')
+             decimall{i}=decimall{i}+3264+4;
+          break
+          end
+          if(temp =='-A; JNE')
+             decimall{i}=decimall{i}+3264+5;
+          break
+          end
+       if(temp =='-A; JLE')
+             decimall{i}=decimall{i}+3264+6;
+          break
+       end
+       if(temp =='-A; JMP')
+             decimall{i}=decimall{i}+3264+7;
+          break
+                   end
+                   
+            end
+      %END OF -A
