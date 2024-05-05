@@ -1,0 +1,29 @@
+@4099
+D=M; nul
+@30
+M=D; nul
+@32767
+A=!A; nul
+D=D&A; nul
+@0
+nul=D; JLT
+
+@4099
+D=M; nul
+@0
+D=D&A; nul
+@9
+nul=D; JNE
+@4098
+D=M; nul
+@32767
+A=!A; nul
+D=D&A; nul
+@0
+nul=D; JLT
+@72
+D=A; nul
+@4098
+M=D; nul
+@12
+nul=0; JMP
