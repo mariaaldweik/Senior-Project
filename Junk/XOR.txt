@@ -1,15 +1,14 @@
 //XOR statement to chick 'if' statement for example if(M[33]==61) JUMP to line 0
 
-@61
+@10
 D=A; nul
 @33
 M=D; nul
-
 @33
 D=M; nul
 D=!D; nul
 @61
-D=A&D; nul
+D=D&A; nul
 @1
 M=D; nul
 @33
@@ -21,6 +20,6 @@ D=D&A; nul
 M=D; nul
 @1
 A=M; nul
-D=A|D; nul
+D=D|A; nul
 @0
 D=D; JEQ
