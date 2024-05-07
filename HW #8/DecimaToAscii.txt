@@ -1,0 +1,15 @@
+// The result is converted to ASCII here result in M[50] in decimal
+
+// The number of digit is counted -->
+
+// if (result-10)<0 result in 1 digit 
+@10
+D=A; nul
+@50
+D=M-D; nul
+@
+
+
+// if (result-100)<0 result in 2 digit 
+// if (result-1000)<0 result in 3 digit 
+

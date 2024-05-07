@@ -1,0 +1,33 @@
+//XOR statement to chick 'if' statement for example if(M[x]==38) JUMP to line "&" operation x is stored in M[70] address Jumping to stored in M[71] Address Returning to M[72]
+//if statement for "&"
+@38
+D=A; nul
+@70  //@x
+A=M; nul    //@x
+M=D; nul
+
+@70  //@x
+A=M; nul    //@x
+D=M; nul
+D=!D; nul
+@38
+D=D&A; nul
+@1
+M=D; nul
+@70  //@x
+A=M; nul    //@x
+D=M; nul
+@38
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71  //@address
+A=M; nul    //@address
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP

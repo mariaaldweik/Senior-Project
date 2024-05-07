@@ -1,0 +1,135 @@
+// Converting from ASCII to Decimal
+@48
+D=A; nul
+@30
+M=D-M; nul
+@32
+M=D-M; nul
+
+
+
+// "+" operation in case that first & second num has one digit
+
+@30
+D=M; nul
+@32
+D=D+M; nul
+@50
+M=D; nul
+@line to convert Decimal to ASCII
+nul=D; JMP
+
+// "-" operation in case that first & second num has one digit
+@30
+D=M; nul
+@32
+D=D-M; nul
+@50
+M=D; nul
+@line to convert Decimal to ASCII
+nul=D; JMP
+
+// "&" operation in case that first & second num has one digit
+@30
+D=M; nul
+@32
+D=D&M; nul
+@50
+M=D; nul
+@line to convert Decimal to ASCII
+nul=D; JMP
+
+// "|" operation in case that first & second num has one digit
+@30
+D=M; nul
+@32
+D=D|M; nul
+@50
+M=D; nul
+@line to l
+nul=D; JMP
+
+
+// convert Decimal to ASCII result may be two digits
+// check if 2 digit
+
+//4th bit check
+@8
+D=A; nul
+@50
+D=D&M; nul
+@60
+M=D; nul
+
+@60
+D=M; nul
+D=!D; nul
+@8
+D=D&A; nul
+@1
+M=D; nul
+@60
+D=M; nul
+@8
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@line of 2 digit convertor
+D=D; JEQ
+// if not check 5th bit
+
+@16
+D=A; nul
+@50
+D=D&M; nul
+@60
+M=D; nul
+
+@60
+D=M; nul
+D=!D; nul
+@16
+D=D&A; nul
+@1
+M=D; nul
+@60
+D=M; nul
+@16
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@line of 2 digit convertor
+D=D; JEQ
+
+//if not continue to 1 digit convertor
+
+@48
+D=A; nul
+@50
+M=D+M; nul
+@ line to send the result to TX
+nul=D; JMP
+
+// 2 digit convertor first digit from left stored in M[51] second digit stored in M[50]
+@10
+D=A; nul
+@50
+M=M-D; nul
+@1
+D=A; nul
+@51
+M=D; nul
+@ line to send the result to TX
+nul=D; JMP
+
+
+
+

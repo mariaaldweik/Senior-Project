@@ -1,0 +1,280 @@
+//M[34] --> "=" one of the numbers (2 Digits) the other (1 Digit)
+
+// check which number has 2 digits
+//if first number 2 digit JUMP to #First_number_2_Digit
+
+// check first operation (+)
+@#First_number_2_Digit
+D=A; nul
+@71
+M=D; nul
+@#Check_next1
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (+) operation
+nul=D; JMP
+
+// check next1 operation (-)
+@#First_number_2_Digit
+D=A; nul
+@71
+M=D; nul
+@#Check_next2
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+// check next2 operation (&)
+@#First_number_2_Digit
+D=A; nul
+@71
+M=D; nul
+@#Check_next3
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (&) operation
+nul=D; JMP
+
+// check next3 operation (|)
+@#First_number_2_Digit
+D=A; nul
+@71
+M=D; nul
+@#Second_number_2_Digit
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+
+
+
+// #First_number_2_Digit
+
+// Converting M[30] & M[31] from ASCII to Decimal
+@48
+D=A; nul
+@30
+M=D-M; nul
+@31
+M=D-M; nul
+
+//Converting first Digit to its real value
+@10
+D=A; nul
+@1
+M=D; nul
+@30 //line x
+D=M; nul
+M=D+M; nul
+@1
+MD=M-1; nul
+@ line x 
+D=D; JGT
+
+// Converting the first number to decimal and storing the result in M[40]=First number
+@31
+D=M; nul
+@30
+D=D+M; nul
+@40
+M=D; nul
+
+// Converting the second number to decimal and storing the result in M[41]=Second number
+@48
+D=A; nul
+@33
+D=M-D; nul
+@41
+M=D; nul
+
+// check first operation (+)
+@#Done operation_do_"+"
+D=A; nul
+@71
+M=D; nul
+@#Check_next1
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (+) operation
+nul=D; JMP
+
+// check next1 operation (-)
+@#Done operation_do_"-"
+D=A; nul
+@71
+M=D; nul
+@#Check_next2
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+// check next2 operation (&)
+@#Done operation_do_"&"
+D=A; nul
+@71
+M=D; nul
+@#Check_next3
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (&) operation
+nul=D; JMP
+
+// check next3 operation (|)
+@#Done operation_do_"|"
+D=A; nul
+@71
+M=D; nul
+@#not used //location displays "error"
+D=A; nul
+@72
+M=D; nul
+@32
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+
+
+
+// #Second_number_2_Digit
+
+// Converting M[32] & M[33] from ASCII to Decimal
+@48
+D=A; nul
+@32
+M=D-M; nul
+@33
+M=D-M; nul
+
+//Converting first Digit to its real value
+@10
+D=A; nul
+@1
+M=D; nul
+@32 //line x
+D=M; nul
+M=D+M; nul
+@1
+MD=M-1; nul
+@ line x 
+D=D; JGT
+
+// Converting the Second number to decimal and storing the result in M[41]=Second number
+@33
+D=M; nul
+@30
+D=D+M; nul
+@41
+M=D; nul
+
+// Converting the first number to decimal and storing the result in M[40]=First number
+@48
+D=A; nul
+@30
+D=M-D; nul
+@40
+M=D; nul
+
+// check first operation (+)
+@#Done operation_do_"+"
+D=A; nul
+@71
+M=D; nul
+@#Check_next1
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (+) operation
+nul=D; JMP
+
+// check next1 operation (-)
+@#Done operation_do_"-"
+D=A; nul
+@71
+M=D; nul
+@#Check_next2
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+// check next2 operation (&)
+@#Done operation_do_"&"
+D=A; nul
+@71
+M=D; nul
+@#Check_next3
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (&) operation
+nul=D; JMP
+
+// check next3 operation (|)
+@#Done operation_do_"|"
+D=A; nul
+@71
+M=D; nul
+@#not used //location displays "error"
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
