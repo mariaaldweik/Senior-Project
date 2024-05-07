@@ -1,0 +1,96 @@
+/**
+ * UartRX receives bytes over UART
+ *
+ * When clear = 1 the chip clears the receive buffer and is ready to receive
+ * next byte. out[15] is set to 1 to show, that chip is ready to receive next
+ * byte. When RX goes low the chip starts sampling the RX line. After reading
+ * of byte completes, chip ouputs the received byte to out[7:0]] with out[15]=0.
+ */
+
+module UartRX(
+	input clk,
+	input clear,
+	input RX,
+	output [15:0] out
+
+);
+wire run,w2,w3,winc,w12,wclearbits,wclearbaud,busy,wclaercount;
+wire [15:0] w0,w216,wbaud,wbits,w108,wout,w14,wready,count10,wwout;
+wire [8:0] data;
+assign w0=0;
+assign run=0;
+assign winc=1;
+assign w216=16'd216;
+assign w108=16'd108;
+assign wready=16'b0000000000000000;
+reg w7=0;
+reg w11=0;
+wire stop;
+reg wten=0;
+reg wresetb=0;
+not(w100,RX);
+or(w2,w100,clear);
+Bit s(clk,w100,w2,busy);
+nand(out[15],busy,wten);
+
+
+always@(posedge clk)begin
+if(wbaud==7)
+w7=1;
+if(wbaud!=7)
+w7=0;
+end
+always@(posedge clk)begin
+if(wbits==10)begin
+w11=1;
+wresetb=1;
+end
+if(wbits!=10)begin
+w11=0;
+wresetb=0;
+end
+end
+always@(posedge clk)begin
+
+if(count10==100)begin
+wten=1;
+//stop=1;
+end
+
+
+if(count10==0)begin
+wten=0;
+//stop=0;
+
+end
+end
+assign stop=wten;
+or(wclearbaud,w7,clear);
+or(wclearbits,wresetb,clear);
+or(wclaercount,wten,clear);
+PC bud(clk,w0,w0[0],busy,wclearbaud,wbaud);
+PC bits(clk,w0,w0[0],w7,wclearbits,wbits);
+PC count(clk,w0,w0[0],w7,wclaercount,count10);
+/*PC(
+	input clk,
+	input [15:0] in,
+	input load,
+	input inc,
+	input reset,
+	output  [15:0]out
+);	
+*/
+
+DFF in(clk,RX,w12);
+BitShift9R ss(clk,w0[8:0],w12,w0[0],w11,data);
+
+
+assign wout[7:0]=data[7:0];
+assign wout[15:8]=0;
+Mux16 r(wout,wready,clear,w14);
+ Register x(clk,w14,stop,wwout);
+	assign out[14:0]=wwout[14:0];
+
+endmodule
+//(load&~out_tx) // start
+//out_tx// busy
