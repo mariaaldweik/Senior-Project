@@ -825,6 +825,7 @@ for i = 1:numel(lines)
                    
             
       %END OF M  
+<<<<<<< HEAD
 
 % START OF !M
             if( temp ==str(20,1))  
@@ -1162,3 +1163,342 @@ for i = 1:numel(lines)
 
         
     end
+=======
+
+% START OF !M
+            if( temp ==str(20,1))  
+            decimall{i}=decimall{i}+7232; 
+          break
+            end 
+          if(temp ==str(20,2))
+          decimall{i}=decimall{i}+7232+1;
+          break
+          end
+          if(temp ==str(20,3))
+             decimall{i}=decimall{i}+7232+2;
+          break
+          end
+          if(temp ==str(20,4))
+           decimall{i}=decimall{i}+7232+3;
+          break
+          end
+          if(temp ==str(20,5))
+             decimall{i}=decimall{i}+7232+4;
+          break
+          end
+          if(temp ==str(20,6))
+             decimall{i}=decimall{i}+7232+5;
+          break
+          end
+       if(temp ==str(20,7))
+             decimall{i}=decimall{i}+7232+6;
+          break
+       end
+                   if(temp ==str(20,8))
+             decimall{i}=decimall{i}+7232+7;
+          break
+                   end
+                   
+      %END OF !M  
+
+      % START OF -M
+            if( temp ==str(21,1))  
+            decimall{i}=decimall{i}+7360; 
+          break
+            end 
+          if(temp ==str(21,2))
+          decimall{i}=decimall{i}+7360+1;
+          break
+          end
+          if(temp ==str(21,3))
+             decimall{i}=decimall{i}+7360+2;
+          break
+          end
+          if(temp ==str(21,4))
+           decimall{i}=decimall{i}+7360+3;
+          break
+          end
+          if(temp ==str(21,5))
+             decimall{i}=decimall{i}+7360+4;
+          break
+          end
+          if(temp ==str(21,6))
+             decimall{i}=decimall{i}+7360+5;
+          break
+          end
+       if(temp ==str(21,7))
+             decimall{i}=decimall{i}+7360+6;
+          break
+       end
+                   if(temp ==str(21,8))
+             decimall{i}=decimall{i}+7360+7;
+          break
+                   end
+                   
+      %END OF -M 
+
+      % START OF M+1
+            if( temp ==str(22,1))  
+            decimall{i}=decimall{i}+7616; 
+          break
+            end 
+          if(temp ==str(22,2))
+          decimall{i}=decimall{i}+7616+1;
+          break
+          end
+          if(temp ==str(22,3))
+             decimall{i}=decimall{i}+7616+2;
+          break
+          end
+          if(temp ==str(22,4))
+           decimall{i}=decimall{i}+7616+3;
+          break
+          end
+          if(temp ==str(22,5))
+             decimall{i}=decimall{i}+7616+4;
+          break
+          end
+          if(temp ==str(22,6))
+             decimall{i}=decimall{i}+7616+5;
+          break
+          end
+       if(temp ==str(22,7))
+             decimall{i}=decimall{i}+7616+6;
+          break
+       end
+                   if(temp ==str(22,8))
+             decimall{i}=decimall{i}+7616+7;
+          break
+                   end
+                   
+            
+      %END OF M+1 
+
+      % START OF M-1
+            if( temp ==str(23,1))  
+            decimall{i}=decimall{i}+7296; 
+          break
+            end 
+          if(temp ==str(23,2))
+          decimall{i}=decimall{i}+7296+1;
+          break
+          end
+          if(temp ==str(23,3))
+             decimall{i}=decimall{i}+7296+2;
+          break
+          end
+          if(temp ==str(23,4))
+           decimall{i}=decimall{i}+7296+3;
+          break
+          end
+          if(temp ==str(23,5))
+             decimall{i}=decimall{i}+7296+4;
+          break
+          end
+          if(temp ==str(23,6))
+             decimall{i}=decimall{i}+7296+5;
+          break
+          end
+       if(temp ==str(23,7))
+             decimall{i}=decimall{i}+7296+6;
+          break
+       end
+                   if(temp ==str(23,8))
+             decimall{i}=decimall{i}+7296+7;
+          break
+                   end
+                   
+            
+      %END OF M-1 
+
+         % START OF D+M
+            if( temp ==str(24,1))  
+            decimall{i}=decimall{i}+4224; 
+          break
+            end 
+          if(temp ==str(24,2))
+          decimall{i}=decimall{i}+4224+1;
+          break
+          end
+          if(temp ==str(24,3))
+             decimall{i}=decimall{i}+4224+2;
+          break
+          end
+          if(temp ==str(24,4))
+           decimall{i}=decimall{i}+4224+3;
+          break
+          end
+          if(temp ==str(24,5))
+             decimall{i}=decimall{i}+4224+4;
+          break
+          end
+          if(temp ==str(24,6))
+             decimall{i}=decimall{i}+4224+5;
+          break
+          end
+       if(temp ==str(24,7))
+             decimall{i}=decimall{i}+4224+6;
+          break
+       end
+                   if(temp ==str(24,8))
+             decimall{i}=decimall{i}+4224+7;
+          break
+                   end
+                   
+            
+      %END OF D+M
+
+       % START OF D-M
+            if( temp ==str(25,1))  
+            decimall{i}=decimall{i}+5312; 
+          break
+            end 
+          if(temp ==str(25,2))
+          decimall{i}=decimall{i}+5312+1;
+          break
+          end
+          if(temp ==str(25,3))
+             decimall{i}=decimall{i}+5312+2;
+          break
+          end
+          if(temp ==str(25,4))
+           decimall{i}=decimall{i}+5312+3;
+          break
+          end
+          if(temp ==str(25,5))
+             decimall{i}=decimall{i}+5312+4;
+          break
+          end
+          if(temp ==str(25,6))
+             decimall{i}=decimall{i}+5312+5;
+          break
+          end
+       if(temp ==str(25,7))
+             decimall{i}=decimall{i}+5312+6;
+          break
+       end
+                   if(temp ==str(25,8))
+             decimall{i}=decimall{i}+5312+7;
+          break
+                   end
+                   
+            
+      %END OF D-M
+
+         % START OF M-D
+            if( temp ==str(26,1))  
+            decimall{i}=decimall{i}+4544; 
+          break
+            end 
+          if(temp ==str(26,2))
+          decimall{i}=decimall{i}+4544+1;
+          break
+          end
+          if(temp ==str(26,3))
+             decimall{i}=decimall{i}+4544+2;
+          break
+          end
+          if(temp ==str(26,4))
+           decimall{i}=decimall{i}+4544+3;
+          break
+          end
+          if(temp ==str(26,5))
+             decimall{i}=decimall{i}+4544+4;
+          break
+          end
+          if(temp ==str(26,6))
+             decimall{i}=decimall{i}+4544+5;
+          break
+          end
+       if(temp ==str(26,7))
+             decimall{i}=decimall{i}+4544+6;
+          break
+       end
+                   if(temp ==str(26,8))
+             decimall{i}=decimall{i}+4544+7;
+          break
+                   end
+                   
+            
+      %END OF M-D
+
+       % START OF D&M
+            if( temp ==str(27,1))  
+            decimall{i}=decimall{i}+4096; 
+          break
+            end 
+          if(temp ==str(27,2))
+          decimall{i}=decimall{i}+4096+1;
+          break
+          end
+          if(temp ==str(27,3))
+             decimall{i}=decimall{i}+4096+2;
+          break
+          end
+          if(temp ==str(27,4))
+           decimall{i}=decimall{i}+4096+3;
+          break
+          end
+          if(temp ==str(27,5))
+             decimall{i}=decimall{i}+4096+4;
+          break
+          end
+          if(temp ==str(27,6))
+             decimall{i}=decimall{i}+4096+5;
+          break
+          end
+       if(temp ==str(27,7))
+             decimall{i}=decimall{i}+4096+6;
+          break
+       end
+                   if(temp ==str(27,8))
+             decimall{i}=decimall{i}+4096+7;
+          break
+                   end
+                   
+            
+      %END OF D&M
+
+          % START OF D|M
+            if( temp ==str(28,1))  
+            decimall{i}=decimall{i}+5440; 
+          break
+            end 
+          if(temp ==str(28,2))
+          decimall{i}=decimall{i}+5440+1;
+          break
+          end
+          if(temp ==str(28,3))
+             decimall{i}=decimall{i}+5440+2;
+          break
+          end
+          if(temp ==str(28,4))
+           decimall{i}=decimall{i}+5440+3;
+          break
+          end
+          if(temp ==str(28,5))
+             decimall{i}=decimall{i}+5440+4;
+          break
+          end
+          if(temp ==str(28,6))
+             decimall{i}=decimall{i}+5440+5;
+          break
+          end
+       if(temp ==str(28,7))
+             decimall{i}=decimall{i}+5440+6;
+          break
+       end
+                   if(temp ==str(28,8))
+             decimall{i}=decimall{i}+5440+7;
+          break
+                   end
+                   
+            
+      %END OF D|M
+       
+    end
+                         binary_array{i,1} = dec2bin(decimall{i},16)
+
+        
+    end
+>>>>>>> 01aa7cc56177d8ddc2cfdd84ebfc1e5b941b6916
