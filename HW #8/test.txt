@@ -1,2 +1,496 @@
-@65
-D=D+1
+@13877
+D=A; nul
+@30
+M=D; nul
+@95
+D=A; nul
+@31
+M=D; nul
+@50
+D=A; nul
+@32
+M=D; nul
+@8192
+D=A; nul
+@30
+D=D&M; nul
+@20
+M=D; nul
+@20
+D=M; nul
+D=!D; nul
+@8192
+D=D&A; nul
+@1
+M=D; nul
+@20
+D=M; nul
+@8192
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@45
+D=D; JEQ
+@30
+D=M; nul
+@48
+D=D-A; nul
+@40
+M=D; nul
+@105
+nul=D; JMP
+@16128
+D=A; nul
+@30
+D=D&M; nul
+@1
+M=D; nul
+@0
+D=A; nul
+@3
+M=D; nul
+@3
+M=M+1; nul
+@256
+D=A; nul
+@1
+MD=M-D; nul
+@55
+nul=D; JGT
+@48
+D=A; nul
+@3
+D=M-D; nul
+@40
+M=D; nul
+@10
+D=A; nul
+@2
+M=D; nul
+@0
+D=A; nul
+@80
+M=D; nul
+@40
+D=M; nul
+@80
+M=D+M; nul
+@2
+MD=M-1; nul
+@77
+D=D; JGT
+@80
+D=M; nul
+@40
+M=D; nul
+@255
+D=A; nul
+@30
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@41
+MD=D; nul
+@40
+M=D+M; nul
+@105
+nul=D; JMP
+@8192
+D=A; nul
+@32
+D=D&M; nul
+@20
+M=D; nul
+@20
+D=M; nul
+D=!D; nul
+@8192
+D=D&A; nul
+@1
+M=D; nul
+@20
+D=M; nul
+@8192
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@138
+D=D; JEQ
+@32
+D=M; nul
+@48
+D=D-A; nul
+@41
+M=D; nul
+@198
+nul=D; JMP
+@16128
+D=A; nul
+@32
+D=D&M; nul
+@1
+M=D; nul
+@0
+D=A; nul
+@3
+M=D; nul
+@3
+M=M+1; nul
+@256
+D=A; nul
+@1
+MD=M-D; nul
+@148
+nul=D; JGT
+@48
+D=A; nul
+@3
+D=M-D; nul
+@41
+M=D; nul
+@10
+D=A; nul
+@2
+M=D; nul
+@0
+D=A; nul
+@80
+M=D; nul
+@41
+D=M; nul
+@80
+M=D+M; nul
+@2
+MD=M-1; nul
+@170
+D=D; JGT
+@80
+D=M; nul
+@41
+M=D; nul
+@255
+D=A; nul
+@32
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@42
+MD=D; nul
+@41
+M=D+M; nul
+@198
+nul=D; JMP
+@254
+D=A; nul
+@71
+M=D; nul
+@212
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@387
+nul=D; JMP
+@262
+D=A; nul
+@71
+M=D; nul
+@226
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@414
+nul=D; JMP
+@270
+D=A; nul
+@71
+M=D; nul
+@240
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@442
+nul=D; JMP
+@278
+D=A; nul
+@71
+M=D; nul
+@0
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@469
+nul=D; JMP
+@40
+D=M; nul
+@41
+D=D+M; nul
+@50
+M=D; nul
+@286
+nul=D; JMP
+@40
+D=M; nul
+@41
+D=D-M; nul
+@50
+M=D; nul
+@286
+nul=D; JMP
+@40
+D=M; nul
+@41
+D=D&M; nul
+@50
+M=D; nul
+@286
+nul=D; JMP
+@40
+D=M; nul
+@41
+D=D|M; nul
+@50
+M=D; nul
+@286
+nul=D; JMP
+@10
+D=A; nul
+@50
+D=M-D; nul
+@304
+D=D; JLT
+@100
+D=A; nul
+@50
+D=M-D; nul
+@312
+D=D; JLT
+@1000
+D=A; nul
+@50
+D=M-D; nul
+@339
+D=D; JLT
+@48
+D=A; nul
+@50
+D=D+M; nul
+@60
+M=D; nul
+@0
+nul=D; JMP
+@0
+D=A; nul
+@60
+M=D; nul
+M=!M; nul 
+@60
+M=M+1; nul
+@10
+D=A; nul
+@50
+MD=M-D; nul
+@317
+nul=D; JGT
+@48
+D=A; nul
+@60
+M=D+M; nul
+@10
+D=A; nul
+@50
+D=D+M; nul
+@48
+D=D+A; nul
+@61
+M=D; nul
+@0
+nul=D; JMP
+@0
+D=A; nul
+@60
+M=D; nul
+M=!M; nul
+@60
+M=M+1; nul
+@100
+D=A; nul
+@50
+MD=M-D; nul
+@344
+nul=D; JGT
+@48
+D=A; nul
+@60
+M=D+M; nul
+@100
+D=A; nul
+@50
+D=D+M; nul
+@0
+D=A; nul
+@61
+M=D; nul
+M=!M; nul
+@61
+M=M+1; nul
+@10
+D=A; nul
+@50
+MD=M-D; nul
+@365
+nul=D; JGT
+@48
+D=A; nul
+@61
+M=D+M; nul
+@10
+D=A; nul
+@50
+D=D+M; nul
+@48
+D=D+A; nul
+@62
+M=D; nul
+@0
+nul=D; JMP
+@43
+D=A; nul
+@70
+A=M; nul
+D=M; nul
+D=!D; nul
+@43
+D=D&A; nul
+@1
+M=D; nul
+@70
+A=M; nul
+D=M; nul
+@43
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71
+A=M; nul
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP
+@95
+D=A; nul
+@70
+A=M; nul
+M=D; nul
+D=M; nul
+D=!D; nul
+@95
+D=D&A; nul
+@1
+M=D; nul
+@70
+A=M; nul
+D=M; nul
+@95
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71
+A=M; nul
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP
+@38
+D=A; nul
+@70
+A=M; nul
+D=M; nul
+D=!D; nul
+@38
+D=D&A; nul
+@1
+M=D; nul
+@70
+A=M; nul
+D=M; nul
+@38
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71
+A=M; nul
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP
+@124
+D=A; nul
+@70
+A=M; nul
+D=M; nul
+D=!D; nul
+@124
+D=D&A; nul
+@1
+M=D; nul
+@70
+A=M; nul
+D=M; nul
+@124
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71
+A=M; nul
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP
