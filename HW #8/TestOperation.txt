@@ -1,21 +1,17 @@
-@51
-D=A; nul
-@30
-M=D; nul
-@43
-D=A; nul
-@31
-M=D; nul
-@52
-D=A; nul
-@32
-M=D; nul
+//Inputs converted from ASCII to Decimal
+
+
+//First number
+// The number of digit is counted -->
+
 @8192
 D=A; nul
 @30
 D=D&M; nul
 @20
 M=D; nul
+
+//XOR
 @20
 D=M; nul
 D=!D; nul
@@ -37,13 +33,15 @@ D=D|A; nul
 D=D; JEQ
 @30
 D=M; nul
-@48
-D=D-A; nul
 @40
 M=D; nul
-@Second_num
+@#operations_Done
 nul=D; JMP
-@16128  #2Digit_separate_ASCII
+
+//2Digit_separate_ASCII
+
+//Left digit to its real value in decimal
+@16128
 D=A; nul
 @30
 D=D&M; nul
@@ -67,26 +65,20 @@ D=A; nul
 D=M-D; nul
 @40
 M=D; nul
+
 @10
 D=A; nul
 @2
 M=D; nul
-@0
-D=A; nul
-@80
-M=D; nul
 @40 //line x
 D=M; nul
-@80
 M=D+M; nul
 @2
 MD=M-1; nul
-@line x
+@ line x 
 D=D; JGT
-@80
-D=M; nul
-@40
-M=D; nul
+
+//Right digit to its real value in decimal
 @255
 D=A; nul
 @30
@@ -101,14 +93,22 @@ D=M-D; nul
 MD=D; nul
 @40
 M=D+M; nul
-@Second_num
+@#operations_Done
 nul=D; JMP
-@8192 //Second_num
+
+//Second number
+//Inputs converted from ASCII to Decimal
+
+// The number of digit is counted -->
+
+@8192
 D=A; nul
 @32
 D=D&M; nul
 @20
 M=D; nul
+
+//XOR
 @20
 D=M; nul
 D=!D; nul
@@ -130,25 +130,27 @@ D=D|A; nul
 D=D; JEQ
 @32
 D=M; nul
-@48
-D=D-A; nul
 @41
 M=D; nul
 @#operations_Done
 nul=D; JMP
-@16128 //#2Digit_separate_ASCII
+
+//2Digit_separate_ASCII
+
+//Left digit to its real value in decimal
+@16128
 D=A; nul
 @32
 D=D&M; nul
 @1
 M=D; nul
-@0
+@8
 D=A; nul
 @3
 M=D; nul
 @3 //line x
-M=M+1; nul
-@256
+M=M-1; nul
+@2
 D=A; nul
 @1
 MD=M-D; nul
@@ -156,30 +158,24 @@ MD=M-D; nul
 nul=D; JGT
 @48
 D=A; nul
-@3
+@1
 D=M-D; nul
 @41
 M=D; nul
+
 @10
 D=A; nul
 @2
 M=D; nul
-@0
-D=A; nul
-@80
-M=D; nul
 @41 //line x
 D=M; nul
-@80
 M=D+M; nul
 @2
 MD=M-1; nul
-@line x
+@ line x 
 D=D; JGT
-@80
-D=M; nul
-@41
-M=D; nul
+
+//Right digit to its real value in decimal
 @255
 D=A; nul
 @32
@@ -196,6 +192,10 @@ MD=D; nul
 M=D+M; nul
 @#operations_Done
 nul=D; JMP
+
+// The operations is Done here First number stored in M[40] Second number is stored in M[41] the result is stored in M[50]
+
+// check first operation (+)
 @#Done operation_do_"+"
 D=A; nul
 @71
@@ -210,6 +210,8 @@ D=A; nul
 M=D; nul
 @Check (+) operation
 nul=D; JMP
+
+// check next1 operation (-)
 @#Done operation_do_"-"
 D=A; nul
 @71
@@ -224,6 +226,8 @@ D=A; nul
 M=D; nul
 @Check (-) operation
 nul=D; JMP
+
+// check next2 operation (&)
 @#Done operation_do_"&"
 D=A; nul
 @71
@@ -238,11 +242,13 @@ D=A; nul
 M=D; nul
 @Check (&) operation
 nul=D; JMP
+
+// check next3 operation (|)
 @#Done operation_do_"|"
 D=A; nul
 @71
 M=D; nul
-@0
+@#not used //location displays "error"
 D=A; nul
 @72
 M=D; nul
@@ -252,6 +258,10 @@ D=A; nul
 M=D; nul
 @Check (|) operation
 nul=D; JMP
+
+
+
+//#Done operation_do_"+"
 @40
 D=M; nul
 @41
@@ -260,6 +270,8 @@ D=D+M; nul
 M=D; nul
 @convert Decimal to ASCII
 nul=D; JMP
+
+//#Done operation_do_"-"
 @40
 D=M; nul
 @41
@@ -268,6 +280,8 @@ D=D-M; nul
 M=D; nul
 @convert Decimal to ASCII
 nul=D; JMP
+
+//#Done operation_do_"&"
 @40
 D=M; nul
 @41
@@ -276,6 +290,8 @@ D=D&M; nul
 M=D; nul
 @convert Decimal to ASCII
 nul=D; JMP
+
+//#Done operation_do_"|"
 @40
 D=M; nul
 @41
@@ -284,36 +300,56 @@ D=D|M; nul
 M=D; nul
 @convert Decimal to ASCII
 nul=D; JMP
+
+//result in M[50] in decimal The result is converted to ASCII here 
+
+// The number of digit is counted -->
+
+// if (result-10)<0  1 digit 
 @10
 D=A; nul
 @50
 D=M-D; nul
 @#Convert_Decimal_to_Ascii
 D=D; JLT
+
+
+// if (result-100)<0  2 digit 
 @100
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@#separate_2_Digit
 D=D; JLT
+
+
+// if (result-1000)<0 3 digit 
 @1000
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@#separate_3_Digit
 D=D; JLT
+
+
+//Convert_Decimal_to_Ascii M[60]=Result in ASCII
 @48
 D=A; nul
 @50
 D=D+M; nul
 @60
 M=D; nul
-@0
+@#Tx_lines
 nul=D; JMP
+
+
+//separate_2_Digit M[60]=Left Digit M[61]=Right Digit in ASCII
+
 @0
 D=A; nul
 @60
-M=!D; nul
+M=D; nul
+M=!M; nul //M[60]=-1
 @60 //x
 M=M+1; nul
 @10
@@ -334,12 +370,18 @@ D=D+M; nul
 D=D+A; nul
 @61
 M=D; nul
-@0
+@#Tx_lines
 nul=D; JMP
+
+
+
+//separate_3_Digit M[60]=Left Digit M[61]=Middle Digit M[62]=Right Digit in ASCII
+
 @0
 D=A; nul
 @60
-M=!D; nul
+M=D; nul
+M=!M; nul //M[60]=-1
 @60 //x
 M=M+1; nul
 @100
@@ -348,10 +390,13 @@ D=A; nul
 MD=M-D; nul
 @x
 nul=D; JGT
+//M[60]=Left Digit 
 @48
 D=A; nul
 @60
 M=D+M; nul
+//M[60]=Left Digit in ASCII
+
 @100
 D=A; nul
 @50
@@ -360,7 +405,7 @@ D=D+M; nul
 D=A; nul
 @61
 M=D; nul
-M=!M; nul
+M=!M; nul //M[61]=-1
 @61 //x
 M=M+1; nul
 @10
@@ -369,10 +414,13 @@ D=A; nul
 MD=M-D; nul
 @x
 nul=D; JGT
+//M[61]=Middle Digit 
 @48
 D=A; nul
 @61
 M=D+M; nul
+//M[61]=Middle Digit in ASCII
+
 @10
 D=A; nul
 @50
@@ -381,20 +429,28 @@ D=D+M; nul
 D=D+A; nul
 @62
 M=D; nul
-@0
+@#Tx_lines
 nul=D; JMP
-@43 //if statement for "+"
+
+
+//XOR statement to chick 'if' statement for example if(M[x]==43) JUMP to "+" operation, x is stored in M[70], address Jumping to stored in M[71], Address Returning to M[72]
+//if statement for "+"
+@43
 D=A; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
+M=D; nul
+
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 D=!D; nul
 @43
 D=D&A; nul
 @1
 M=D; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 @43
 A=!A; nul
@@ -404,25 +460,31 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@71
-A=M; nul
+@71  //@address
+A=M; nul    //@address
 D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@95 //if statement for "-"
+
+//XOR statement to chick 'if' statement for example if(M[x]==95) JUMP to line "-" operation, x is stored in M[70], address Jumping to stored in M[71], Address Returning to M[72]
+//if statement for "-"
+@95
 D=A; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
 M=D; nul
+
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 D=!D; nul
 @95
 D=D&A; nul
 @1
 M=D; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 @95
 A=!A; nul
@@ -432,24 +494,31 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@71
-A=M; nul
+@71  //@address
+A=M; nul    //@address
 D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@38 //if statement for "&"
+
+//XOR statement to chick 'if' statement for example if(M[x]==38) JUMP to line "&" operation x is stored in M[70] address Jumping to stored in M[71] Address Returning to M[72]
+//if statement for "&"
+@38
 D=A; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
+M=D; nul
+
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 D=!D; nul
 @38
 D=D&A; nul
 @1
 M=D; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 @38
 A=!A; nul
@@ -459,24 +528,31 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@71
-A=M; nul
+@71  //@address
+A=M; nul    //@address
 D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@124 //if statement for "|"
+
+//XOR statement to chick 'if' statement for example if(M[x]==124) JUMP to line "|" operation x is stored in M[70] address Jumping to stored in M[71] Address Returning to M[72]
+//if statement for "|"
+@124
 D=A; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
+M=D; nul
+
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 D=!D; nul
 @124
 D=D&A; nul
 @1
 M=D; nul
-@70
-A=M; nul
+@70  //@x
+A=M; nul    //@x
 D=M; nul
 @124
 A=!A; nul
@@ -486,8 +562,8 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@71
-A=M; nul
+@71  //@address
+A=M; nul    //@address
 D=D; JEQ
 @72
 A=M; nul

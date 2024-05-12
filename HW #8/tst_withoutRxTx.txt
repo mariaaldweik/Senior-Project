@@ -1,12 +1,12 @@
-@51
+@13877
 D=A; nul
 @30
 M=D; nul
-@43
+@95
 D=A; nul
 @31
 M=D; nul
-@52
+@50
 D=A; nul
 @32
 M=D; nul
@@ -33,7 +33,7 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@#2Digit_separate_ASCII
+@45
 D=D; JEQ
 @30
 D=M; nul
@@ -41,9 +41,9 @@ D=M; nul
 D=D-A; nul
 @40
 M=D; nul
-@Second_num
+@105
 nul=D; JMP
-@16128  #2Digit_separate_ASCII
+@16128
 D=A; nul
 @30
 D=D&M; nul
@@ -53,13 +53,13 @@ M=D; nul
 D=A; nul
 @3
 M=D; nul
-@3 //line x
+@3
 M=M+1; nul
 @256
 D=A; nul
 @1
 MD=M-D; nul
-@x
+@55
 nul=D; JGT
 @48
 D=A; nul
@@ -75,13 +75,13 @@ M=D; nul
 D=A; nul
 @80
 M=D; nul
-@40 //line x
+@40
 D=M; nul
 @80
 M=D+M; nul
 @2
 MD=M-1; nul
-@line x
+@77
 D=D; JGT
 @80
 D=M; nul
@@ -101,9 +101,9 @@ D=M-D; nul
 MD=D; nul
 @40
 M=D+M; nul
-@Second_num
+@105
 nul=D; JMP
-@8192 //Second_num
+@8192
 D=A; nul
 @32
 D=D&M; nul
@@ -126,7 +126,7 @@ M=D; nul
 @1
 A=M; nul
 D=D|A; nul
-@#2Digit_separate_ASCII
+@138
 D=D; JEQ
 @32
 D=M; nul
@@ -134,9 +134,9 @@ D=M; nul
 D=D-A; nul
 @41
 M=D; nul
-@#operations_Done
+@198
 nul=D; JMP
-@16128 //#2Digit_separate_ASCII
+@16128
 D=A; nul
 @32
 D=D&M; nul
@@ -146,13 +146,13 @@ M=D; nul
 D=A; nul
 @3
 M=D; nul
-@3 //line x
+@3
 M=M+1; nul
 @256
 D=A; nul
 @1
 MD=M-D; nul
-@x
+@148
 nul=D; JGT
 @48
 D=A; nul
@@ -168,13 +168,13 @@ M=D; nul
 D=A; nul
 @80
 M=D; nul
-@41 //line x
+@41
 D=M; nul
 @80
 M=D+M; nul
 @2
 MD=M-1; nul
-@line x
+@170
 D=D; JGT
 @80
 D=M; nul
@@ -194,13 +194,13 @@ D=M-D; nul
 MD=D; nul
 @41
 M=D+M; nul
-@#operations_Done
+@198
 nul=D; JMP
-@#Done operation_do_"+"
+@254
 D=A; nul
 @71
 M=D; nul
-@#Check_next1
+@212
 D=A; nul
 @72
 M=D; nul
@@ -208,13 +208,13 @@ M=D; nul
 D=A; nul
 @70
 M=D; nul
-@Check (+) operation
+@385
 nul=D; JMP
-@#Done operation_do_"-"
+@262
 D=A; nul
 @71
 M=D; nul
-@#Check_next2
+@226
 D=A; nul
 @72
 M=D; nul
@@ -222,13 +222,13 @@ M=D; nul
 D=A; nul
 @70
 M=D; nul
-@Check (-) operation
+@412
 nul=D; JMP
-@#Done operation_do_"&"
+@270
 D=A; nul
 @71
 M=D; nul
-@#Check_next3
+@240
 D=A; nul
 @72
 M=D; nul
@@ -236,9 +236,9 @@ M=D; nul
 D=A; nul
 @70
 M=D; nul
-@Check (&) operation
+@440
 nul=D; JMP
-@#Done operation_do_"|"
+@278
 D=A; nul
 @71
 M=D; nul
@@ -250,7 +250,7 @@ M=D; nul
 D=A; nul
 @70
 M=D; nul
-@Check (|) operation
+@467
 nul=D; JMP
 @40
 D=M; nul
@@ -258,7 +258,7 @@ D=M; nul
 D=D+M; nul
 @50
 M=D; nul
-@convert Decimal to ASCII
+@286
 nul=D; JMP
 @40
 D=M; nul
@@ -266,7 +266,7 @@ D=M; nul
 D=D-M; nul
 @50
 M=D; nul
-@convert Decimal to ASCII
+@286
 nul=D; JMP
 @40
 D=M; nul
@@ -274,7 +274,7 @@ D=M; nul
 D=D&M; nul
 @50
 M=D; nul
-@convert Decimal to ASCII
+@286
 nul=D; JMP
 @40
 D=M; nul
@@ -282,25 +282,25 @@ D=M; nul
 D=D|M; nul
 @50
 M=D; nul
-@convert Decimal to ASCII
+@286
 nul=D; JMP
 @10
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@304
 D=D; JLT
 @100
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@312
 D=D; JLT
 @1000
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@338
 D=D; JLT
 @48
 D=A; nul
@@ -314,13 +314,13 @@ nul=D; JMP
 D=A; nul
 @60
 M=!D; nul
-@60 //x
+@60
 M=M+1; nul
 @10
 D=A; nul
 @50
 MD=M-D; nul
-@x
+@316
 nul=D; JGT
 @48
 D=A; nul
@@ -340,13 +340,13 @@ nul=D; JMP
 D=A; nul
 @60
 M=!D; nul
-@60 //x
+@60
 M=M+1; nul
 @100
 D=A; nul
 @50
 MD=M-D; nul
-@x
+@342
 nul=D; JGT
 @48
 D=A; nul
@@ -361,13 +361,13 @@ D=A; nul
 @61
 M=D; nul
 M=!M; nul
-@61 //x
+@61
 M=M+1; nul
 @10
 D=A; nul
 @50
 MD=M-D; nul
-@x
+@363
 nul=D; JGT
 @48
 D=A; nul
@@ -383,7 +383,7 @@ D=D+A; nul
 M=D; nul
 @0
 nul=D; JMP
-@43 //if statement for "+"
+@43
 D=A; nul
 @70
 A=M; nul
@@ -410,7 +410,7 @@ D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@95 //if statement for "-"
+@95
 D=A; nul
 @70
 A=M; nul
@@ -438,7 +438,7 @@ D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@38 //if statement for "&"
+@38
 D=A; nul
 @70
 A=M; nul
@@ -465,7 +465,7 @@ D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
-@124 //if statement for "|"
+@124
 D=A; nul
 @70
 A=M; nul

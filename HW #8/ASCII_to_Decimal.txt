@@ -1,0 +1,170 @@
+//Inputs converted from ASCII to Decimal
+
+
+//First number
+// The number of digit is counted -->
+
+@8192
+D=A; nul
+@30
+D=D&M; nul
+@20
+M=D; nul
+
+//XOR
+@20
+D=M; nul
+D=!D; nul
+@8192
+D=D&A; nul
+@1
+M=D; nul
+@20
+D=M; nul
+@8192
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@#2Digit_separate_ASCII
+D=D; JEQ
+@30
+D=M; nul
+@40
+M=D; nul
+@#operations_Done
+nul=D; JMP
+
+//2Digit_separate_ASCII
+
+//Left digit to its real value in decimal
+@16128
+D=A; nul
+@30
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@40
+M=D; nul
+
+@10
+D=A; nul
+@2
+M=D; nul
+@40 //line x
+D=M; nul
+M=D+M; nul
+@2
+MD=M-1; nul
+@ line x 
+D=D; JGT
+
+//Right digit to its real value in decimal
+@255
+D=A; nul
+@30
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@41
+MD=D; nul
+@40
+M=D+M; nul
+@#operations_Done
+nul=D; JMP
+
+//Second number
+//Inputs converted from ASCII to Decimal
+
+// The number of digit is counted -->
+
+@8192
+D=A; nul
+@32
+D=D&M; nul
+@20
+M=D; nul
+
+//XOR
+@20
+D=M; nul
+D=!D; nul
+@8192
+D=D&A; nul
+@1
+M=D; nul
+@20
+D=M; nul
+@8192
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@#2Digit_separate_ASCII
+D=D; JEQ
+@32
+D=M; nul
+@41
+M=D; nul
+@#operations_Done
+nul=D; JMP
+
+//2Digit_separate_ASCII
+
+//Left digit to its real value in decimal
+@16128
+D=A; nul
+@32
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@41
+M=D; nul
+
+@10
+D=A; nul
+@2
+M=D; nul
+@41 //line x
+D=M; nul
+M=D+M; nul
+@2
+MD=M-1; nul
+@ line x 
+D=D; JGT
+
+//Right digit to its real value in decimal
+@255
+D=A; nul
+@32
+D=D&M; nul
+@1
+M=D; nul
+@48
+D=A; nul
+@1
+D=M-D; nul
+@42
+MD=D; nul
+@41
+M=D+M; nul
+@#operations_Done
+nul=D; JMP

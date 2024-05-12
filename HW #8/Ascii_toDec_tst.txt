@@ -1,0 +1,14 @@
+//2Digit_separate_ASCII
+
+@16128
+D=A; nul
+@30
+D=D&M; nul
+@40
+M=D; nul
+@255
+D=A; nul
+@30
+D=D&M; nul
+@41
+M=D; nul

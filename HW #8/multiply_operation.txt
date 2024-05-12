@@ -1,0 +1,22 @@
+@20
+D=A; nul
+@40
+M=D; nul
+@5
+D=A; nul
+@41
+M=D; nul
+
+
+@41
+D=M; nul
+@85
+M=D; nul
+@40 //line x
+D=M; nul
+@50
+M=D+M; nul
+@85
+MD=M-1; nul
+@x
+D=D; JGT

@@ -1,0 +1,43 @@
+@95
+D=A; nul
+@31
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@0
+D=A; nul
+@71
+M=D; nul
+@last line
+D=A; nul
+@72
+M=D; nul
+@43
+D=A; nul
+@70  //@x
+A=M; nul    //@x
+D=M; nul
+D=!D; nul
+@43
+D=D&A; nul
+@1
+M=D; nul
+@70  //@x
+A=M; nul    //@x
+D=M; nul
+@43
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71  //@address
+A=M; nul    //@address
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP

@@ -1,69 +1,30 @@
-@51
+@50
 D=A; nul
 @30
 M=D; nul
-@43
+@51
 D=A; nul
 @31
 M=D; nul
-@52
+@124
 D=A; nul
-@32
+@35
 M=D; nul
-@8192
+@57
 D=A; nul
-@30
-D=D&M; nul
-@20
+@38
 M=D; nul
-@20
+@57
+D=A; nul
+@39
+M=D; nul
+@30 //First_num
 D=M; nul
-D=!D; nul
-@8192
-D=D&A; nul
-@1
-M=D; nul
-@20
-D=M; nul
-@8192
-A=!A; nul
-D=D&A; nul
-@2
-M=D; nul
-@1
-A=M; nul
-D=D|A; nul
-@#2Digit_separate_ASCII
-D=D; JEQ
-@30
-D=M; nul
-@48
-D=D-A; nul
-@40
-M=D; nul
-@Second_num
-nul=D; JMP
-@16128  #2Digit_separate_ASCII
-D=A; nul
-@30
-D=D&M; nul
-@1
-M=D; nul
-@0
-D=A; nul
-@3
-M=D; nul
-@3 //line x
-M=M+1; nul
-@256
-D=A; nul
-@1
-MD=M-D; nul
-@x
-nul=D; JGT
+@to second digit
+nul=D; JEQ
 @48
 D=A; nul
-@3
+@30
 D=M-D; nul
 @40
 M=D; nul
@@ -87,115 +48,48 @@ D=D; JGT
 D=M; nul
 @40
 M=D; nul
-@255
+@48 //second digit
 D=A; nul
-@30
-D=D&M; nul
-@1
-M=D; nul
-@48
-D=A; nul
-@1
+@31
 D=M-D; nul
-@41
-MD=D; nul
 @40
 M=D+M; nul
-@Second_num
-nul=D; JMP
-@8192 //Second_num
-D=A; nul
-@32
-D=D&M; nul
-@20
-M=D; nul
-@20
+@38 //Second_num
 D=M; nul
-D=!D; nul
-@8192
-D=D&A; nul
-@1
-M=D; nul
-@20
-D=M; nul
-@8192
-A=!A; nul
-D=D&A; nul
-@2
-M=D; nul
-@1
-A=M; nul
-D=D|A; nul
-@#2Digit_separate_ASCII
-D=D; JEQ
-@32
-D=M; nul
-@48
-D=D-A; nul
-@41
-M=D; nul
-@#operations_Done
-nul=D; JMP
-@16128 //#2Digit_separate_ASCII
-D=A; nul
-@32
-D=D&M; nul
-@1
-M=D; nul
-@0
-D=A; nul
-@3
-M=D; nul
-@3 //line x
-M=M+1; nul
-@256
-D=A; nul
-@1
-MD=M-D; nul
-@x
-nul=D; JGT
+@to second digit
+nul=D; JEQ
 @48
 D=A; nul
-@3
+@38
 D=M-D; nul
 @41
 M=D; nul
 @10
 D=A; nul
-@2
+@3
 M=D; nul
 @0
 D=A; nul
-@80
+@81
 M=D; nul
 @41 //line x
 D=M; nul
-@80
+@81
 M=D+M; nul
-@2
+@3
 MD=M-1; nul
 @line x
 D=D; JGT
-@80
+@81
 D=M; nul
 @41
 M=D; nul
-@255
+@48//second digit
 D=A; nul
-@32
-D=D&M; nul
-@1
-M=D; nul
-@48
-D=A; nul
-@1
+@39
 D=M-D; nul
-@42
-MD=D; nul
 @41
 M=D+M; nul
-@#operations_Done
-nul=D; JMP
 @#Done operation_do_"+"
 D=A; nul
 @71
@@ -204,7 +98,7 @@ M=D; nul
 D=A; nul
 @72
 M=D; nul
-@31
+@35
 D=A; nul
 @70
 M=D; nul
@@ -218,7 +112,7 @@ M=D; nul
 D=A; nul
 @72
 M=D; nul
-@31
+@35
 D=A; nul
 @70
 M=D; nul
@@ -232,7 +126,7 @@ M=D; nul
 D=A; nul
 @72
 M=D; nul
-@31
+@35
 D=A; nul
 @70
 M=D; nul
@@ -242,15 +136,29 @@ nul=D; JMP
 D=A; nul
 @71
 M=D; nul
-@0
+@#Check_next4
 D=A; nul
 @72
 M=D; nul
-@31
+@35
 D=A; nul
 @70
 M=D; nul
 @Check (|) operation
+nul=D; JMP
+@#Done operation_do_"*"
+D=A; nul
+@71
+M=D; nul
+@0
+D=A; nul
+@72
+M=D; nul
+@35
+D=A; nul
+@70
+M=D; nul
+@Check (*) operation
 nul=D; JMP
 @40
 D=M; nul
@@ -284,6 +192,20 @@ D=D|M; nul
 M=D; nul
 @convert Decimal to ASCII
 nul=D; JMP
+@41
+D=M; nul
+@85
+M=D; nul
+@40 //line x
+D=M; nul
+@50
+M=D+M; nul
+@85
+MD=M-1; nul
+@x
+D=D; JGT
+@convert Decimal to ASCII
+nul=D; JMP
 @10
 D=A; nul
 @50
@@ -294,21 +216,21 @@ D=D; JLT
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@#separate_2_Digit
 D=D; JLT
 @1000
 D=A; nul
 @50
 D=M-D; nul
-@#Convert_Decimal_to_Ascii
+@#separate_3_Digit
 D=D; JLT
-@48
+@48 //#Convert_Decimal_to_Ascii
 D=A; nul
 @50
 D=D+M; nul
 @60
 M=D; nul
-@0
+@//reset all items
 nul=D; JMP
 @0
 D=A; nul
@@ -334,7 +256,7 @@ D=D+M; nul
 D=D+A; nul
 @61
 M=D; nul
-@0
+@//reset all items
 nul=D; JMP
 @0
 D=A; nul
@@ -355,12 +277,11 @@ M=D+M; nul
 @100
 D=A; nul
 @50
-D=D+M; nul
+M=D+M; nul
 @0
 D=A; nul
 @61
-M=D; nul
-M=!M; nul
+M=!D; nul
 @61 //x
 M=M+1; nul
 @10
@@ -381,7 +302,7 @@ D=D+M; nul
 D=D+A; nul
 @62
 M=D; nul
-@0
+@//reset all items
 nul=D; JMP
 @43 //if statement for "+"
 D=A; nul
@@ -414,7 +335,6 @@ nul=A; JMP
 D=A; nul
 @70
 A=M; nul
-M=D; nul
 D=M; nul
 D=!D; nul
 @95
@@ -492,3 +412,70 @@ D=D; JEQ
 @72
 A=M; nul
 nul=A; JMP
+@42 //if statement for "*"
+D=A; nul
+@70
+A=M; nul
+D=M; nul
+D=!D; nul
+@42
+D=D&A; nul
+@1
+M=D; nul
+@70
+A=M; nul
+D=M; nul
+@42
+A=!A; nul
+D=D&A; nul
+@2
+M=D; nul
+@1
+A=M; nul
+D=D|A; nul
+@71
+A=M; nul
+D=D; JEQ
+@72
+A=M; nul
+nul=A; JMP
+@0 //reset all mem used
+D=A; nul
+@1
+M=D; nul
+@2
+M=D; nul
+@3
+M=D; nul
+@30
+M=D; nul
+@31
+M=D; nul
+@35
+M=D; nul
+@38
+M=D; nul
+@39
+M=D; nul
+@40
+M=D; nul
+@41
+M=D; nul
+@50
+M=D; nul
+@60
+M=D; nul
+@61
+M=D; nul
+@70
+M=D; nul
+@71
+M=D; nul
+@72
+M=D; nul
+@80
+M=D; nul
+@81
+M=D; nul
+@loop
+null=D; JMP

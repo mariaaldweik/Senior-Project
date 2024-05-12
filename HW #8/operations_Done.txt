@@ -1,5 +1,71 @@
 // The operations is Done here First number stored in M[40] Second number is stored in M[41] the result is stored in M[50]
 
+// check first operation (+)
+@#Done operation_do_"+"
+D=A; nul
+@71
+M=D; nul
+@#Check_next1
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (+) operation
+nul=D; JMP
+
+// check next1 operation (-)
+@#Done operation_do_"-"
+D=A; nul
+@71
+M=D; nul
+@#Check_next2
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+// check next2 operation (&)
+@#Done operation_do_"&"
+D=A; nul
+@71
+M=D; nul
+@#Check_next3
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (&) operation
+nul=D; JMP
+
+// check next3 operation (|)
+@#Done operation_do_"|"
+D=A; nul
+@71
+M=D; nul
+@#not used //location displays "error"
+D=A; nul
+@72
+M=D; nul
+@31
+D=A; nul
+@70
+M=D; nul
+@Check (-) operation
+nul=D; JMP
+
+
+
 //#Done operation_do_"+"
 @40
 D=M; nul

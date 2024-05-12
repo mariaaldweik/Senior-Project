@@ -1,15 +1,130 @@
-// The result is converted to ASCII here result in M[50] in decimal
+//result in M[50] in decimal The result is converted to ASCII here 
 
 // The number of digit is counted -->
 
-// if (result-10)<0 result in 1 digit 
+// if (result-10)<0  1 digit 
 @10
 D=A; nul
 @50
 D=M-D; nul
-@
+@#Convert_Decimal_to_Ascii
+D=D; JLT
 
 
-// if (result-100)<0 result in 2 digit 
-// if (result-1000)<0 result in 3 digit 
+// if (result-100)<0  2 digit 
+@100
+D=A; nul
+@50
+D=M-D; nul
+@#separate_2_Digit
+D=D; JLT
 
+
+// if (result-1000)<0 3 digit 
+@1000
+D=A; nul
+@50
+D=M-D; nul
+@#separate_3_Digit
+D=D; JLT
+
+
+//Convert_Decimal_to_Ascii M[60]=Result in ASCII
+@48
+D=A; nul
+@50
+D=D+M; nul
+@60
+M=D; nul
+@#Tx_lines
+nul=D; JMP
+
+
+//separate_2_Digit M[60]=Left Digit M[61]=Right Digit in ASCII
+
+@0
+D=A; nul
+@60
+M=D; nul
+M=!M; nul //M[60]=-1
+@60 //x
+M=M+1; nul
+@10
+D=A; nul
+@50
+MD=M-D; nul
+@x
+nul=D; JGT
+@48
+D=A; nul
+@60
+M=D+M; nul
+@10
+D=A; nul
+@50
+D=D+M; nul
+@48
+D=D+A; nul
+@61
+M=D; nul
+@#Tx_lines
+nul=D; JMP
+
+
+
+//separate_3_Digit M[60]=Left Digit M[61]=Middle Digit M[62]=Right Digit in ASCII
+
+@0
+D=A; nul
+@60
+M=D; nul
+M=!M; nul //M[60]=-1
+@60 //x
+M=M+1; nul
+@100
+D=A; nul
+@50
+MD=M-D; nul
+@x
+nul=D; JGT
+//M[60]=Left Digit 
+@48
+D=A; nul
+@60
+M=D+M; nul
+//M[60]=Left Digit in ASCII
+
+@100
+D=A; nul
+@50
+D=D+M; nul
+@0
+D=A; nul
+@61
+M=D; nul
+M=!M; nul //M[61]=-1
+@61 //x
+M=M+1; nul
+@10
+D=A; nul
+@50
+MD=M-D; nul
+@x
+nul=D; JGT
+//M[61]=Middle Digit 
+@48
+D=A; nul
+@61
+M=D+M; nul
+//M[61]=Middle Digit in ASCII
+
+@10
+D=A; nul
+@50
+D=D+M; nul
+@48
+D=D+A; nul
+@62
+M=D; nul
+@#Tx_lines
+nul=D; JMP
