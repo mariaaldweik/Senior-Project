@@ -11,7 +11,7 @@ M=D; nul
 @4099
 D=M; nul
 @10
-D=D; JLE
+D=D; JLE  //// loop for RX
 @2501
 M=D; nul
 @4099
@@ -19,7 +19,7 @@ M=D; nul
 @4099
 D=M; nul
 @18
-D=D; JLE
+D=D; JLE /// loop for RX
 @2502
 M=D; nul
 @4099
@@ -27,25 +27,25 @@ M=D; nul
 @4099
 D=M; nul
 @26
-D=D; JLE
+D=D; JLE     // loop for RX
 @2503
 MD=D; nul
 @61
 D=D-A; nul
-@78
-D=D; JEQ
+@78     // jump for digit operation digit
+D=D; JEQ    
 @4099
 M=D; nul
 @4099
 D=M; nul
 @38
-D=D; JLE
+D=D; JLE    // loop for RX
 @2504
 M=D; nul
 @61
-D=D-A; nul
+D=D-A; nul     
 @92
-D=D; JEQ
+D=D; JEQ   //  jump for two on 1
 @4099
 M=D; nul
 @4099
@@ -75,8 +75,8 @@ D=M; nul
 @39
 M=D; nul
 @132
-nul=D; JMP
-@2500
+nul=D; JMP  // finish two plus two
+@2500   // start one on one
 D=M; nul
 @31
 M=D; nul
@@ -90,12 +90,12 @@ D=M; nul
 D=M; nul
 @132
 nul=0; JMP
-@2502
+@2502 // start two on 1
 D=M; nul
 @16
 D=D-A; nul
-@116
-D=D; JEQ
+@116    
+D=D; JEQ  // jump to two on one
 @2500
 D=M; nul
 @31
@@ -113,8 +113,8 @@ D=M; nul
 @39
 M=D; nul
 @132
-nul=D; JMP
-@2500
+nul=D; JMP    // jump to TX
+@2500   // start two on 1
 D=M; nul
 @30
 M=D; nul
@@ -130,7 +130,7 @@ M=D; nul
 D=M; nul
 @39
 M=D; nul
-@4098
+@4098    // start TX
 D=M; nul
 @32767
 A=!A; nul
@@ -140,10 +140,10 @@ nul=D; JLT
 @30
 D=M; nul
 @145
-D=D; JEQ
+D=D; JEQ  // read if 30 is zero if yes go to the next
 @4098
 M=D; nul
-@4098
+@4098    // start of the TX loop
 D=M; nul
 @32767
 A=!A; nul
@@ -193,5 +193,42 @@ nul=D; JLT
 D=M; nul
 @4098
 M=D; nul
-@196
+@4098
+D=M; nul
+@32767
+A=!A; nul
+D=D&A; nul
+@195
+nul=D; JLT
+@60
+D=M; nul
+@208
+D=D; JEQ
+@4098
+M=D; nul
+@4098
+D=M; nul
+@32767
+A=!A; nul
+D=D&A; nul
+@208
+nul=D; JLT
+@61
+D=M; nul
+@220
+D=D; JEQ
+@4098
+M=D; nul
+@4098
+D=M; nul
+@32767
+A=!A; nul
+D=D&A; nul
+@221
+nul=D; JLT
+@62
+D=M; nul
+@4098
+M=D; nul
+@229
 nul=0; JMP
