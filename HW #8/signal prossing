@@ -193,42 +193,42 @@ nul=D; JLT
 D=M; nul
 @4098
 M=D; nul
-@4098
+@4098 //line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@195
+@195 x up
 nul=D; JLT
 @60
 D=M; nul
-@208
+@208 x down
 D=D; JEQ
 @4098
 M=D; nul
-@4098
+@4098 //line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@208
+@208 x up
 nul=D; JLT
 @61
 D=M; nul
-@220
+@220 x down
 D=D; JEQ
 @4098
-M=D; nul
-@4098
+M=D; nul //line x
+@4098 //line y
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@221
+@221 y up
 nul=D; JLT
 @62
-D=M; nul
+D=M; nul // line x
 @4098
 M=D; nul
-@229
+@229 x
 nul=0; JMP
