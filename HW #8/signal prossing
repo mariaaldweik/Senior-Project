@@ -134,7 +134,7 @@ M=D; nul
 D=M; nul
 @32767
 A=!A; nul
-D=A&D; nul
+D=D&A; nul
 @132
 nul=D; JLT
 @30
@@ -147,7 +147,7 @@ M=D; nul
 D=M; nul
 @32767
 A=!A; nul
-D=A&D; nul
+D=D&A; nul
 @145
 nul=D; JLT
 @31
@@ -160,7 +160,7 @@ M=D; nul
 D=M; nul
 @32767
 A=!A; nul
-D=A&D; nul
+D=D&A; nul
 @158
 nul=D; JLT
 @35
@@ -173,7 +173,7 @@ M=D; nul
 D=M; nul
 @32767
 A=!A; nul
-D=A&D; nul
+D=D&A; nul
 @171
 nul=D; JLT
 @38
@@ -186,7 +186,7 @@ M=D; nul
 D=M; nul
 @32767
 A=!A; nul
-D=A&D; nul
+D=D&A; nul
 @184
 nul=D; JLT
 @39
