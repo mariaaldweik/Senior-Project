@@ -340,15 +340,15 @@ D=D; JLT
 D=A; nul
 @50
 D=D+M; nul
-@60
+@62
 M=D; nul
 @553
 nul=D; JMP
 @0
 D=A; nul
-@60
+@61
 M=!D; nul
-@60
+@61
 M=M+1; nul
 @10
 D=A; nul
@@ -358,7 +358,7 @@ MD=M-D; nul
 nul=D; JGT
 @48
 D=A; nul
-@60
+@61
 M=D+M; nul
 @10
 D=A; nul
@@ -366,7 +366,7 @@ D=A; nul
 D=D+M; nul
 @48
 D=D+A; nul
-@61
+@60
 M=D; nul
 @553
 nul=D; JMP
