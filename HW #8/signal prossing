@@ -130,64 +130,64 @@ M=D; nul
 D=M; nul
 @39
 M=D; nul
-@4098    // start TX
+@4098    // start TX line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@132
+@132 x up
 nul=D; JLT
 @30
 D=M; nul
-@145
+@145 x down
 D=D; JEQ  // read if 30 is zero if yes go to the next
 @4098
 M=D; nul
-@4098    // start of the TX loop
+@4098    // start of the TX loop line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@145
+@145 x up
 nul=D; JLT
 @31
 D=M; nul
-@158
+@158 x down
 D=D; JEQ
 @4098
 M=D; nul
-@4098
+@4098 //line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@158
+@158 x up
 nul=D; JLT
 @35
 D=M; nul
-@171
+@171 x down
 D=D; JEQ
 @4098
 M=D; nul
-@4098
+@4098 //line x
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@171
+@171 x up
 nul=D; JLT
 @38
 D=M; nul
-@184
+@184 x down
 D=D; JEQ
 @4098
 M=D; nul
-@4098
+@4098 //line x y
 D=M; nul
 @32767
 A=!A; nul
 D=D&A; nul
-@184
+@184 y up
 nul=D; JLT
 @39
 D=M; nul
