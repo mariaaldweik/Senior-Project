@@ -168,7 +168,7 @@ D=M-D; nul
 M=D+M; nul
 @38
 D=M; nul
-@189
+@198
 nul=D; JEQ
 @48
 D=A; nul
