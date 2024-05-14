@@ -306,13 +306,13 @@ M=D; nul
 nul=D; JMP
 @41
 D=M; nul
-@85
-M=D; nul
+@318
+D=D; JEQ
 @40
 D=M; nul
 @50
 M=D+M; nul
-@85
+@41
 MD=M-1; nul
 @310
 D=D; JGT
