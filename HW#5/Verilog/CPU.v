@@ -35,78 +35,66 @@ module CPU(
     	output [15:0] pc			// address of next instruction
 );
 wire w1,w2,aLoad,AoM,wzr,wng,pass,pcload, ngzr,gt,jlt,jeq,jgt,ple;
-wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister;
+wire [15:0] ouToAreg,woutM,outAreg,alubin,wDRegister,w100;
 wire w0=1'b1;
 
 
-//    Not(in=instruction[15],out=w1);
       not(w1,instruction[15]);
 
-//    Mux16(a=woutM,b=instruction,sel=w1,out=ouToAreg);
+
       Mux16 m0(.a(woutM),.b(instruction),.sel(w1),.out(ouToAreg));  
   
-//    Or(a=instruction[5],b=w1,out=aLoad);
+
       or(aLoad,instruction[5],w1);
 
-//    ADRegister(in=ouToAreg,load=aLoad,reset=reset,out=outAreg,out[0..14]=addressM);  //A register
-    //  ADRegister Areg(.clk(clk),.in(ouToAreg),.reset(reset),.load(aLoad),.out(outAreg));
+
       Register Areg(.clk(clk),.in(ouToAreg),.load(aLoad),.out(outAreg));
       assign addressM=outAreg;
 
-//    And(a=instruction[15],b=instruction[12],out=AoM);
       and(AoM,instruction[15],instruction[12]);  
   
-//    Mux16(a=outAreg,b=inM,sel=AoM,out=alubin);
-      Mux16 m1(.a(outAreg),.b(inM),.sel(AoM),.out(alubin));
+     Mux16 m1(.a(outAreg),.b(inM),.sel(AoM),.out(alubin));
 
     
 
 
-//    And(a=instruction[15],b=instruction[4],out=w2);
       and(w2,instruction[15],instruction[4]);  
   
-//   Dregister(in=woutM,load=w2,reset=reset,out=wDRegister);
-    // ADRegister Dreg(.clk(clk),.in(woutM),.reset(reset),.load(w2),.out(wDRegister));
       Register Dreg(.clk(clk),.in(woutM),.load(w2),.out(wDRegister));
 
     //ALU
-//    ALU(x=wDRegister,y=alubin,no=instruction[6],f=instruction[7],ny=instruction[8],zy=instruction[9],nx=instruction[10],zx=instruction[11],out=woutM,out=outM,zr=wzr,ng=wng);
+
       ALU alu0(.x(wDRegister),.y(alubin),.zx(instruction[11]),.nx(instruction[10]),.zy(instruction[9]),.ny(instruction[8]),.f(instruction[7]),.no(instruction[6]),.out(woutM),.zr(wzr),.ng(wng));
       assign outM=woutM;  
 
     //jump
-//    Or(a=wng,b=wzr,out=ngzr,out=w3);
+
       or(ngzr,wng,wzr);
-     // assign ngzr=w3;
-//    Not(in=w3,out=gt,out=w4);
+ 
       not(gt,ngzr);
       
      
 
-//    And(a=wng,b=instruction[2],out=jlt,out=w5);
+
       and(jlt,wng,instruction[2]);
 
-//    And(a=wzr,b=instruction[1],out=jeq,out=w6);
+
       and(jeq,wzr,instruction[1]);
 
-//    And(a=gt,b=instruction[0],out=jgt,out=w7);
       and(jgt,gt,instruction[0]);
 
-//    Or(a=w5,b=w6,out=ple,out=w8);
+
       or(ple,jlt,jeq);
 
- //   Or(a=w8,b=w7,out=pass);
+
       or(pass,jgt,ple);
 
 
     //PC
- //   And(a=instruction[15],b=pass,out=pcload);
       and(pcload,instruction[15],pass);
 
-//    PC(in=outAreg,load=pcload,inc=true,reset=reset,out[0..14]=pc);
       PC pc0(.clk(clk),.in(outAreg),.load(pcload),.inc(w0),.reset(reset),.out(pc));
 
-//    And(a=instruction[15],b=instruction[3],out= writeM);
       and(writeM,instruction[15],instruction[3]);
 
 
