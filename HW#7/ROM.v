@@ -16,7 +16,7 @@ module ROM(
 	// The file ROM.BIN holds the hack code 
 	parameter ROMFILE = "FPGAROM.hack";
 	
-	reg [15:0] mem [0:255];
+	reg [15:0] mem [0:4000];
 	assign instruction = mem[pc];
 	
 	initial begin
