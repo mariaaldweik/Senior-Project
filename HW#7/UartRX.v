@@ -14,88 +14,53 @@ module UartRX(
 	output [15:0] out
 
 );
-wire run,w2,w3,winc,w12,wstop;
-wire [15:0] w0,w216,wbaud,wbits,w108,wout,w14,wready,count10;
+wire w2,w12,wclearbaud,busy,w100,wclearall,wload;
+wire [15:0] w0,w216,wbaud,wbits,w108,wout,w14,wready,w20,w22;
+wire [1:0] w21;
 wire [8:0] data;
 assign w0=0;
-assign run=0;
-assign winc=1;
 assign w216=16'd216;
-assign w108=16'd108;
+assign w108=16'd9;
 assign wready=16'b1000000000000000;
-reg w7=0;
-reg w11=0;
-reg stop=0;
-reg wten=0;
-reg wresetb=0;
-or(w2,RX,clear);
-Bit s(clk,RX,w2,w3);
+wire w7;
+wire w11;
 
-//And16 is(w216,wbaud,w4);
-//and(w5,w4[7],w4[6]);
-//and(w6,w4[4],w4[3]);
-//and(w7,w5,w6);
+not(w100,RX);
+or(w2,w100,clear,wclearall);
+Bit s(clk,w100,w2,busy);
 
 
 
-//And16 iss(w108,wbits,w8);
-//and(w9,w8[6],w8[5]);
-//and(w10,w8[3],w8[2]);
-//and(w11,w9,w10);
-always@(posedge clk)begin
-if(wbaud==216)
-w7=1;
-if(wbaud!=216)
-w7=0;
-end
-always@(posedge clk)begin
-if(wbits==108)begin
-w11=1;
-wresetb=1;
-end
-if(wbits!=108)begin
-w11=0;
-wresetb=0;
-end
 
-if(count10==1080)begin
-wten=1;
-stop=1;
+And16 aa(w216,wbaud,w20);
+and(w21[0],w20[3],w20[6]);
+and(w21[1],w20[4],w20[7]);
+and(w7,w21[0],w21[1]);
 
-end
-if(count10!=1080)begin
-wten=0;
-stop=0;
 
-end
 
-end
+And16 ab(w108,wbits,w22);
+and(w11,w22[3],w22[0]);
 
-not(wstop,w3);
-PC bud(clk,w0,w0[0],w3,w7,wbaud);
-PC bits(clk,w0,w0[0],w7,wresetb,wbits);
-PC count(clk,w0,w0[0],w7,wten,count10);
-/*PC(
-	input clk,
-	input [15:0] in,
-	input load,
-	input inc,
-	input reset,
-	output  [15:0]out
-);	
-*/
+
+
+
+
+or(wclearbaud,w7,clear);
+or(wclearall,clear,w11);
+PC bud(clk,w0,w0[0],busy,wclearbaud,wbaud);
+PC bits(clk,w0,w0[0],w7,wclearall,wbits);
+
 
 DFF in(clk,RX,w12);
-BitShift9R ss(clk,w0[8:0],w12,w0[0],w11,data);
+BitShift9R ss(clk,w0[8:0],w12,clear,w7,data);
 
 
-assign wout[7:0]=data[7:0];
-assign wout[15:8]=0;
+assign wout[6:0]=data[6:0];
+assign wout[15:7]=0;
 Mux16 r(wout,wready,clear,w14);
- Register x(clk,w14,stop,out);
-
+or(wload,clear,w11);
+Register x(clk,w14,wload,out);
 	
 
 endmodule
-//(load&~out_tx) // start
-//out_tx// busy
