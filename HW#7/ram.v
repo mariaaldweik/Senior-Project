@@ -9,7 +9,7 @@ module ram(
 	input [7:0] address,
 	input [15:0] in,
 	input load,
-	output reg [15:0] out
+	output  [15:0] out
 );
 	
 	 parameter addr_width = 8;	
@@ -19,9 +19,9 @@ module ram(
 	always @(posedge clk)
      begin
      if (load)
-     mem[(address)] <= in;
-     out  = mem[address]; // Output register controlled by clock.
-     end
+     mem[(address)] <= in; end
+   assign  out  = mem[address]; // Output register controlled by clock.
+     
 
 endmodule
 
