@@ -14,7 +14,6 @@
  * The behavior of IO addresses is described in 06_IO-Devices
  */
 
-//`default_nettype none
 module MemoryDecoder(
 	input [15:0] address,
 	input load,
