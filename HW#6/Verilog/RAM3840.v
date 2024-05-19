@@ -5,7 +5,7 @@ module RAM3840(
 	input [11:0] address,
 	input [15:0] in,
 	input load,
-	output  [15:0] out
+	output [15:0] out
 );
 wire [15:0] w0,w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15;
 wire [15:0] wl;
@@ -36,9 +36,10 @@ ram r11(.clk(clk),.address(address[7:0]),.in(in),.load(wl[11]),.out(w11));
 ram r12(.clk(clk),.address(address[7:0]),.in(in),.load(wl[12]),.out(w12));
 ram r13(.clk(clk),.address(address[7:0]),.in(in),.load(wl[13]),.out(w13));
 ram r14(.clk(clk),.address(address[7:0]),.in(in),.load(wl[14]),.out(w14));
-//ram r15(.clk(clk),.address(address[7:0]),.in(in),.load(wl[15]),.out(w15));
+ram r15(.clk(clk),.address(address[7:0]),.in(in),.load(wl[15]),.out(w15));
 
-//Bank3
+
+
 
 
 endmodule
